@@ -23,7 +23,7 @@
         try {
           sessionStorage.setItem('tm21-preloader-seen', '1');
         } catch (error) {}
-      }, 850);
+      }, window.innerWidth <= 720 ? 220 : 460);
     }
   }
 
@@ -109,6 +109,11 @@
     let rafId = null;
     let targetX = 0;
     let targetY = 0;
+    let collageRect = null;
+
+    const updateCollageRect = () => {
+      collageRect = heroCollage.getBoundingClientRect();
+    };
 
     const paintHeroDepth = () => {
       qsa('[data-depth]', heroCollage).forEach((shot) => {
@@ -119,10 +124,13 @@
       rafId = null;
     };
 
+    heroCollage.addEventListener('pointerenter', updateCollageRect);
+    window.addEventListener('resize', updateCollageRect, { passive: true });
+
     heroCollage.addEventListener('pointermove', (event) => {
-      const rect = heroCollage.getBoundingClientRect();
-      targetX = ((event.clientX - rect.left) / rect.width - 0.5) * 8;
-      targetY = ((event.clientY - rect.top) / rect.height - 0.5) * 8;
+      if (!collageRect) updateCollageRect();
+      targetX = ((event.clientX - collageRect.left) / collageRect.width - 0.5) * 8;
+      targetY = ((event.clientY - collageRect.top) / collageRect.height - 0.5) * 8;
       if (!rafId) rafId = requestAnimationFrame(paintHeroDepth);
     });
 
@@ -132,18 +140,6 @@
       if (!rafId) rafId = requestAnimationFrame(paintHeroDepth);
     });
   }
-
-  // Apply mouse offsets without replacing the base transforms.
-  qsa('.hero-shot').forEach((shot) => {
-    const baseTransform = getComputedStyle(shot).transform;
-    shot.dataset.baseTransform = baseTransform;
-  });
-
-  const heroStyleSheet = document.createElement('style');
-  heroStyleSheet.textContent = `
-    .hero-shot { translate: var(--mx, 0px) var(--my, 0px); }
-  `;
-  document.head.appendChild(heroStyleSheet);
 
   // Project accent follows the project currently in view.
   const projectAura = qs('#projectAura');

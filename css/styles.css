@@ -602,6 +602,7 @@ html[data-preloader="seen"] .preloader,
 
 .hero-shot {
   position: absolute;
+  translate: var(--mx, 0px) var(--my, 0px);
   margin: 0;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,.14);
@@ -613,9 +614,11 @@ html[data-preloader="seen"] .preloader,
 }
 
 .hero-shot img {
+  display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
 }
 
 .hero-shot::after {
@@ -627,48 +630,43 @@ html[data-preloader="seen"] .preloader,
 }
 
 .hero-shot--moldar {
-  width: 50%;
-  height: 49%;
-  top: 8%;
-  left: 24%;
+  width: 52%;
+  top: 10%;
+  left: 26%;
   z-index: 5;
-  transform: rotate(2.6deg) translateZ(20px);
+  transform: rotate(2.2deg) translateZ(20px);
 }
 
 .hero-shot--penafiel {
-  width: 45%;
-  height: 45%;
-  top: 1%;
-  left: 2%;
+  width: 44%;
+  top: 2%;
+  left: 1%;
   z-index: 2;
-  transform: rotate(-4deg) translateZ(-10px);
+  transform: rotate(-3.3deg) translateZ(-10px);
 }
 
 .hero-shot--jobup {
-  width: 51%;
-  height: 30%;
-  top: 53%;
+  width: 50%;
+  top: 57%;
   left: 0;
   z-index: 4;
-  transform: rotate(2deg) translateZ(5px);
+  transform: rotate(1.7deg) translateZ(5px);
 }
 
 .hero-shot--bpo {
   width: 47%;
-  height: 38%;
   right: 0;
-  bottom: 8%;
+  top: 57%;
   z-index: 3;
-  transform: rotate(-2.8deg) translateZ(-5px);
+  transform: rotate(-2.2deg) translateZ(-5px);
 }
 
 .hero-shot--bread {
-  width: 32%;
-  height: 29%;
-  right: 2%;
-  top: 23%;
+  width: 31%;
+  right: 1%;
+  top: 31%;
   z-index: 1;
-  transform: rotate(4deg) translateZ(-25px);
+  transform: rotate(3.2deg) translateZ(-25px);
 }
 
 /* Projects */
@@ -1831,22 +1829,23 @@ html[data-preloader="seen"] .preloader,
   }
 
   .hero-shot--moldar {
-    width: 54%;
-    height: 52%;
-    left: 24%;
+    width: 56%;
+    left: 25%;
   }
 
   .hero-shot--penafiel {
-    width: 44%;
+    width: 45%;
   }
 
   .hero-shot--jobup {
     width: 52%;
-    left: 3%;
+    left: 2%;
+    top: 58%;
   }
 
   .hero-shot--bpo {
     width: 48%;
+    top: 58%;
   }
 
   .hero__bottom {
@@ -1977,33 +1976,24 @@ html[data-preloader="seen"] .preloader,
   }
 
   .hero-shot--moldar {
-    width: 67%;
-    height: 52%;
-    top: 11%;
-    left: 23%;
+    width: 70%;
+    top: 10%;
+    left: 24%;
   }
 
   .hero-shot--penafiel {
-    width: 48%;
-    height: 43%;
-    top: 1%;
+    width: 50%;
+    top: 0;
     left: 0;
   }
 
   .hero-shot--jobup {
-    width: 58%;
-    height: 30%;
-    top: 57%;
+    width: 60%;
+    top: 63%;
     left: 0;
   }
 
-  .hero-shot--bpo {
-    width: 49%;
-    height: 38%;
-    right: 0;
-    bottom: 2%;
-  }
-
+  .hero-shot--bpo,
   .hero-shot--bread {
     display: none;
   }
@@ -2748,4 +2738,17 @@ html[data-preloader="seen"] .preloader,
   .showcase:hover .showcase__screen--desktop,
   .showcase:hover .showcase__screen--phone,
   .showcase:hover .showcase__screen--detail { transform: none; }
+}
+
+/* Initial-render performance: defer distant sections without changing layout. */
+.site-value,
+.positioning,
+.method,
+.experience,
+.knowledge,
+.principles,
+.about,
+.contact {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
 }
