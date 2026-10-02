@@ -1115,6 +1115,60 @@ html[data-preloader="seen"] .preloader,
   border-color: var(--blue);
 }
 
+
+.capability-marquee {
+  overflow: hidden;
+  margin: 0 0 20px;
+}
+
+.capability-marquee__viewport {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  width: max-content;
+  min-width: 100%;
+  padding: 18px 0 22px;
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+  animation: capabilityTicker 24s linear infinite;
+}
+
+.capability-marquee__track {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 0 0 auto;
+  min-width: max-content;
+}
+
+.capability-marquee__track span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 0 16px;
+  border: 1px solid rgba(14, 17, 23, .12);
+  border-radius: 999px;
+  background: rgba(255,255,255,.44);
+  font-size: .9rem;
+  color: var(--text-dark);
+  white-space: nowrap;
+}
+
+.capability-marquee__track span::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background: var(--blue);
+  opacity: .8;
+}
+
+@keyframes capabilityTicker {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-50% - 9px)); }
+}
+
 /* Method */
 .method {
   padding: 132px 0;
@@ -2759,6 +2813,21 @@ html[data-preloader="seen"] .preloader,
 }
 
 @media (max-width: 720px) {
+  .capability-marquee {
+    margin-bottom: 14px;
+  }
+  .capability-marquee__viewport {
+    gap: 14px;
+    padding: 14px 0 18px;
+  }
+  .capability-marquee__track {
+    gap: 10px;
+  }
+  .capability-marquee__track span {
+    min-height: 34px;
+    padding: 0 13px;
+    font-size: .82rem;
+  }
   .portfolio-switch-wrap { padding-bottom: 28px; }
   .portfolio-switch {
     width: 100%;
@@ -2826,6 +2895,14 @@ html[data-preloader="seen"] .preloader,
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .capability-marquee__viewport {
+    animation: none;
+    width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .capability-marquee__viewport::-webkit-scrollbar { display: none; }
   .portfolio-group { animation: none; }
   .showcase:hover .showcase__screen--desktop,
   .showcase:hover .showcase__screen--phone,
