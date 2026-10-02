@@ -167,6 +167,59 @@ html[data-preloader="seen"] .preloader,
   to { width: 92px; }
 }
 
+
+.offer-ticker {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1090;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow: hidden;
+  min-height: 52px;
+  background: linear-gradient(90deg, #e8a514 0%, #f0b51f 48%, #e8a514 100%);
+  border-top: 1px solid rgba(8, 12, 17, .12);
+  box-shadow: 0 -10px 28px rgba(0, 0, 0, .12);
+}
+
+.offer-ticker__track {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  min-width: max-content;
+  animation: offerTickerMove 24s linear infinite;
+}
+
+.offer-ticker__track span {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 52px;
+  padding: 0 22px;
+  color: #0d2430;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: .86rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.offer-ticker__track span::before {
+  content: "•";
+  font-size: 1rem;
+  line-height: 1;
+  color: rgba(13, 36, 48, .75);
+}
+
+@keyframes offerTickerMove {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
 /* Header */
 .site-header {
   position: fixed;
@@ -1774,7 +1827,7 @@ html[data-preloader="seen"] .preloader,
 
 /* Footer */
 .footer {
-  padding: 56px 0 20px;
+  padding: 56px 0 92px;
   border-top: 1px solid var(--border-dark);
 }
 
@@ -1822,7 +1875,7 @@ html[data-preloader="seen"] .preloader,
 .whatsapp-float {
   position: fixed;
   right: 24px;
-  bottom: calc(24px + env(safe-area-inset-bottom));
+  bottom: calc(82px + env(safe-area-inset-bottom));
   z-index: 1100;
   display: inline-flex;
   align-items: center;
@@ -2813,6 +2866,19 @@ html[data-preloader="seen"] .preloader,
 }
 
 @media (max-width: 720px) {
+  .offer-ticker {
+    min-height: 46px;
+  }
+  .offer-ticker__track span {
+    min-height: 46px;
+    padding: 0 16px;
+    gap: 10px;
+    font-size: .76rem;
+  }
+  .whatsapp-float {
+    right: 16px;
+    bottom: calc(72px + env(safe-area-inset-bottom));
+  }
   .capability-marquee {
     margin-bottom: 14px;
   }
@@ -2895,6 +2961,14 @@ html[data-preloader="seen"] .preloader,
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .offer-ticker {
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .offer-ticker::-webkit-scrollbar { display: none; }
+  .offer-ticker__track {
+    animation: none;
+  }
   .capability-marquee__viewport {
     animation: none;
     width: 100%;
