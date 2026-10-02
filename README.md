@@ -67,3 +67,10 @@ O FormSubmit não exige cadastro, mas o primeiro envio para `thiagomartsan@gmail
 5. faça um segundo envio e confirme que chegou normalmente à caixa de entrada.
 
 Depois dessa confirmação, os próximos contatos são encaminhados normalmente. A lógica de integração está isolada em `js/main.js` caso no futuro o formulário seja migrado para Web3Forms, Resend ou backend próprio.
+
+
+## V6
+- Remove nomes de empresas da linha de experiência, mantendo as áreas de atuação.
+- Reequilibra a seção de posicionamento no desktop.
+- Adiciona destaques editoriais animados no título de posicionamento.
+- Adiciona “Voltar ao topo” no rodapé.

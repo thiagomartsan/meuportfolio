@@ -2964,3 +2964,134 @@ html[data-preloader="seen"] .preloader,
     min-height: 0;
   }
 }
+
+/* V6 refinements: balanced positioning, editorial markers and footer return */
+@media (min-width: 961px) {
+  .positioning__grid {
+    grid-template-columns: minmax(390px, .92fr) minmax(0, 1.08fr);
+    gap: clamp(52px, 5.5vw, 88px);
+  }
+
+  .positioning__copy .section-title {
+    max-width: 620px;
+    font-size: clamp(3rem, 4.15vw, 4.65rem);
+    line-height: .96;
+    letter-spacing: -.05em;
+  }
+
+  .positioning__copy .section-copy {
+    max-width: 540px;
+  }
+}
+
+.marker-underline,
+.marker-circle {
+  position: relative;
+  display: inline-block;
+  z-index: 0;
+}
+
+.marker-underline::after {
+  content: "";
+  position: absolute;
+  left: .02em;
+  right: -.02em;
+  bottom: -.09em;
+  height: .08em;
+  border-radius: 999px;
+  background: var(--blue);
+  transform: scaleX(0) rotate(-1deg);
+  transform-origin: left center;
+  opacity: .86;
+  z-index: -1;
+}
+
+.marker-circle::after {
+  content: "";
+  position: absolute;
+  inset: -.12em -.18em -.07em;
+  border: 2px solid rgba(54, 125, 249, .78);
+  border-radius: 50%;
+  transform: scale(.76) rotate(-3deg);
+  opacity: 0;
+  z-index: -1;
+}
+
+.reveal-title.is-visible .marker-underline::after {
+  animation: markerUnderline .72s var(--ease) .28s forwards;
+}
+
+.reveal-title.is-visible .marker-circle::after {
+  animation: markerCircle .64s var(--ease) .62s forwards;
+}
+
+@keyframes markerUnderline {
+  to { transform: scaleX(1) rotate(-1deg); }
+}
+
+@keyframes markerCircle {
+  to { transform: scale(1) rotate(-3deg); opacity: 1; }
+}
+
+.timeline-item__index {
+  display: inline-block;
+  min-height: 52px;
+  margin: 0 0 24px;
+  color: var(--blue);
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: .68rem;
+  font-weight: 500;
+  letter-spacing: .08em;
+}
+
+.back-to-top {
+  display: inline-flex;
+  align-items: center;
+  justify-self: end;
+  gap: 9px;
+  color: rgba(255,255,255,.64);
+  transition: color .25s ease, transform .25s ease;
+}
+
+.back-to-top span {
+  display: inline-block;
+  font-size: .9rem;
+  transition: transform .25s ease;
+}
+
+.back-to-top:hover,
+.back-to-top:focus-visible {
+  color: #fff;
+}
+
+.back-to-top:hover span,
+.back-to-top:focus-visible span {
+  transform: translateY(-3px);
+}
+
+.footer__bottom {
+  align-items: center;
+}
+
+@media (max-width: 720px) {
+  .back-to-top {
+    justify-self: start;
+    margin-top: 4px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marker-underline::after {
+    transform: scaleX(1) rotate(-1deg);
+  }
+
+  .marker-circle::after {
+    transform: scale(1) rotate(-3deg);
+    opacity: 1;
+  }
+
+  .reveal-title.is-visible .marker-underline::after,
+  .reveal-title.is-visible .marker-circle::after {
+    animation: none;
+  }
+}
