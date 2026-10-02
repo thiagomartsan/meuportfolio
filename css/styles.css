@@ -1595,6 +1595,85 @@ html[data-preloader="seen"] .preloader,
   resize: vertical;
 }
 
+.phone-control {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: stretch;
+  min-height: 48px;
+  border: 1px solid rgba(17,22,28,.18);
+  border-radius: 7px;
+  overflow: hidden;
+  background: rgba(255,255,255,.75);
+  transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.phone-control:focus-within {
+  border-color: var(--blue);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(54,125,249,.12);
+}
+
+.phone-prefix {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  border-right: 1px solid rgba(17,22,28,.12);
+  color: var(--text-dark);
+  background: rgba(17,22,28,.035);
+  white-space: nowrap;
+}
+
+.phone-prefix strong {
+  font-size: .84rem;
+  font-weight: 600;
+}
+
+.phone-prefix__flag {
+  display: block;
+  width: 22px;
+  height: auto;
+  flex: 0 0 auto;
+  box-shadow: 0 0 0 1px rgba(17,22,28,.08);
+}
+
+.field .phone-control input {
+  height: 46px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.field .phone-control input:focus {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.field.is-invalid .phone-control {
+  border-color: #c74646;
+}
+
+.field-hint {
+  display: block;
+  margin-top: 6px;
+  color: var(--text-dark-muted);
+  font-size: .7rem;
+}
+
+.form-honeypot {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
 .field input:focus,
 .field select:focus,
 .field textarea:focus {
@@ -1620,10 +1699,23 @@ html[data-preloader="seen"] .preloader,
   min-height: 1.2em;
 }
 
+.form-feedback.is-success {
+  color: #14734c;
+}
+
+.form-feedback.is-error {
+  color: #a93434;
+}
+
 .contact-form__submit {
   margin-top: 20px;
   border: 0;
   cursor: pointer;
+}
+
+.contact-form__submit:disabled {
+  cursor: wait;
+  opacity: .72;
 }
 
 /* Footer */

@@ -6,7 +6,7 @@ Versão revisada do portfólio TM21 em HTML, CSS e JavaScript puro.
 
 - `index.html`: conteúdo, SEO básico e marcação semântica.
 - `css/styles.css`: identidade visual, layout, filtros de portfólio e responsividade.
-- `js/main.js`: preloader, menu mobile, animações, filtro Páginas/Plataformas, WhatsApp e formulário via `mailto:`.
+- `js/main.js`: preloader, menu mobile, animações, filtro Páginas/Plataformas, WhatsApp, máscara brasileira de telefone e envio assíncrono do formulário.
 - `assets/`: screenshots reais dos projetos, otimizados em WebP.
 - `favicon.svg`: favicon tipográfico provisório TM21.
 - `robots.txt`: libera indexação.
@@ -52,4 +52,18 @@ Depois acesse `http://localhost:8000`.
 
 ## Formulário
 
-Nesta versão o formulário valida os campos e abre o aplicativo de e-mail do visitante com destinatário, assunto e corpo preenchidos. A lógica está isolada em `js/main.js`, facilitando a troca futura por Formspree, Web3Forms ou backend próprio.
+A V5 envia o formulário diretamente pela página usando o endpoint AJAX do FormSubmit. O visitante não precisa abrir Outlook, Gmail ou outro aplicativo de e-mail.
+
+O campo de WhatsApp mantém `+55` fixo, exibe a bandeira do Brasil e aplica máscara automática para DDD + número.
+
+### Ativação única do FormSubmit
+
+O FormSubmit não exige cadastro, mas o primeiro envio para `thiagomartsan@gmail.com` gera um e-mail de confirmação. Antes de divulgar o portfólio:
+
+1. publique a V5;
+2. faça um envio de teste pelo formulário;
+3. abra o e-mail de ativação recebido em `thiagomartsan@gmail.com`;
+4. clique no link de confirmação;
+5. faça um segundo envio e confirme que chegou normalmente à caixa de entrada.
+
+Depois dessa confirmação, os próximos contatos são encaminhados normalmente. A lógica de integração está isolada em `js/main.js` caso no futuro o formulário seja migrado para Web3Forms, Resend ou backend próprio.

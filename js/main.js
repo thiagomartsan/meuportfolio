@@ -224,18 +224,67 @@
     items.forEach((item) => timelineObserver.observe(item));
   }
 
-  // Contact form: validate and open the default e-mail client.
+  // Contact form: validate, format Brazilian WhatsApp and send without leaving the page.
   const contactForm = qs('#contactForm');
   const feedback = qs('#formFeedback');
+  const phoneField = qs('#phone');
+  const submitButton = qs('#contactSubmit');
+  const submitLabel = qs('.contact-form__submit-label');
+  const formEndpoint = 'https://formsubmit.co/ajax/thiagomartsan@gmail.com';
+
+  const onlyDigits = (value = '') => value.replace(/\D/g, '');
+
+  const normalizeBrazilianPhone = (value = '') => {
+    let digits = onlyDigits(value);
+    if (digits.length > 11 && digits.startsWith('55')) digits = digits.slice(2);
+    return digits.slice(0, 11);
+  };
+
+  const formatBrazilianPhone = (value = '') => {
+    const digits = normalizeBrazilianPhone(value);
+    if (!digits) return '';
+    if (digits.length < 3) return `(${digits}`;
+
+    const area = digits.slice(0, 2);
+    const local = digits.slice(2);
+    if (!local) return `(${area})`;
+
+    if (digits.length <= 10) {
+      const first = local.slice(0, 4);
+      const last = local.slice(4, 8);
+      return `(${area}) ${first}${last ? `-${last}` : ''}`;
+    }
+
+    const first = local.slice(0, 5);
+    const last = local.slice(5, 9);
+    return `(${area}) ${first}${last ? `-${last}` : ''}`;
+  };
+
+  const validatePhone = () => {
+    if (!phoneField) return true;
+    const digits = normalizeBrazilianPhone(phoneField.value);
+    const valid = digits.length === 0 || digits.length === 10 || digits.length === 11;
+    phoneField.setCustomValidity(valid ? '' : 'Informe DDD e número com 10 ou 11 dígitos.');
+    return valid;
+  };
+
+  if (phoneField) {
+    phoneField.addEventListener('input', () => {
+      phoneField.value = formatBrazilianPhone(phoneField.value);
+      validatePhone();
+    });
+
+    phoneField.addEventListener('blur', validatePhone);
+  }
 
   if (contactForm) {
-    const fields = qsa('input, select, textarea', contactForm);
+    const fields = qsa('input:not(.form-honeypot), select, textarea', contactForm);
 
     const markValidity = (field) => {
+      if (field === phoneField) validatePhone();
       const wrapper = field.closest('.field');
-      if (!wrapper) return field.checkValidity();
       const valid = field.checkValidity();
-      wrapper.classList.toggle('is-invalid', !valid);
+      if (wrapper) wrapper.classList.toggle('is-invalid', !valid);
       return valid;
     };
 
@@ -244,7 +293,7 @@
       field.addEventListener('change', () => markValidity(field));
     });
 
-    contactForm.addEventListener('submit', (event) => {
+    contactForm.addEventListener('submit', async (event) => {
       event.preventDefault();
 
       let firstInvalid = null;
@@ -253,28 +302,76 @@
       });
 
       if (firstInvalid) {
-        if (feedback) feedback.textContent = 'Revise os campos obrigatórios antes de continuar.';
+        if (feedback) {
+          feedback.className = 'form-feedback is-error';
+          feedback.textContent = 'Revise os campos obrigatórios antes de enviar.';
+        }
         firstInvalid.focus();
         return;
       }
 
       const data = new FormData(contactForm);
-      const subject = `Contato pelo TM21 - ${data.get('subject')}`;
-      const bodyLines = [
-        `Nome: ${data.get('name')}`,
-        `Empresa ou projeto: ${data.get('company') || 'Não informado'}`,
-        `E-mail: ${data.get('email')}`,
-        `WhatsApp: ${data.get('phone') || 'Não informado'}`,
-        `Assunto: ${data.get('subject')}`,
-        '',
-        'Mensagem:',
-        data.get('message')
-      ];
+      const phoneDigits = normalizeBrazilianPhone(data.get('phone') || '');
+      const phoneFormatted = phoneDigits ? `+55 ${formatBrazilianPhone(phoneDigits)}` : 'Não informado';
+      const subjectValue = data.get('subject');
+      const payload = {
+        _subject: `Novo contato pelo TM21 — ${subjectValue}`,
+        _template: 'table',
+        _replyto: data.get('email'),
+        _honey: data.get('_honey') || '',
+        Nome: data.get('name'),
+        'Empresa ou projeto': data.get('company') || 'Não informado',
+        Email: data.get('email'),
+        WhatsApp: phoneFormatted,
+        Assunto: subjectValue,
+        Mensagem: data.get('message'),
+        Origem: window.location.href
+      };
 
-      const mailto = `mailto:thiagomartsan@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.setAttribute('aria-busy', 'true');
+      }
+      if (submitLabel) submitLabel.textContent = 'Enviando...';
+      if (feedback) {
+        feedback.className = 'form-feedback';
+        feedback.textContent = 'Enviando sua mensagem...';
+      }
 
-      if (feedback) feedback.textContent = 'Abrindo seu aplicativo de e-mail para concluir o envio.';
-      window.location.href = mailto;
+      try {
+        const response = await fetch(formEndpoint, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok || result.success === false) {
+          throw new Error(result.message || 'Falha no envio');
+        }
+
+        contactForm.reset();
+        qsa('.field.is-invalid', contactForm).forEach((field) => field.classList.remove('is-invalid'));
+        if (feedback) {
+          feedback.className = 'form-feedback is-success';
+          feedback.textContent = 'Mensagem enviada. Obrigado pelo contato — retorno assim que possível.';
+        }
+        if (submitLabel) submitLabel.textContent = 'Mensagem enviada';
+      } catch (error) {
+        if (feedback) {
+          feedback.className = 'form-feedback is-error';
+          feedback.textContent = 'Não foi possível enviar agora. Tente novamente ou fale comigo pelo WhatsApp.';
+        }
+        if (submitLabel) submitLabel.textContent = 'Tentar novamente';
+      } finally {
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.removeAttribute('aria-busy');
+        }
+      }
     });
   }
 
