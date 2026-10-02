@@ -3246,3 +3246,49 @@ html[data-preloader="seen"] .preloader,
     animation: none;
   }
 }
+
+/* V9 — projeto demonstrativo Cuidados & Enfermagem */
+.project--cuidados { --accent: #0e6b78; }
+
+.project--cuidados {
+  color: var(--text-dark);
+  background: var(--cream);
+  border-color: var(--border-light);
+}
+
+.project--cuidados::before {
+  background: linear-gradient(120deg, rgba(14,107,120,.10), transparent 40%);
+}
+
+.project--cuidados .project__type {
+  color: #4a5662;
+}
+
+.project--cuidados .project__info > p:not(.project__type) {
+  color: var(--text-dark-muted);
+}
+
+.project--cuidados .project__tags li {
+  border-color: var(--border-light);
+  color: #59626b;
+}
+
+.project--cuidados .showcase__screen {
+  border-color: rgba(17,22,28,.13);
+  box-shadow: 0 24px 62px rgba(17,22,28,.14);
+}
+
+.showcase--cuidados .showcase__screen--desktop {
+  width: 86%;
+  left: 0;
+}
+
+.showcase--cuidados .showcase__screen--phone {
+  right: 0;
+}
+
+@media (max-width: 720px) {
+  .showcase--cuidados .showcase__screen--desktop {
+    width: 92%;
+  }
+}
