@@ -85,3 +85,13 @@ Depois de validar a coleta:
 ## Regra de privacidade
 
 Não adicionar dados pessoais enviados pelo usuário como parâmetros de eventos do Analytics. Nome, e-mail, telefone e mensagem do formulário ficam fora da camada de mensuração.
+
+
+## V13 — blog editorial
+- Home do blog compactada e reorganizada em destaque + grade de artigos.
+- Copy revisada conforme ANTI-IA.
+- Template único para os cinco artigos atuais.
+- Fundo e contraste corrigidos.
+- Responsividade reforçada até 360–440 px.
+- CTA intermediário + formulário no final de cada artigo.
+- Capas editoriais vetoriais temporárias prontas para futura troca por imagens fotográficas geradas por IA.
