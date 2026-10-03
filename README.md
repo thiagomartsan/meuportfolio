@@ -1,81 +1,76 @@
-# TM21 — V10 SEO+
+# TM21 — V11 Mensuração
 
 Site oficial: **https://tm21.com.br**
 
-Esta versão mantém a identidade visual do portfólio e amplia a arquitetura para aquisição orgânica. A ideia não é transformar a TM21 em um blog genérico, e sim criar páginas úteis para intenções comerciais, nichos, regiões e dúvidas de decisão.
+A V11 mantém a arquitetura SEO+ da V10 e adiciona a camada de mensuração da operação.
 
-## Estrutura principal
+## Google Search Console
 
-- `/` — home comercial + portfólio
-- `/criacao-de-sites/`
-- `/landing-pages/`
-- `/sites-institucionais/`
-- `/rio-grande-do-sul/`
-- `/santa-catarina/`
-- `/site-para-advogados/`
-- `/site-para-dentistas/`
-- `/quanto-custa-criar-um-site/`
-- `/blog/`
+A propriedade de domínio `tm21.com.br` já foi verificada via DNS no Registro.br e o sitemap está publicado em:
 
-### Conteúdos iniciais
+- `https://tm21.com.br/sitemap.xml`
 
-- `/blog/site-precisa-pagar-mensalidade/`
-- `/blog/instagram-substitui-site/`
-- `/blog/quanto-tempo-demora-criar-site/`
-- `/blog/como-colocar-site-no-google/`
+O registro TXT de verificação do Search Console deve permanecer no DNS.
 
-## SEO técnico
+## Google Analytics 4
 
-- domínio canônico `https://tm21.com.br` em todas as páginas;
-- title e description exclusivos;
-- um H1 por página;
-- Open Graph;
-- JSON-LD `WebSite` + `Person` na home;
-- `WebPage`, `Service`, `BreadcrumbList` e `BlogPosting` quando aplicável;
-- `sitemap.xml`;
-- `robots.txt`;
-- OAI-SearchBot permitido;
-- RSS em `/blog/feed.xml`;
-- links internos entre serviços, regiões e conteúdo;
-- página 404 com `noindex`;
-- imagem social em `/assets/og-tm21.png`.
+ID de medição instalado em todas as páginas:
 
-Não foi criado `llms.txt`: não é prioridade frente a sitemap, conteúdo, links internos, crawl e mensuração.
+- `G-1WBRRW7W12`
 
-## Fila editorial
+A Google tag é carregada diretamente em cada página e o arquivo `/js/analytics.js` concentra os eventos de negócio.
 
-`content/queue.yml` registra intenção, palavra-chave, página relacionada, região, CTA, evidência e status antes da produção. Isso prepara a automação futura sem transformar o domínio em uma fábrica de conteúdo.
+### Eventos instrumentados
 
-Fluxo planejado:
+- `click_whatsapp` — clique em qualquer CTA do WhatsApp;
+- `click_email` — clique em link de e-mail;
+- `click_linkedin` — clique no LinkedIn;
+- `view_project` — abertura de projeto externo a partir do portfólio;
+- `generate_lead` — enviado somente depois de o formulário ser aceito pelo FormSubmit;
+- `form_submit_success` — confirmação operacional do formulário;
+- `form_submit_error` — falha de envio do formulário;
+- `page_not_found` — acesso a uma rota inexistente/404.
 
-**pesquisa → pauta → geração assistida → validação → publicação → sitemap/IndexNow → GSC/GA4 → aprendizado**
+Os eventos não enviam nome, e-mail, telefone nem texto livre ao Analytics.
 
-A etapa de geração automática ainda não foi ligada à API. Isso será feito somente depois de configurar chave segura no GitHub e a regra de revisão/publicação.
-
-## QA automático
-
-`.github/workflows/seo-qa.yml` roda `scripts/validate_site.py` a cada push/PR e falha se encontrar:
-
-- página sem title/description/canonical;
-- quantidade de H1 diferente de 1;
-- referência ao domínio antigo da Vercel;
-- placeholders óbvios.
-
-## Próximos passos depois do deploy
-
-1. Confirmar `tm21.com.br` como Production na Vercel.
-2. Manter `www.tm21.com.br` e `tm21-eta.vercel.app` redirecionando por 308 para o domínio canônico.
-3. Criar propriedade de domínio no Google Search Console.
-4. Verificar por TXT no Registro.br.
-5. Enviar `https://tm21.com.br/sitemap.xml`.
-6. Configurar GA4 e eventos de clique no WhatsApp/formulário.
-7. Cadastrar Bing Webmaster/IndexNow quando o pipeline de publicação recorrente entrar.
-8. Usar Search Console para decidir novas páginas por impressões, intenção, CTR e posição.
+A medição otimizada do GA4 pode permanecer ligada para page_view, scroll e demais eventos automáticos compatíveis.
 
 ## Formulário
 
-O formulário continua usando FormSubmit via AJAX. Faça a ativação do destinatário e teste real antes de divulgar.
+O formulário segue usando FormSubmit via AJAX. O evento `generate_lead` só é disparado depois de uma resposta de sucesso do endpoint, evitando contar tentativa de envio como lead.
 
-## Regra editorial
+## Estrutura SEO preservada
 
-Conteúdo não é publicado porque “SEO gosta de frequência”. A pauta precisa responder a uma intenção útil e se conectar a serviço, nicho, região ou decisão comercial. Profissões regulamentadas e afirmações que dependem de fonte atual exigem revisão antes de publicação.
+- domínio canônico `https://tm21.com.br`;
+- title e description exclusivos;
+- um H1 por página;
+- Open Graph;
+- JSON-LD conforme a página;
+- sitemap.xml e robots.txt;
+- OAI-SearchBot permitido;
+- RSS do blog;
+- links internos;
+- fila editorial em `content/queue.yml`;
+- QA automático no GitHub Actions.
+
+## Teste após o deploy
+
+1. Abra o Google Analytics > Relatórios > Tempo real.
+2. Visite `https://tm21.com.br` em uma aba anônima.
+3. Confirme que aparece 1 usuário ativo.
+4. Clique em um CTA do WhatsApp e confirme o evento `click_whatsapp` no tempo real/DebugView quando disponível.
+5. Faça um envio de teste no formulário e confirme `generate_lead` e `form_submit_success`.
+6. Abra uma URL inexistente, por exemplo `/teste-404-tm21`, e confirme `page_not_found`.
+
+## Próximos passos no Google
+
+Depois de validar a coleta:
+
+1. marcar `generate_lead` como evento principal/key event no GA4;
+2. vincular Search Console e GA4, garantindo que o mesmo usuário tenha permissões suficientes nos dois produtos;
+3. acompanhar consultas, páginas, origem e conversão antes de ampliar a produção do blog;
+4. cadastrar Bing Webmaster/IndexNow quando entrar o pipeline recorrente de publicação.
+
+## Regra de privacidade
+
+Não adicionar dados pessoais enviados pelo usuário como parâmetros de eventos do Analytics. Nome, e-mail, telefone e mensagem do formulário ficam fora da camada de mensuração.

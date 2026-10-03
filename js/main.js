@@ -359,8 +359,12 @@
           feedback.className = 'form-feedback is-success';
           feedback.textContent = 'Mensagem enviada. Obrigado pelo contato — retorno assim que possível.';
         }
+        window.dispatchEvent(new CustomEvent('tm21:form_success', {
+          detail: { leadType: subjectValue || 'site_contact' }
+        }));
         if (submitLabel) submitLabel.textContent = 'Mensagem enviada';
       } catch (error) {
+        window.dispatchEvent(new CustomEvent('tm21:form_error'));
         if (feedback) {
           feedback.className = 'form-feedback is-error';
           feedback.textContent = 'Não foi possível enviar agora. Tente novamente ou fale comigo pelo WhatsApp.';
