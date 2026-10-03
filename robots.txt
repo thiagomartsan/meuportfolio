@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
-# TODO: adicionar Sitemap após definição do domínio oficial.
+User-agent: OAI-SearchBot
+Allow: /
+
+Sitemap: https://tm21.com.br/sitemap.xml

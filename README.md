@@ -1,76 +1,81 @@
-# TM21 Portfolio
+# TM21 — V10 SEO+
 
-Versão revisada do portfólio TM21 em HTML, CSS e JavaScript puro.
+Site oficial: **https://tm21.com.br**
 
-## Estrutura
+Esta versão mantém a identidade visual do portfólio e amplia a arquitetura para aquisição orgânica. A ideia não é transformar a TM21 em um blog genérico, e sim criar páginas úteis para intenções comerciais, nichos, regiões e dúvidas de decisão.
 
-- `index.html`: conteúdo, SEO básico e marcação semântica.
-- `css/styles.css`: identidade visual, layout, filtros de portfólio e responsividade.
-- `js/main.js`: preloader, menu mobile, animações, filtro Páginas/Plataformas, WhatsApp, máscara brasileira de telefone e envio assíncrono do formulário.
-- `assets/`: screenshots reais dos projetos, otimizados em WebP.
-- `favicon.svg`: favicon tipográfico provisório TM21.
-- `robots.txt`: libera indexação.
+## Estrutura principal
 
-## Organização do portfólio
+- `/` — home comercial + portfólio
+- `/criacao-de-sites/`
+- `/landing-pages/`
+- `/sites-institucionais/`
+- `/rio-grande-do-sul/`
+- `/santa-catarina/`
+- `/site-para-advogados/`
+- `/site-para-dentistas/`
+- `/quanto-custa-criar-um-site/`
+- `/blog/`
 
-O portfólio foi separado em duas categorias selecionáveis:
+### Conteúdos iniciais
 
-- **Páginas**: Penafiel & Magalhães, Dr. Jair Kautzmann e BreadVale.
-- **Plataformas**: Moldar, THG Learn, Controladoria / BPO Financeiro e JobUp.
+- `/blog/site-precisa-pagar-mensalidade/`
+- `/blog/instagram-substitui-site/`
+- `/blog/quanto-tempo-demora-criar-site/`
+- `/blog/como-colocar-site-no-google/`
 
-As telas foram simplificadas para priorizar enquadramento e leitura: em geral uma interface principal e, quando faz sentido, uma versão mobile ou detalhe de apoio.
+## SEO técnico
 
-## Conteúdo institucional
+- domínio canônico `https://tm21.com.br` em todas as páginas;
+- title e description exclusivos;
+- um H1 por página;
+- Open Graph;
+- JSON-LD `WebSite` + `Person` na home;
+- `WebPage`, `Service`, `BreadcrumbList` e `BlogPosting` quando aplicável;
+- `sitemap.xml`;
+- `robots.txt`;
+- OAI-SearchBot permitido;
+- RSS em `/blog/feed.xml`;
+- links internos entre serviços, regiões e conteúdo;
+- página 404 com `noindex`;
+- imagem social em `/assets/og-tm21.png`.
 
-Foram adicionadas duas seções voltadas ao valor comercial do trabalho:
+Não foi criado `llms.txt`: não é prioridade frente a sitemap, conteúdo, links internos, crawl e mensuração.
 
-- benefícios de uma presença digital própria;
-- processo de leitura de posicionamento, identidade, Instagram, SEO básico/local, contato e mensuração.
+## Fila editorial
 
-Na trajetória profissional, JobUp aparece apenas como projeto no portfólio. A experiência profissional permanece concentrada em **Exe Business**.
+`content/queue.yml` registra intenção, palavra-chave, página relacionada, região, CTA, evidência e status antes da produção. Isso prepara a automação futura sem transformar o domínio em uma fábrica de conteúdo.
 
-## Rodar localmente
+Fluxo planejado:
 
-Pode abrir `index.html` diretamente no navegador. Para testar em ambiente semelhante ao deploy, rode um servidor local, por exemplo:
+**pesquisa → pauta → geração assistida → validação → publicação → sitemap/IndexNow → GSC/GA4 → aprendizado**
 
-```bash
-python -m http.server 8000
-```
+A etapa de geração automática ainda não foi ligada à API. Isso será feito somente depois de configurar chave segura no GitHub e a regra de revisão/publicação.
 
-Depois acesse `http://localhost:8000`.
+## QA automático
 
-## Antes de publicar
+`.github/workflows/seo-qa.yml` roda `scripts/validate_site.py` a cada push/PR e falha se encontrar:
 
-1. Definir o domínio.
-2. Inserir canonical, `og:url` e `og:image` com URLs absolutas.
-3. Fazer teste final em 360, 390, 430, 768, 1366 e 1440 px.
-4. Testar a troca entre Páginas e Plataformas.
-5. Testar WhatsApp, e-mail, LinkedIn e todos os links de projetos.
-6. Rodar Lighthouse/PageSpeed após a publicação.
-7. Configurar Search Console e Analytics quando o domínio estiver ativo.
-8. Se houver autorização ou mudanças de status dos projetos demonstrativos/conceituais, atualizar as classificações no HTML.
+- página sem title/description/canonical;
+- quantidade de H1 diferente de 1;
+- referência ao domínio antigo da Vercel;
+- placeholders óbvios.
+
+## Próximos passos depois do deploy
+
+1. Confirmar `tm21.com.br` como Production na Vercel.
+2. Manter `www.tm21.com.br` e `tm21-eta.vercel.app` redirecionando por 308 para o domínio canônico.
+3. Criar propriedade de domínio no Google Search Console.
+4. Verificar por TXT no Registro.br.
+5. Enviar `https://tm21.com.br/sitemap.xml`.
+6. Configurar GA4 e eventos de clique no WhatsApp/formulário.
+7. Cadastrar Bing Webmaster/IndexNow quando o pipeline de publicação recorrente entrar.
+8. Usar Search Console para decidir novas páginas por impressões, intenção, CTR e posição.
 
 ## Formulário
 
-A V5 envia o formulário diretamente pela página usando o endpoint AJAX do FormSubmit. O visitante não precisa abrir Outlook, Gmail ou outro aplicativo de e-mail.
+O formulário continua usando FormSubmit via AJAX. Faça a ativação do destinatário e teste real antes de divulgar.
 
-O campo de WhatsApp mantém `+55` fixo, exibe a bandeira do Brasil e aplica máscara automática para DDD + número.
+## Regra editorial
 
-### Ativação única do FormSubmit
-
-O FormSubmit não exige cadastro, mas o primeiro envio para `thiagomartsan@gmail.com` gera um e-mail de confirmação. Antes de divulgar o portfólio:
-
-1. publique a V5;
-2. faça um envio de teste pelo formulário;
-3. abra o e-mail de ativação recebido em `thiagomartsan@gmail.com`;
-4. clique no link de confirmação;
-5. faça um segundo envio e confirme que chegou normalmente à caixa de entrada.
-
-Depois dessa confirmação, os próximos contatos são encaminhados normalmente. A lógica de integração está isolada em `js/main.js` caso no futuro o formulário seja migrado para Web3Forms, Resend ou backend próprio.
-
-
-## V6
-- Remove nomes de empresas da linha de experiência, mantendo as áreas de atuação.
-- Reequilibra a seção de posicionamento no desktop.
-- Adiciona destaques editoriais animados no título de posicionamento.
-- Adiciona “Voltar ao topo” no rodapé.
+Conteúdo não é publicado porque “SEO gosta de frequência”. A pauta precisa responder a uma intenção útil e se conectar a serviço, nicho, região ou decisão comercial. Profissões regulamentadas e afirmações que dependem de fonte atual exigem revisão antes de publicação.
