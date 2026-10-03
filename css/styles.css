@@ -3827,3 +3827,115 @@ html[data-preloader="seen"] .preloader,
   .article-hero__visual { box-shadow: 0 18px 44px rgba(0,0,0,.2); }
   .blog-card__meta { font-size: .61rem; }
 }
+
+/* V14 — photographic blog covers and featured-card balance */
+.blog-topic-chip {
+  flex: 0 0 auto;
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 14px;
+  border: 1px solid var(--border-light);
+  border-radius: 999px;
+  color: var(--text-dark-muted);
+  background: rgba(255,255,255,.35);
+  white-space: nowrap;
+}
+
+.blog-section-head {
+  grid-template-columns: minmax(0,1fr) minmax(320px,.62fr);
+  gap: clamp(42px,6vw,84px);
+}
+
+.blog-section-head h2 {
+  font-size: clamp(2.65rem,4.15vw,4.45rem);
+}
+
+.blog-feature {
+  grid-template-columns: minmax(0,1.02fr) minmax(0,.98fr);
+  min-height: 440px;
+}
+
+.blog-feature .blog-card__image {
+  min-width: 0;
+  min-height: 440px;
+  aspect-ratio: auto;
+}
+
+.blog-feature .blog-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.blog-feature__content {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.blog-feature__content h2 {
+  max-width: 100%;
+  margin: auto 0 18px;
+  font-size: clamp(2rem,3vw,3.35rem);
+  line-height: 1;
+  overflow-wrap: break-word;
+}
+
+.blog-card__image img {
+  display: block;
+  object-position: center;
+}
+
+.article-hero__visual {
+  aspect-ratio: 16 / 9;
+  background: var(--bg-secondary);
+}
+
+.article-hero__visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 1120px) and (min-width: 961px) {
+  .blog-feature {
+    grid-template-columns: minmax(0,1fr) minmax(390px,.9fr);
+  }
+  .blog-feature__content {
+    padding: 34px 36px;
+  }
+  .blog-feature__content h2 {
+    font-size: clamp(2rem,3.5vw,3rem);
+  }
+}
+
+@media (max-width: 960px) {
+  .blog-section-head {
+    grid-template-columns: 1fr;
+  }
+  .blog-feature {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+  .blog-feature .blog-card__image {
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+  }
+  .blog-feature__content h2 {
+    margin-top: 44px;
+  }
+}
+
+@media (max-width: 720px) {
+  .blog-section-head h2 {
+    font-size: clamp(2.35rem,10.5vw,3.6rem);
+  }
+  .blog-feature__content h2 {
+    font-size: clamp(2.05rem,9.6vw,3rem);
+  }
+  .article-hero__visual {
+    aspect-ratio: 16 / 10;
+  }
+}

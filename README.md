@@ -95,3 +95,12 @@ Não adicionar dados pessoais enviados pelo usuário como parâmetros de eventos
 - Responsividade reforçada até 360–440 px.
 - CTA intermediário + formulário no final de cada artigo.
 - Capas editoriais vetoriais temporárias prontas para futura troca por imagens fotográficas geradas por IA.
+
+## V14 — blog fotográfico e ajuste de layout
+- Substitui as capas vetoriais temporárias por cinco imagens fotográficas ultrarrealistas, uma para cada tema/artigo atual.
+- Cada imagem possui versões WebP de 720 px e 1280 px com `srcset` para reduzir peso em mobile.
+- As mesmas imagens passam a ser usadas nos cards do blog, hero dos artigos, Open Graph e `BlogPosting` quando aplicável.
+- Corrige a sobreposição do artigo em destaque no desktop, reequilibrando a proporção imagem/conteúdo e limitando o tamanho do título.
+- Mantém o fluxo mobile em uma coluna e preserva o padrão visual TM21.
+- Remove texto interno sobre “próxima etapa editorial” da página pública e deixa a introdução mais orientada ao leitor.
+- Os temas do blog passam a funcionar como rótulos visuais em vez de links repetidos para o mesmo ponto da página.
