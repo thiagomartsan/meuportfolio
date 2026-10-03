@@ -1,8 +1,20 @@
-# TM21 — V11 Mensuração
+# TM21 — V12 Clareza, Portfólio e Conteúdo
 
 Site oficial: **https://tm21.com.br**
 
-A V11 mantém a arquitetura SEO+ da V10 e adiciona a camada de mensuração da operação.
+A V12 mantém SEO e mensuração da V11, reduz redundância na home, destaca entregáveis e projetos e transforma o guia de preço em conteúdo editorial principal do blog.
+
+
+## Ajustes de experiência da V12
+
+- home mais curta: removidos blocos redundantes de benefícios, posicionamento e conhecimentos;
+- entregáveis agrupados e colocados logo após o portfólio;
+- processo/metodologia vem imediatamente depois da entrega;
+- e-mail deixou de aparecer como CTA público; o formulário continua enviando para o e-mail operacional;
+- portfólio ganhou chamada explícita e badge para abrir projetos publicados;
+- textos dos projetos foram reduzidos para deixar as telas carregarem mais a prova visual;
+- `/quanto-custa-criar-um-site/` passou a ser tratado como guia editorial, com `BlogPosting`, data, autoria, links internos e CTA;
+- o guia de preço virou o primeiro destaque na home, no índice do blog e no RSS.
 
 ## Google Search Console
 
@@ -23,7 +35,6 @@ A Google tag é carregada diretamente em cada página e o arquivo `/js/analytics
 ### Eventos instrumentados
 
 - `click_whatsapp` — clique em qualquer CTA do WhatsApp;
-- `click_email` — clique em link de e-mail;
 - `click_linkedin` — clique no LinkedIn;
 - `view_project` — abertura de projeto externo a partir do portfólio;
 - `generate_lead` — enviado somente depois de o formulário ser aceito pelo FormSubmit;
