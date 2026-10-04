@@ -103,42 +103,69 @@
     whatsappFloat.classList.add('is-visible');
   }
 
-  // Hero collage subtle pointer depth on desktop.
-  const heroCollage = qs('#heroCollage');
-  if (heroCollage && !reduceMotion && window.matchMedia('(pointer:fine)').matches) {
-    let rafId = null;
-    let targetX = 0;
-    let targetY = 0;
-    let collageRect = null;
+  // Hero ambient project mosaic. Animations run only while the section is visible.
+  const heroMosaic = qs('#heroMosaic');
+  if (heroMosaic) {
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      heroMosaic.classList.add('is-running');
+    } else {
+      const mosaicObserver = new IntersectionObserver((entries) => {
+        heroMosaic.classList.toggle('is-running', Boolean(entries[0]?.isIntersecting));
+      }, { threshold: 0.12 });
+      mosaicObserver.observe(heroMosaic);
+    }
+  }
 
-    const updateCollageRect = () => {
-      collageRect = heroCollage.getBoundingClientRect();
-    };
+  // Hero project carousel. Runs only while visible and stops for reduced motion.
+  const heroShowcase = qs('#heroShowcase');
+  if (heroShowcase) {
+    const heroTrack = qs('#heroShowcaseTrack', heroShowcase);
+    const heroSlides = qsa('[data-hero-slide]', heroShowcase);
+    const heroDots = qsa('[data-hero-slide-target]', heroShowcase);
+    let heroIndex = 0;
+    let heroTimer = null;
+    let heroVisible = true;
 
-    const paintHeroDepth = () => {
-      qsa('[data-depth]', heroCollage).forEach((shot) => {
-        const depth = Number(shot.dataset.depth || 1);
-        shot.style.setProperty('--mx', `${targetX * depth}px`);
-        shot.style.setProperty('--my', `${targetY * depth}px`);
+    const setHeroSlide = (index, restart = true) => {
+      if (!heroSlides.length) return;
+      heroIndex = (index + heroSlides.length) % heroSlides.length;
+      heroTrack?.style.setProperty('--hero-slide-index', heroIndex);
+      heroSlides.forEach((slide, i) => slide.classList.toggle('is-active', i === heroIndex));
+      heroDots.forEach((dot, i) => {
+        dot.classList.toggle('is-active', i === heroIndex);
+        dot.setAttribute('aria-current', i === heroIndex ? 'true' : 'false');
       });
-      rafId = null;
+      if (restart && !reduceMotion) startHeroTimer();
     };
 
-    heroCollage.addEventListener('pointerenter', updateCollageRect);
-    window.addEventListener('resize', updateCollageRect, { passive: true });
+    const stopHeroTimer = () => {
+      if (heroTimer) window.clearInterval(heroTimer);
+      heroTimer = null;
+    };
+    const startHeroTimer = () => {
+      stopHeroTimer();
+      if (reduceMotion || !heroVisible) return;
+      heroTimer = window.setInterval(() => setHeroSlide(heroIndex + 1, false), 3800);
+    };
 
-    heroCollage.addEventListener('pointermove', (event) => {
-      if (!collageRect) updateCollageRect();
-      targetX = ((event.clientX - collageRect.left) / collageRect.width - 0.5) * 8;
-      targetY = ((event.clientY - collageRect.top) / collageRect.height - 0.5) * 8;
-      if (!rafId) rafId = requestAnimationFrame(paintHeroDepth);
-    });
+    heroDots.forEach((dot) => dot.addEventListener('click', () => setHeroSlide(Number(dot.dataset.heroSlideTarget || 0))));
+    heroShowcase.addEventListener('mouseenter', stopHeroTimer);
+    heroShowcase.addEventListener('mouseleave', startHeroTimer);
+    heroShowcase.addEventListener('focusin', stopHeroTimer);
+    heroShowcase.addEventListener('focusout', startHeroTimer);
 
-    heroCollage.addEventListener('pointerleave', () => {
-      targetX = 0;
-      targetY = 0;
-      if (!rafId) rafId = requestAnimationFrame(paintHeroDepth);
-    });
+    if ('IntersectionObserver' in window) {
+      const heroSliderObserver = new IntersectionObserver((entries) => {
+        heroVisible = entries[0]?.isIntersecting ?? true;
+        heroVisible ? startHeroTimer() : stopHeroTimer();
+      }, { threshold: .18 });
+      heroSliderObserver.observe(heroShowcase);
+    } else {
+      startHeroTimer();
+    }
+
+    setHeroSlide(0, false);
+    startHeroTimer();
   }
 
   // Project accent follows the project currently in view.
@@ -159,12 +186,48 @@
     projects.forEach((project) => projectObserver.observe(project));
   }
 
-  // Portfolio category switch: pages / platforms.
+  // Portfolio category switch and auto-advancing project preview.
   const portfolioTabs = qsa('[data-portfolio-target]');
   const portfolioGroups = qsa('[data-portfolio-group]');
+  const portfolioCarousel = qs('#portfolioCarousel');
+  const portfolioSets = qsa('[data-portfolio-carousel-set]');
+  const portfolioProgress = qsa('[data-portfolio-slide-target]');
+  let portfolioTarget = 'pages';
+  let portfolioSlideIndex = 0;
+  let portfolioTimer = null;
+  let portfolioVisible = true;
+
+  const stopPortfolioTimer = () => {
+    if (portfolioTimer) window.clearInterval(portfolioTimer);
+    portfolioTimer = null;
+  };
+
+  const activePortfolioSet = () => portfolioSets.find((set) => set.dataset.portfolioCarouselSet === portfolioTarget);
+
+  const setPortfolioSlide = (index, restart = true) => {
+    const set = activePortfolioSet();
+    if (!set) return;
+    const slides = qsa('.portfolio-carousel__slide', set);
+    if (!slides.length) return;
+    portfolioSlideIndex = (index + slides.length) % slides.length;
+    qs('.portfolio-carousel__track', set)?.style.setProperty('--portfolio-slide-index', portfolioSlideIndex);
+    portfolioProgress.forEach((button, i) => {
+      button.classList.toggle('is-active', i === portfolioSlideIndex);
+      button.setAttribute('aria-current', i === portfolioSlideIndex ? 'true' : 'false');
+    });
+    if (restart && !reduceMotion) startPortfolioTimer();
+  };
+
+  const startPortfolioTimer = () => {
+    stopPortfolioTimer();
+    if (reduceMotion || !portfolioVisible || !portfolioCarousel) return;
+    portfolioTimer = window.setInterval(() => setPortfolioSlide(portfolioSlideIndex + 1, false), 3800);
+  };
 
   const setPortfolioGroup = (target) => {
     if (!portfolioTabs.length || !portfolioGroups.length) return;
+    portfolioTarget = target;
+    portfolioSlideIndex = 0;
 
     portfolioTabs.forEach((tab) => {
       const active = tab.dataset.portfolioTarget === target;
@@ -179,10 +242,18 @@
       group.classList.toggle('is-active', active);
     });
 
+    portfolioSets.forEach((set) => {
+      const active = set.dataset.portfolioCarouselSet === target;
+      set.hidden = !active;
+      set.classList.toggle('is-active', active);
+      if (active) qs('.portfolio-carousel__track', set)?.style.setProperty('--portfolio-slide-index', 0);
+    });
+
+    setPortfolioSlide(0, false);
+    startPortfolioTimer();
+
     const firstVisibleProject = qs(`[data-portfolio-group="${target}"] .project[data-project-color]`);
-    if (firstVisibleProject) {
-      root.style.setProperty('--project-accent', firstVisibleProject.dataset.projectColor);
-    }
+    if (firstVisibleProject) root.style.setProperty('--project-accent', firstVisibleProject.dataset.projectColor);
   };
 
   portfolioTabs.forEach((tab, index) => {
@@ -198,9 +269,71 @@
     });
   });
 
+  portfolioProgress.forEach((button) => button.addEventListener('click', () => setPortfolioSlide(Number(button.dataset.portfolioSlideTarget || 0))));
+  if (portfolioCarousel) {
+    portfolioCarousel.addEventListener('mouseenter', stopPortfolioTimer);
+    portfolioCarousel.addEventListener('mouseleave', startPortfolioTimer);
+    portfolioCarousel.addEventListener('focusin', stopPortfolioTimer);
+    portfolioCarousel.addEventListener('focusout', startPortfolioTimer);
+    if ('IntersectionObserver' in window) {
+      const portfolioSliderObserver = new IntersectionObserver((entries) => {
+        portfolioVisible = entries[0]?.isIntersecting ?? true;
+        portfolioVisible ? startPortfolioTimer() : stopPortfolioTimer();
+      }, { threshold: .15 });
+      portfolioSliderObserver.observe(portfolioCarousel);
+    }
+  }
+
   if (portfolioTabs.length && portfolioGroups.length) {
     const initialTab = portfolioTabs.find((tab) => tab.getAttribute('aria-selected') === 'true') || portfolioTabs[0];
     setPortfolioGroup(initialTab.dataset.portfolioTarget);
+  }
+
+  // Process flow cycles through the six stages and remains directly selectable.
+  const processFlow = qs('#processFlow');
+  if (processFlow) {
+    const steps = qsa('[data-process-step]', processFlow);
+    const panels = qsa('[data-process-panel]', processFlow);
+    let processIndex = 0;
+    let processTimer = null;
+    let processVisible = true;
+
+    const stopProcessTimer = () => {
+      if (processTimer) window.clearInterval(processTimer);
+      processTimer = null;
+    };
+    const startProcessTimer = () => {
+      stopProcessTimer();
+      if (reduceMotion || !processVisible) return;
+      processTimer = window.setInterval(() => setProcessStep(processIndex + 1, false), 3400);
+    };
+    const setProcessStep = (index, restart = true) => {
+      if (!steps.length) return;
+      processIndex = (index + steps.length) % steps.length;
+      processFlow.style.setProperty('--process-index', processIndex);
+      steps.forEach((step, i) => {
+        const active = i === processIndex;
+        step.classList.toggle('is-active', active);
+        step.setAttribute('aria-selected', String(active));
+      });
+      panels.forEach((panel, i) => panel.classList.toggle('is-active', i === processIndex));
+      if (restart) startProcessTimer();
+    };
+
+    steps.forEach((step) => step.addEventListener('click', () => setProcessStep(Number(step.dataset.processStep || 0))));
+    processFlow.addEventListener('mouseenter', stopProcessTimer);
+    processFlow.addEventListener('mouseleave', startProcessTimer);
+    processFlow.addEventListener('focusin', stopProcessTimer);
+    processFlow.addEventListener('focusout', startProcessTimer);
+    if ('IntersectionObserver' in window) {
+      const processObserver = new IntersectionObserver((entries) => {
+        processVisible = entries[0]?.isIntersecting ?? true;
+        processVisible ? startProcessTimer() : stopProcessTimer();
+      }, { threshold: .2 });
+      processObserver.observe(processFlow);
+    }
+    setProcessStep(0, false);
+    startProcessTimer();
   }
 
   // Timeline progress based on intersection, without continuous scroll calculations.

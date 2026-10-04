@@ -2,14 +2,7 @@
 
 <html data-preloader="pending" lang="pt-BR">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1WBRRW7W12"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-1WBRRW7W12');
-</script>
+<script src="/js/consent.js"></script>
 
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
@@ -105,8 +98,9 @@
 <div class="hero__copy">
 <p class="eyebrow reveal-item">THIAGO MARTINS <span>/</span> TM21</p>
 <h1 class="hero__title reveal-title" id="hero-title">
-            Criação de sites profissionais<br/>
-            com leitura de <em>negócio.</em>
+            Criação de sites<br/>
+            profissionais com leitura<br/>
+            de <em>negócio.</em>
 </h1>
 <p class="hero__lead reveal-item">
             Sou Thiago Martins, engenheiro de produção. Desenvolvo sites, landing pages, simuladores e ferramentas digitais para empresas e profissionais liberais, com projetos no Rio Grande do Sul, Santa Catarina e atendimento remoto em todo o Brasil.
@@ -117,22 +111,24 @@
 </div>
 <p class="hero__micro reveal-item">Rio Grande do Sul <span>·</span> Santa Catarina <span>·</span> Projetos remotos no Brasil</p>
 </div>
-<div aria-label="Recortes de projetos TM21" class="hero-collage" id="heroCollage">
-<figure class="hero-shot hero-shot--moldar" data-depth="1.2">
-<img alt="Tela do simulador Moldar no passo de revisão da produção" decoding="async" fetchpriority="high" height="918" sizes="(max-width: 720px) 70vw, (max-width: 960px) 56vw, 40vw" src="assets/moldar-revisao.webp" srcset="assets/moldar-revisao-480.webp 480w, assets/moldar-revisao-768.webp 768w, assets/moldar-revisao.webp 1167w" width="1167"/>
-</figure>
-<figure class="hero-shot hero-shot--penafiel" data-depth="0.7">
-<img alt="Hero do projeto conceitual Penafiel &amp; Magalhães" decoding="async" fetchpriority="low" height="876" sizes="(max-width: 720px) 50vw, (max-width: 960px) 45vw, 34vw" src="assets/penafiel-hero.webp" srcset="assets/penafiel-hero-480.webp 480w, assets/penafiel-hero-768.webp 768w, assets/penafiel-hero.webp 1059w" width="1059"/>
-</figure>
-<figure class="hero-shot hero-shot--jobup" data-depth="0.9">
-<img alt="Tela inicial da plataforma JobUp" decoding="async" fetchpriority="low" height="673" sizes="(max-width: 720px) 60vw, (max-width: 960px) 52vw, 40vw" src="assets/jobup-home.webp" srcset="assets/jobup-home-480.webp 480w, assets/jobup-home-768.webp 768w, assets/jobup-home.webp 1418w" width="1418"/>
-</figure>
-<figure class="hero-shot hero-shot--bpo" data-depth="0.5">
-<img alt="Dashboard da aplicação de controladoria com KPIs, alertas, gráfico e planos de ação" decoding="async" fetchpriority="low" height="1100" sizes="(max-width: 960px) 48vw, 38vw" src="assets/bpo-dashboard.webp" srcset="assets/bpo-dashboard-480.webp 480w, assets/bpo-dashboard-768.webp 768w, assets/bpo-dashboard.webp 1193w" width="1193"/>
-</figure>
-<figure class="hero-shot hero-shot--bread" data-depth="0.35">
-<img alt="Hero do projeto demonstrativo BreadVale" decoding="async" fetchpriority="low" height="850" sizes="31vw" src="assets/breadvale-hero.webp" srcset="assets/breadvale-hero-480.webp 480w, assets/breadvale-hero-768.webp 768w, assets/breadvale-hero.webp 1225w" width="1225"/>
-</figure>
+<div aria-label="Recortes de projetos TM21" class="hero-mosaic" id="heroMosaic">
+<div class="hero-mosaic__grid" aria-hidden="true"></div>
+<a class="hero-mosaic__card hero-mosaic__card--penafiel" href="https://sitepenafielmagalhaes.vercel.app/" rel="noopener noreferrer" target="_blank">
+<img alt="Projeto conceitual Penafiel &amp; Magalhães" decoding="async" height="876" loading="eager" src="assets/penafiel-hero-768.webp" width="768"/>
+<span>Penafiel &amp; Magalhães</span>
+</a>
+<a class="hero-mosaic__card hero-mosaic__card--moldar" href="https://sitemoldarcalcadistasimulator.vercel.app/" rel="noopener noreferrer" target="_blank">
+<img alt="Simulador industrial Moldar" decoding="async" fetchpriority="high" height="918" src="assets/moldar-revisao-768.webp" width="768"/>
+<span>Moldar · simulador</span>
+</a>
+<a class="hero-mosaic__card hero-mosaic__card--jobup" href="https://app.jobuptrack.com.br/" rel="noopener noreferrer" target="_blank">
+<img alt="Tela inicial da plataforma JobUp" decoding="async" height="673" loading="lazy" src="assets/jobup-home-768.webp" width="768"/>
+<span>JobUp · produto</span>
+</a>
+<div class="hero-mosaic__card hero-mosaic__card--bpo">
+<img alt="Dashboard da aplicação de controladoria e BPO financeiro" decoding="async" height="1100" loading="lazy" src="assets/bpo-dashboard-768.webp" width="768"/>
+<span>Controladoria / BPO</span>
+</div>
 </div>
 </div>
 <div class="shell hero__bottom reveal-item">
@@ -142,27 +138,50 @@
 </section>
 <section aria-labelledby="projects-title" class="projects section-dark" id="projetos">
 <div aria-hidden="true" class="project-aura" id="projectAura"></div>
-<div class="shell section-intro projects__intro">
+<div class="shell portfolio-stage reveal-item" id="portfolioStage">
+<div class="portfolio-stage__heading">
 <div>
-<p class="eyebrow">PORTFÓLIO</p>
-<h2 class="section-title reveal-title" id="projects-title">Projetos selecionados</h2>
+<p class="eyebrow">PORTFÓLIO / 08 PROJETOS</p>
+<h2 class="portfolio-stage__title reveal-title" id="projects-title">Páginas ou plataformas.</h2>
 </div>
-<p class="section-copy reveal-item">
-          Páginas e plataformas que podem ser abertas e navegadas. Cada projeto é identificado pelo que realmente representa: trabalho próprio, conceito, demonstração, produto em desenvolvimento ou participação em projeto de terceiro.
-        </p>
+<p class="portfolio-stage__lead">Selecione a categoria para ver os projetos. A prévia avança automaticamente e os projetos publicados podem ser abertos.</p>
 </div>
-<div class="shell portfolio-switch-wrap reveal-item">
-<div aria-label="Filtrar projetos por tipo" class="portfolio-switch" role="tablist">
-<button aria-controls="portfolio-pages" aria-selected="true" class="portfolio-tab is-active" data-portfolio-target="pages" id="tab-pages" role="tab" type="button">
-<span>Páginas</span><small>04</small>
+<div aria-label="Filtrar projetos por tipo" class="portfolio-gates" role="tablist">
+<button aria-controls="portfolio-pages" aria-selected="true" class="portfolio-gate is-active" data-portfolio-target="pages" id="tab-pages" role="tab" type="button">
+<span class="portfolio-gate__index">01</span>
+<span class="portfolio-gate__body"><strong>Páginas</strong><small>Sites institucionais, conceitos e demonstrações.</small></span>
+<span class="portfolio-gate__count">04</span>
 </button>
-<button aria-controls="portfolio-platforms" aria-selected="false" class="portfolio-tab" data-portfolio-target="platforms" id="tab-platforms" role="tab" type="button">
-<span>Plataformas</span><small>04</small>
+<button aria-controls="portfolio-platforms" aria-selected="false" class="portfolio-gate" data-portfolio-target="platforms" id="tab-platforms" role="tab" type="button">
+<span class="portfolio-gate__index">02</span>
+<span class="portfolio-gate__body"><strong>Plataformas</strong><small>Simuladores, dashboards e produtos digitais.</small></span>
+<span class="portfolio-gate__count">04</span>
 </button>
 </div>
-<p class="portfolio-switch__hint">Selecione uma categoria para explorar os projetos.</p>
+<div class="portfolio-carousel" id="portfolioCarousel" aria-label="Prévia dos projetos selecionados">
+<div class="portfolio-carousel__set is-active" data-portfolio-carousel-set="pages">
+<div class="portfolio-carousel__track">
+<a class="portfolio-carousel__slide" href="https://sitepenafielmagalhaes.vercel.app/" rel="noopener noreferrer" target="_blank"><img alt="Projeto Penafiel &amp; Magalhães" height="876" loading="lazy" src="assets/penafiel-hero-768.webp" width="768"/><span><b>Penafiel &amp; Magalhães</b><small>Projeto conceitual · Advocacia</small></span></a>
+<a class="portfolio-carousel__slide" href="https://sitedrjairkautzmann.vercel.app/" rel="noopener noreferrer" target="_blank"><img alt="Projeto demonstrativo Dr. Jair Kautzmann" height="917" loading="lazy" src="assets/jair-estetica.webp" width="1421"/><span><b>Dr. Jair Kautzmann</b><small>Projeto demonstrativo · Odontologia</small></span></a>
+<a class="portfolio-carousel__slide" href="https://breadvale.vercel.app/" rel="noopener noreferrer" target="_blank"><img alt="Projeto demonstrativo BreadVale" height="850" loading="lazy" src="assets/breadvale-hero-768.webp" width="768"/><span><b>BreadVale</b><small>Projeto demonstrativo · Indústria alimentícia</small></span></a>
+<a class="portfolio-carousel__slide" href="https://cuidadora-portoalegre-demo.vercel.app/" rel="noopener noreferrer" target="_blank"><img alt="Projeto demonstrativo Cuidados e Enfermagem" height="854" loading="lazy" src="assets/cuidados-hero-768.webp" width="768"/><span><b>Cuidados &amp; Enfermagem</b><small>Projeto demonstrativo · Cuidados domiciliares</small></span></a>
+</div></div>
+<div class="portfolio-carousel__set" data-portfolio-carousel-set="platforms" hidden>
+<div class="portfolio-carousel__track">
+<a class="portfolio-carousel__slide" href="https://sitemoldarcalcadistasimulator.vercel.app/" rel="noopener noreferrer" target="_blank"><img alt="Simulador industrial Moldar" height="918" loading="lazy" src="assets/moldar-revisao-768.webp" width="768"/><span><b>Moldar</b><small>Projeto próprio · Simulador industrial</small></span></a>
+<div class="portfolio-carousel__slide"><img alt="Aplicação de Controladoria e BPO Financeiro" height="1100" loading="lazy" src="assets/bpo-dashboard-768.webp" width="768"/><span><b>Controladoria / BPO Financeiro</b><small>Em desenvolvimento</small></span></div>
+<a class="portfolio-carousel__slide" href="https://thglearn.com/" rel="noopener noreferrer" target="_blank"><img alt="Produto digital THG Learn" height="652" loading="lazy" src="assets/thg-learn-home.webp" width="1396"/><span><b>THG Learn</b><small>Projeto próprio · Produto digital</small></span></a>
+<a class="portfolio-carousel__slide" href="https://app.jobuptrack.com.br/" rel="noopener noreferrer" target="_blank"><img alt="Plataforma JobUp" height="673" loading="lazy" src="assets/jobup-home-768.webp" width="768"/><span><b>JobUp</b><small>Participação em produto</small></span></a>
+</div></div>
+<div class="portfolio-carousel__progress" aria-label="Progresso do carrossel">
+<button class="is-active" data-portfolio-slide-target="0" type="button" aria-label="Projeto 1"><span></span></button>
+<button data-portfolio-slide-target="1" type="button" aria-label="Projeto 2"><span></span></button>
+<button data-portfolio-slide-target="2" type="button" aria-label="Projeto 3"><span></span></button>
+<button data-portfolio-slide-target="3" type="button" aria-label="Projeto 4"><span></span></button>
 </div>
-<div class="shell projects-callout reveal-item"><span>08 projetos selecionados</span><strong>Abra os projetos publicados e navegue pela experiência completa.</strong><span class="projects-callout__arrow" aria-hidden="true">↓</span></div>
+</div>
+<div class="portfolio-stage__footer"><span>Depois da prévia, a lista completa mostra contexto, classificação e links de cada projeto.</span><span aria-hidden="true">↓</span></div>
+</div>
 <div class="projects-list">
 <div aria-labelledby="tab-pages" class="portfolio-group is-active" data-portfolio-group="pages" id="portfolio-pages" role="tabpanel">
 <article class="project project--penafiel" data-project-color="#9A744B">
@@ -343,7 +362,7 @@
 <ul aria-label="Áreas de atuação na JobUp" class="project__tags">
 <li>Produto</li><li>Discovery</li><li>Competências</li><li>Regras de negócio</li><li>Operação</li>
 </ul>
-<a class="button button--dark" href="https://app.jobuptrack.com.br/" rel="noopener noreferrer" target="_blank">Conhecer o JobUp <span>↗</span></a>
+<a class="button button--dark" href="https://app.jobuptrack.com.br/" rel="noopener noreferrer" target="_blank">Conhecer a JobUp <span>↗</span></a>
 </div>
 </div>
 </article>
@@ -354,45 +373,56 @@
 <div class="shell deliverables__grid">
 <div class="deliverables__intro">
 <p class="eyebrow">O QUE VOCÊ RECEBE</p>
-<h2 class="section-title reveal-title" id="deliverables-title">Um site completo, publicado e preparado para busca e contato.</h2>
-<p class="section-copy reveal-item">O projeto organiza o que hoje pode estar espalhado entre Instagram, Google, indicação e WhatsApp e transforma isso em um destino próprio, claro e utilizável.</p>
-<div class="deliverables__summary reveal-item" aria-label="Resumo do que está incluído"><span>Mobile</span><span>WhatsApp / formulário</span><span>SEO técnico</span><span>Publicação</span><span>60 dias de ajustes*</span></div>
-<p class="deliverables__note reveal-item">* Pequenos ajustes de conteúdo e correções dentro da estrutura aprovada. Novas páginas, seções, integrações, funcionalidades ou mudanças de direção visual são orçadas separadamente. Search Console, Analytics, blog e SEO contínuo podem entrar como uma etapa adicional quando o objetivo pedir mensuração e crescimento orgânico.</p>
+<h2 class="section-title reveal-title" id="deliverables-title">O que entra no projeto.</h2>
+<p class="section-copy reveal-item">Uma presença digital clara, responsiva e pronta para apresentar seus serviços, facilitar o contato e começar a construir presença nas buscas.</p>
+<div class="deliverables__summary reveal-item" aria-label="Resumo do que está incluído"><span>Responsivo</span><span>WhatsApp + formulário</span><span>SEO básico</span><span>Publicação</span><span>60 dias de ajustes*</span></div>
 </div>
 <div class="deliverable-list">
-<article class="deliverable-item reveal-item"><span>01</span><div><h3>Diagnóstico e arquitetura</h3><p>Negócio, público, serviços, objetivo, materiais e prioridades são organizados antes do layout. A saída é uma estrutura clara para a página.</p></div></article>
-<article class="deliverable-item reveal-item"><span>02</span><div><h3>Conteúdo e direção visual</h3><p>Hierarquia, textos principais, CTAs, paleta, tipografia e imagens são trabalhados para conversar com a identidade que o negócio já construiu.</p></div></article>
-<article class="deliverable-item reveal-item"><span>03</span><div><h3>Desenvolvimento responsivo</h3><p>Site funcional em desktop e celular, com navegação, WhatsApp, formulário e interações previstas no escopo.</p></div></article>
-<article class="deliverable-item reveal-item"><span>04</span><div><h3>Base técnica para Google</h3><p>Title, meta description, headings, sitemap, conteúdo semântico, performance e estrutura para rastreamento e indexação. Sem promessa de posição.</p></div></article>
-<article class="deliverable-item reveal-item"><span>05</span><div><h3>Publicação e acompanhamento inicial</h3><p>Versionamento, deploy, HTTPS, domínio quando contratado, revisão final e janela de até 60 dias para pequenos ajustes dentro do escopo aprovado.</p></div></article>
+<article class="deliverable-item reveal-item"><span>01</span><div><h3>Oferta organizada</h3><p>Serviços, diferenciais, informações importantes e chamadas para contato distribuídos de forma clara.</p></div></article>
+<article class="deliverable-item reveal-item"><span>02</span><div><h3>Visual alinhado à marca</h3><p>Layout, paleta, tipografia, imagens e textos trabalhados para transmitir uma apresentação coerente e profissional.</p></div></article>
+<article class="deliverable-item reveal-item"><span>03</span><div><h3>Boa experiência no celular e no computador</h3><p>Navegação, formulários, WhatsApp e interações revisados nos principais tamanhos de tela.</p></div></article>
+<article class="deliverable-item reveal-item"><span>04</span><div><h3>Base para aparecer no Google</h3><p>Títulos, hierarquia, sitemap, metadados e conteúdo organizados para facilitar rastreamento e indexação.</p></div></article>
+<article class="deliverable-item reveal-item"><span>05</span><div><h3>Site no ar e revisão final</h3><p>Publicação, conexão do domínio quando incluído, conferência final e acompanhamento inicial após a entrega.</p></div></article>
 </div>
+<p class="deliverables__scope-note reveal-item"><strong>* Ajustes iniciais:</strong> por até 60 dias após a publicação, estão incluídas pequenas correções de conteúdo dentro da estrutura aprovada. Novas páginas, integrações, funcionalidades ou mudanças de direção visual são orçadas separadamente.</p>
 </div>
 </section>
-<section aria-labelledby="method-title" class="method section-dark" id="metodo">
-<div class="shell method__grid">
-<div class="method__intro">
+<section aria-labelledby="method-title" class="method method--flow section-dark" id="metodo">
+<div class="shell method__top">
+<div>
 <p class="eyebrow">PROCESSO</p>
-<h2 class="section-title reveal-title" id="method-title">Do contexto à página publicada.</h2>
-<p class="section-copy reveal-item">Eu não começo pelo layout. Primeiro organizo o que precisa ser comunicado e qual função a página deve cumprir. A partir daí, o projeto avança por etapas claras até publicação, revisão e acompanhamento inicial.</p>
-<a class="button button--light reveal-item" href="#contato">Conversar sobre um projeto <span>↓</span></a>
+<h2 class="section-title reveal-title" id="method-title">Da primeira conversa à publicação.</h2>
 </div>
-<div aria-label="Etapas de trabalho em um projeto" class="method-grid">
-<article class="method-card reveal-item"><span>01</span><h3>Entender</h3><p>Negócio, público, serviços, objetivo, referências e material disponível.</p><small>Saída: briefing e direção do projeto.</small></article>
-<article class="method-card reveal-item"><span>02</span><h3>Organizar</h3><p>Estrutura da página, proposta de valor, conteúdo, CTAs e prioridades de informação.</p><small>Saída: arquitetura e copy-base.</small></article>
-<article class="method-card reveal-item"><span>03</span><h3>Definir o visual</h3><p>Paleta, tipografia, imagens, composição e coerência com a identidade existente.</p><small>Saída: direção visual aprovada.</small></article>
-<article class="method-card reveal-item"><span>04</span><h3>Desenvolver</h3><p>Construção da página, responsividade, interações e recursos previstos no escopo.</p><small>Saída: primeira versão funcional.</small></article>
-<article class="method-card reveal-item"><span>05</span><h3>Revisar</h3><p>Mobile, links, WhatsApp, formulário, textos, SEO técnico, performance e QA final.</p><small>Saída: versão pronta para publicação.</small></article>
-<article class="method-card reveal-item"><span>06</span><h3>Publicar e acompanhar</h3><p>Deploy, domínio quando contratado, conferência final e janela de ajustes dentro do escopo entregue.</p><small>Saída: projeto no ar e validado.</small></article>
+<p class="section-copy reveal-item">O projeto avança em etapas para organizar o conteúdo, definir a apresentação, construir a página e revisar tudo antes de colocar no ar.</p>
+</div>
+<div class="shell process-flow reveal-item" id="processFlow">
+<div class="process-flow__rail" role="tablist" aria-label="Etapas do projeto">
+<button class="process-flow__step is-active" type="button" role="tab" aria-selected="true" data-process-step="0"><span>01</span><small>Contexto</small></button>
+<button class="process-flow__step" type="button" role="tab" aria-selected="false" data-process-step="1"><span>02</span><small>Estrutura</small></button>
+<button class="process-flow__step" type="button" role="tab" aria-selected="false" data-process-step="2"><span>03</span><small>Visual</small></button>
+<button class="process-flow__step" type="button" role="tab" aria-selected="false" data-process-step="3"><span>04</span><small>Construção</small></button>
+<button class="process-flow__step" type="button" role="tab" aria-selected="false" data-process-step="4"><span>05</span><small>Revisão</small></button>
+<button class="process-flow__step" type="button" role="tab" aria-selected="false" data-process-step="5"><span>06</span><small>Publicação</small></button>
+<div class="process-flow__progress" aria-hidden="true"><span></span></div>
+</div>
+<div class="process-flow__panels">
+<article class="process-flow__panel is-active" data-process-panel="0"><span>01 / CONTEXTO</span><h3>Entender o negócio e o objetivo</h3><p>Serviços, público, prioridades, referências e material disponível entram no primeiro alinhamento.</p><small>Resultado desta etapa: briefing e direção do projeto.</small></article>
+<article class="process-flow__panel" data-process-panel="1"><span>02 / ESTRUTURA</span><h3>Organizar o que precisa aparecer</h3><p>Defino a ordem da página, os pontos que merecem destaque e os caminhos para contato.</p><small>Resultado desta etapa: estrutura e conteúdo-base.</small></article>
+<article class="process-flow__panel" data-process-panel="2"><span>03 / VISUAL</span><h3>Definir a apresentação</h3><p>Paleta, tipografia, imagens e composição são alinhadas à identidade existente ou à direção aprovada.</p><small>Resultado desta etapa: linguagem visual definida.</small></article>
+<article class="process-flow__panel" data-process-panel="3"><span>04 / CONSTRUÇÃO</span><h3>Transformar a estrutura em página</h3><p>O conteúdo vira uma versão navegável, responsiva e pronta para as interações previstas no projeto.</p><small>Resultado desta etapa: primeira versão funcional.</small></article>
+<article class="process-flow__panel" data-process-panel="4"><span>05 / REVISÃO</span><h3>Revisar antes de colocar no ar</h3><p>Celular, computador, links, formulário, WhatsApp, conteúdo, velocidade e configurações de busca passam por conferência.</p><small>Resultado desta etapa: versão pronta para publicação.</small></article>
+<article class="process-flow__panel" data-process-panel="5"><span>06 / PUBLICAÇÃO</span><h3>Publicar e conferir a entrega</h3><p>Conecto o endereço do site quando previsto, publico a versão final e faço uma última conferência no ambiente real.</p><small>Resultado desta etapa: site publicado e validado.</small></article>
 </div>
 </div>
+<div class="shell method__cta"><a class="button button--light reveal-item" href="#contato">Conversar sobre um projeto <span>↓</span></a></div>
 </section>
-<section aria-labelledby="capabilities-title" class="capabilities section-light" id="atuacao">
-<div class="shell section-intro section-intro--light">
+<section aria-labelledby="capabilities-title" class="capabilities capabilities--muted section-light" id="atuacao">
+<div class="shell section-intro section-intro--light capabilities__intro">
 <div>
 <p class="eyebrow">ATUAÇÃO</p>
-<h2 class="section-title reveal-title" id="capabilities-title">O que eu desenvolvo</h2>
+<h2 class="section-title reveal-title" id="capabilities-title">Além de sites.</h2>
 </div>
-<p class="section-copy reveal-item">Além de sites, desenvolvo ferramentas quando o problema pede regras, cálculo, organização de informação ou apoio à decisão.</p>
+<p class="section-copy reveal-item">Também desenvolvo simuladores, ferramentas e produtos digitais quando o projeto precisa organizar regras, informação, cálculo ou tomada de decisão.</p>
 </div>
 <div class="shell capability-list">
 <article class="capability-row reveal-item">
@@ -422,35 +452,26 @@
 </div>
 </section>
 
-<section aria-labelledby="seo-entry-title" class="seo-entry section-light" id="regioes">
+<section aria-labelledby="seo-entry-title" class="seo-entry seo-entry--network section-light" id="regioes">
 <div class="shell seo-entry__grid">
 <div class="seo-entry__intro">
 <p class="eyebrow">ATENDIMENTO</p>
-<h2 class="section-title reveal-title" id="seo-entry-title">RS, SC e projetos remotos em todo o Brasil.</h2>
-<p class="section-copy reveal-item">A base da operação está no Rio Grande do Sul, com atendimento remoto para empresas e profissionais de outras cidades e estados. O processo foi estruturado para funcionar tanto em projetos regionais quanto em trabalhos conduzidos integralmente online.</p>
+<h2 class="section-title reveal-title" id="seo-entry-title">RS e SC como base. Atendimento remoto no Brasil.</h2>
+<p class="section-copy reveal-item">A operação está no Sul, com projetos para empresas e profissionais de outras cidades e estados conduzidos online quando fizer sentido.</p>
+<div class="coverage-globe reveal-item" aria-hidden="true">
+<div class="coverage-globe__orbit"><span></span><span></span><span></span></div>
+<svg viewBox="0 0 120 120" role="img"><circle cx="60" cy="60" r="42"></circle><ellipse cx="60" cy="60" rx="20" ry="42"></ellipse><ellipse cx="60" cy="60" rx="42" ry="18"></ellipse><path d="M18 60h84M60 18v84"></path></svg>
+<span>TM21 / CONEXÃO REMOTA</span>
 </div>
-<div class="seo-entry__cards">
-<a class="seo-entry-card reveal-item" href="/rio-grande-do-sul/"><span>01</span><div><small>RIO GRANDE DO SUL</small><h3>Criação de sites no RS</h3><p>Vale do Paranhana, Região Metropolitana, Serra e projetos remotos em outras cidades do estado.</p></div><b>↗</b></a>
-<a class="seo-entry-card reveal-item" href="/santa-catarina/"><span>02</span><div><small>SANTA CATARINA</small><h3>Criação de sites em SC</h3><p>Atendimento remoto para profissionais e empresas em Florianópolis, Joinville, Blumenau, Itajaí e demais regiões.</p></div><b>↗</b></a>
-<a class="seo-entry-card reveal-item" href="/criacao-de-sites/"><span>03</span><div><small>SERVIÇO</small><h3>Criação de sites profissionais</h3><p>Escopo, entregáveis, processo de trabalho e exemplos para empresas e profissionais liberais.</p></div><b>↗</b></a>
 </div>
-</div>
-</section>
-<section aria-labelledby="home-blog-title" class="home-blog section-light" id="conteudos">
-<div class="shell home-blog__grid">
-<div class="home-blog__intro">
-<p class="eyebrow">CONTEÚDO</p>
-<h2 class="section-title reveal-title" id="home-blog-title">Dúvidas que aparecem antes de contratar um site.</h2>
-<p class="section-copy reveal-item">Preço, prazo, Google, Instagram e estrutura. O blog começa por perguntas de decisão, não por conteúdo genérico para preencher calendário.</p>
-<a class="text-link reveal-item" href="/blog/">Ver todos os conteúdos <span>↗</span></a>
-</div>
-<div class="home-blog__list">
-<a class="home-blog__item home-blog__item--featured reveal-item" href="/quanto-custa-criar-um-site/"><span>01</span><div><small>GUIA DE PREÇO · NOVO</small><h3>Quanto custa criar um site profissional?</h3><p>O que realmente muda o orçamento e como comparar propostas sem olhar apenas para o número final.</p></div><b>↗</b></a>
-<a class="home-blog__item reveal-item" href="/blog/como-colocar-site-no-google/"><span>02</span><div><small>SEO &amp; GOOGLE</small><h3>Como colocar um site no Google?</h3><p>O que acontece entre publicar, indexar e começar a disputar buscas reais.</p></div><b>↗</b></a>
-<a class="home-blog__item reveal-item" href="/blog/instagram-substitui-site/"><span>03</span><div><small>ESTRATÉGIA</small><h3>Instagram substitui um site?</h3><p>Como os canais podem trabalhar juntos em vez de competir pela mesma função.</p></div><b>↗</b></a>
+<div class="seo-entry__cards coverage-network">
+<a class="seo-entry-card reveal-item" href="/rio-grande-do-sul/"><span class="region-flag"><img src="/assets/flag-rs.webp" alt="Bandeira do Rio Grande do Sul" width="360" height="237" loading="lazy"></span><div><small>RIO GRANDE DO SUL</small><h3>Criação de sites no RS</h3><p>Vale do Paranhana, Região Metropolitana, Serra e projetos remotos em outras cidades do estado.</p></div><b>↗</b></a>
+<a class="seo-entry-card reveal-item" href="/santa-catarina/"><span class="region-flag"><img src="/assets/flag-sc.webp" alt="Bandeira de Santa Catarina" width="333" height="240" loading="lazy"></span><div><small>SANTA CATARINA</small><h3>Criação de sites em SC</h3><p>Atendimento remoto para profissionais e empresas em Florianópolis, Joinville, Blumenau, Itajaí e demais regiões.</p></div><b>↗</b></a>
+<a class="seo-entry-card reveal-item" href="/criacao-de-sites/"><span class="region-flag"><img src="/assets/flag-br.webp" alt="Bandeira do Brasil" width="343" height="240" loading="lazy"></span><div><small>BRASIL / REMOTO</small><h3>Projetos em outras regiões</h3><p>Briefing, revisão, publicação e acompanhamento podem ser conduzidos integralmente online.</p></div><b>↗</b></a>
 </div>
 </div>
 </section>
+
 
 
 <section aria-labelledby="experience-title" class="experience section-light" id="experiencia">
@@ -499,7 +520,7 @@
 <div class="shell contact__grid">
 <div class="contact__intro">
 <p class="eyebrow">PROJETOS E PARCERIAS</p>
-<h2 class="section-title reveal-title" id="contact-title">Vamos conversar sobre seu projeto?</h2>
+<h2 class="section-title reveal-title" id="contact-title">Vamos conversar sobre o seu projeto?</h2>
 <p class="contact__lead reveal-item">Projetos digitais, ferramentas, simuladores, parcerias ou uma oportunidade profissional. Me explique o contexto e eu retorno.</p>
 <div class="contact-links reveal-item">
 <a href="https://wa.me/5551997890145?text=Ol%C3%A1%2C%20Thiago.%20Encontrei%20seu%20portf%C3%B3lio%20TM21%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto." rel="noopener noreferrer" target="_blank">
@@ -565,7 +586,7 @@
 </div>
 </div>
 <input aria-hidden="true" autocomplete="off" class="form-honeypot" name="_honey" tabindex="-1" type="text"/>
-<p class="form-note" id="formNote">Envio direto pelo site. Seus dados serão usados somente para responder ao contato.</p>
+<p class="form-note" id="formNote">Os dados enviados serão usados para responder ao contato. Consulte a <a href="/privacidade/">Política de Privacidade</a>.</p>
 <button class="button button--dark contact-form__submit" id="contactSubmit" type="submit">
 <span class="contact-form__submit-label">Enviar mensagem</span>
 <span aria-hidden="true">↗</span>
@@ -597,6 +618,8 @@
 <div class="shell footer__bottom">
 <span>© 2026 TM21</span>
 <span>RS · SC · Brasil</span>
+<a class="footer-meta-link" href="/privacidade/">Privacidade</a>
+<button class="cookie-settings-link" type="button" data-cookie-settings>Cookies</button>
 <a aria-label="Voltar ao topo da página" class="back-to-top" href="#top">Voltar ao topo <span aria-hidden="true">↑</span></a>
 </div>
 </footer>
