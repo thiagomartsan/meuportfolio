@@ -1,3 +1,5 @@
+TM21 Portfolio V19 — Blog filters + editorial carousel
+
 # TM21 — V17
 
 Versão focada em diferenciação visual da home, equilíbrio de blocos, privacidade e consentimento.

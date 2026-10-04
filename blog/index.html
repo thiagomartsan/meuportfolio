@@ -31,89 +31,151 @@
   <div class="shell blog-toolbar__grid">
     <label class="blog-search" for="blogSearch">
       <span>Buscar no blog</span>
-      <div class="blog-search__field"><input id="blogSearch" type="search" placeholder="Ex.: preço, Google, Instagram" autocomplete="off"><span aria-hidden="true">⌕</span></div>
+      <div class="blog-search__field"><input id="blogSearch" type="search" placeholder="Busque por tema, dúvida ou palavra" autocomplete="off" aria-describedby="blogFilterStatus"><span aria-hidden="true">⌕</span></div>
     </label>
     <div class="blog-filters" aria-label="Filtrar artigos por assunto">
       <span>Assuntos</span>
       <button type="button" class="blog-filter is-active" data-blog-filter="all">Todos</button>
-      <button type="button" class="blog-filter" data-blog-filter="preco">Preço e contratação</button>
-      <button type="button" class="blog-filter" data-blog-filter="google">Google e SEO</button>
-      <button type="button" class="blog-filter" data-blog-filter="processo">Processo</button>
-      <button type="button" class="blog-filter" data-blog-filter="presenca">Presença digital</button>
+      <button type="button" class="blog-filter" data-blog-filter="seo">SEO &amp; Google</button>
+      <button type="button" class="blog-filter" data-blog-filter="processo">Processo de criação</button>
+      <button type="button" class="blog-filter" data-blog-filter="preco">Preço &amp; contratação</button>
+      <button type="button" class="blog-filter" data-blog-filter="posicionamento">Posicionamento digital</button>
+    </div>
+    <p class="blog-filter-status" id="blogFilterStatus" aria-live="polite">5 conteúdos disponíveis</p>
+  </div>
+</section>
+
+<section class="blog-showcase-v19 section-light" aria-labelledby="destaque-blog">
+  <div class="shell">
+    <div class="blog-showcase-head-v19">
+      <div><p class="eyebrow" id="destaque-blog">EM DESTAQUE</p><p class="blog-showcase-caption" id="blogShowcaseCaption">Uma seleção dos conteúdos publicados na TM21.</p></div>
+      <div class="blog-showcase-controls" aria-label="Navegar pelos artigos em destaque">
+        <button type="button" id="blogFeaturePrev" aria-label="Artigo anterior">←</button>
+        <div class="blog-feature-dots" id="blogFeatureDots" aria-hidden="false"></div>
+        <button type="button" id="blogFeatureNext" aria-label="Próximo artigo">→</button>
+      </div>
+    </div>
+
+    <div class="blog-feature-carousel-v19" id="blogFeatureCarousel" aria-live="polite">
+      <article class="blog-feature-slide-v19 is-active" data-feature-slide data-topic="preco" data-search="quanto custa criar um site profissional preço orçamento escopo contratação páginas conteúdo publicação">
+        <div class="blog-feature-slide-v19__copy">
+          <div class="blog-card-meta-v19"><span>PREÇO &amp; CONTRATAÇÃO</span><span>03 OUT 2026 · 7 MIN</span></div>
+          <h2><a href="/quanto-custa-criar-um-site/">Quanto custa criar um site profissional?</a></h2>
+          <p>O que muda um orçamento de site e quais itens precisam ser comparados antes de decidir pelo valor.</p>
+          <a class="blog-read-link" href="/quanto-custa-criar-um-site/">Ler artigo <span>↗</span></a>
+        </div>
+        <a class="blog-feature-slide-v19__media" href="/quanto-custa-criar-um-site/" aria-label="Ler artigo Quanto custa criar um site profissional?">
+          <img src="/assets/blog-custo-1280.webp" srcset="/assets/blog-custo-720.webp 720w, /assets/blog-custo-1280.webp 1280w" sizes="(max-width:900px) 100vw, 55vw" width="1280" height="720" fetchpriority="high" decoding="async" alt="Profissional analisando custos e escopo de um projeto de site em computador e planilhas">
+        </a>
+      </article>
+
+      <article class="blog-feature-slide-v19" data-feature-slide data-topic="preco" data-search="site precisa pagar mensalidade custo domínio manutenção pagamento único recorrente">
+        <div class="blog-feature-slide-v19__copy">
+          <div class="blog-card-meta-v19"><span>PREÇO &amp; CONTRATAÇÃO</span><span>03 OUT 2026 · 5 MIN</span></div>
+          <h2><a href="/blog/site-precisa-pagar-mensalidade/">Site precisa pagar mensalidade?</a></h2>
+          <p>Domínio, ferramentas, suporte e manutenção têm naturezas diferentes. O artigo separa o que pode ser pontual do que pode continuar.</p>
+          <a class="blog-read-link" href="/blog/site-precisa-pagar-mensalidade/">Ler artigo <span>↗</span></a>
+        </div>
+        <a class="blog-feature-slide-v19__media" href="/blog/site-precisa-pagar-mensalidade/" aria-label="Ler artigo Site precisa pagar mensalidade?">
+          <img src="/assets/blog-mensalidade-1280.webp" srcset="/assets/blog-mensalidade-720.webp 720w, /assets/blog-mensalidade-1280.webp 1280w" sizes="(max-width:900px) 100vw, 55vw" width="1280" height="720" loading="lazy" decoding="async" alt="Custos de domínio, ferramentas e manutenção relacionados a um site">
+        </a>
+      </article>
+
+      <article class="blog-feature-slide-v19" data-feature-slide data-topic="posicionamento" data-search="instagram substitui site rede social presença digital posicionamento canal conteúdo whatsapp">
+        <div class="blog-feature-slide-v19__copy">
+          <div class="blog-card-meta-v19"><span>POSICIONAMENTO DIGITAL</span><span>03 OUT 2026 · 6 MIN</span></div>
+          <h2><a href="/blog/instagram-substitui-site/">Instagram substitui um site?</a></h2>
+          <p>Quando a rede social já funciona bem, o site pode assumir outra função: organizar oferta, busca, contexto e contato em um endereço próprio.</p>
+          <a class="blog-read-link" href="/blog/instagram-substitui-site/">Ler artigo <span>↗</span></a>
+        </div>
+        <a class="blog-feature-slide-v19__media" href="/blog/instagram-substitui-site/" aria-label="Ler artigo Instagram substitui um site?">
+          <img src="/assets/blog-instagram-site-1280.webp" srcset="/assets/blog-instagram-site-720.webp 720w, /assets/blog-instagram-site-1280.webp 1280w" sizes="(max-width:900px) 100vw, 55vw" width="1280" height="720" loading="lazy" decoding="async" alt="Comparação visual entre rede social e site profissional">
+        </a>
+      </article>
+
+      <article class="blog-feature-slide-v19" data-feature-slide data-topic="processo" data-search="quanto tempo demora criar site prazo briefing conteúdo revisão publicação processo criação">
+        <div class="blog-feature-slide-v19__copy">
+          <div class="blog-card-meta-v19"><span>PROCESSO DE CRIAÇÃO</span><span>03 OUT 2026 · 5 MIN</span></div>
+          <h2><a href="/blog/quanto-tempo-demora-criar-site/">Quanto tempo demora para criar um site?</a></h2>
+          <p>O prazo depende de escopo, conteúdo, validações e integrações. O texto mostra onde o tempo costuma ser consumido.</p>
+          <a class="blog-read-link" href="/blog/quanto-tempo-demora-criar-site/">Ler artigo <span>↗</span></a>
+        </div>
+        <a class="blog-feature-slide-v19__media" href="/blog/quanto-tempo-demora-criar-site/" aria-label="Ler artigo Quanto tempo demora para criar um site?">
+          <img src="/assets/blog-prazo-1280.webp" srcset="/assets/blog-prazo-720.webp 720w, /assets/blog-prazo-1280.webp 1280w" sizes="(max-width:900px) 100vw, 55vw" width="1280" height="720" loading="lazy" decoding="async" alt="Planejamento de etapas e prazo para desenvolvimento de um site">
+        </a>
+      </article>
+
+      <article class="blog-feature-slide-v19" data-feature-slide data-topic="seo" data-search="como colocar site no google seo indexação search console sitemap pesquisa orgânica busca">
+        <div class="blog-feature-slide-v19__copy">
+          <div class="blog-card-meta-v19"><span>SEO &amp; GOOGLE</span><span>03 OUT 2026 · 7 MIN</span></div>
+          <h2><a href="/blog/como-colocar-site-no-google/">Como colocar um site no Google?</a></h2>
+          <p>Publicação, indexação, Search Console e estrutura técnica são partes diferentes do processo de aparecer em pesquisas.</p>
+          <a class="blog-read-link" href="/blog/como-colocar-site-no-google/">Ler artigo <span>↗</span></a>
+        </div>
+        <a class="blog-feature-slide-v19__media" href="/blog/como-colocar-site-no-google/" aria-label="Ler artigo Como colocar um site no Google?">
+          <img src="/assets/blog-google-1280.webp" srcset="/assets/blog-google-720.webp 720w, /assets/blog-google-1280.webp 1280w" sizes="(max-width:900px) 100vw, 55vw" width="1280" height="720" loading="lazy" decoding="async" alt="Profissional analisando dados de busca, indexação e desempenho no Google">
+        </a>
+      </article>
     </div>
   </div>
 </section>
 
-<section class="blog-featured-v18 section-light" aria-labelledby="destaque-blog">
+<section class="blog-catalog blog-catalog-v19 section-light" id="artigos" aria-labelledby="todos-artigos">
   <div class="shell">
-    <div class="blog-kicker-row"><p class="eyebrow">EM DESTAQUE</p><span>03 out 2026 · 7 min de leitura</span></div>
-    <article class="blog-feature-v18">
-      <a class="blog-feature-v18__media" href="/quanto-custa-criar-um-site/" aria-label="Ler artigo Quanto custa criar um site profissional?">
-        <img src="/assets/blog-custo-1280.webp" srcset="/assets/blog-custo-720.webp 720w, /assets/blog-custo-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 56vw" width="1280" height="720" fetchpriority="high" decoding="async" alt="Profissional analisando custos e escopo de um projeto de site em computador e planilhas">
-      </a>
-      <div class="blog-feature-v18__copy">
-        <span class="blog-category">PREÇO E CONTRATAÇÃO</span>
-        <h2 id="destaque-blog"><a href="/quanto-custa-criar-um-site/">Quanto custa criar um site profissional?</a></h2>
-        <p>O preço muda conforme escopo, número de páginas, conteúdo, direção visual, integrações, publicação e suporte. O artigo mostra o que comparar antes de olhar apenas para o valor final.</p>
-        <a class="blog-read-link" href="/quanto-custa-criar-um-site/">Ler artigo <span>↗</span></a>
-      </div>
-    </article>
-  </div>
-</section>
-
-<section class="blog-catalog section-light" id="artigos" aria-labelledby="todos-artigos">
-  <div class="shell">
-    <div class="blog-section-head-v18">
-      <div><p class="eyebrow">ARTIGOS</p><h2 id="todos-artigos">Todos os conteúdos publicados</h2></div>
-      <p>Preço, prazo, Google, canais e manutenção. A seleção atual cobre dúvidas frequentes de quem está avaliando, publicando ou reorganizando um site.</p>
+    <div class="blog-section-head-v19">
+      <div><p class="eyebrow">MAIS RECENTES</p><h2 id="todos-artigos">Conteúdos publicados</h2></div>
+      <p id="blogCatalogContext">Todos os artigos continuam disponíveis abaixo. Busca e filtros atualizam esta seleção na hora.</p>
     </div>
     <div class="blog-catalog-grid" id="blogCatalog">
       <article class="blog-catalog-item" data-blog-entry data-topic="preco" data-search="quanto custa criar um site profissional preço orçamento escopo contratação páginas conteúdo publicação">
         <a href="/quanto-custa-criar-um-site/">
           <figure><img src="/assets/blog-custo-720.webp" width="720" height="405" loading="lazy" decoding="async" alt="Análise de preço, orçamento e escopo para criação de site"></figure>
-          <div class="blog-catalog-item__body"><div class="blog-card-meta-v18"><span>Preço e contratação</span><span>03 out 2026 · 7 min</span></div><h3>Quanto custa criar um site profissional?</h3><p>Os fatores que mudam um orçamento e o que vale comparar entre propostas.</p><span class="blog-read-link">Ler artigo <b>↗</b></span></div>
+          <div class="blog-catalog-item__body"><div class="blog-card-meta-v18"><span>Preço &amp; contratação</span><span>03 out 2026 · 7 min</span></div><h3>Quanto custa criar um site profissional?</h3><p>Os fatores que mudam um orçamento e o que vale comparar entre propostas.</p><span class="blog-read-link">Ler artigo <b>↗</b></span></div>
         </a>
       </article>
       <article class="blog-catalog-item" data-blog-entry data-topic="preco" data-search="site precisa pagar mensalidade custo domínio manutenção pagamento único recorrente">
         <a href="/blog/site-precisa-pagar-mensalidade/">
           <figure><img src="/assets/blog-mensalidade-720.webp" width="720" height="405" loading="lazy" decoding="async" alt="Custos de domínio, ferramentas e manutenção relacionados a um site"></figure>
-          <div class="blog-catalog-item__body"><div class="blog-card-meta-v18"><span>Preço e contratação</span><span>03 out 2026 · 5 min</span></div><h3>Site precisa pagar mensalidade?</h3><p>O que pode ser pago uma vez e quais custos podem continuar existindo.</p><span class="blog-read-link">Ler artigo <b>↗</b></span></div>
+          <div class="blog-catalog-item__body"><div class="blog-card-meta-v18"><span>Preço &amp; contratação</span><span>03 out 2026 · 5 min</span></div><h3>Site precisa pagar mensalidade?</h3><p>O que pode ser pago uma vez e quais custos podem continuar existindo.</p><span class="blog-read-link">Ler artigo <b>↗</b></span></div>
         </a>
       </article>
-      <article class="blog-catalog-item" data-blog-entry data-topic="presenca" data-search="instagram substitui site rede social presença digital canal conteúdo whatsapp">
+      <article class="blog-catalog-item" data-blog-entry data-topic="posicionamento" data-search="instagram substitui site rede social presença digital posicionamento canal conteúdo whatsapp">
         <a href="/blog/instagram-substitui-site/">
           <figure><img src="/assets/blog-instagram-site-720.webp" width="720" height="405" loading="lazy" decoding="async" alt="Comparação visual entre rede social e site profissional"></figure>
-          <div class="blog-catalog-item__body"><div class="blog-card-meta-v18"><span>Presença digital</span><span>03 out 2026 · 6 min</span></div><h3>Instagram substitui um site?</h3><p>Como site e rede social podem ocupar funções diferentes na presença digital.</p><span class="blog-read-link">Ler artigo <b>↗</b></span></div>
+          <div class="blog-catalog-item__body"><div class="blog-card-meta-v18"><span>Posicionamento digital</span><span>03 out 2026 · 6 min</span></div><h3>Instagram substitui um site?</h3><p>Como site e rede social podem ocupar funções diferentes na presença digital.</p><span class="blog-read-link">Ler artigo <b>↗</b></span></div>
         </a>
       </article>
-      <article class="blog-catalog-item" data-blog-entry data-topic="processo" data-search="quanto tempo demora criar site prazo briefing conteúdo revisão publicação processo">
+      <article class="blog-catalog-item" data-blog-entry data-topic="processo" data-search="quanto tempo demora criar site prazo briefing conteúdo revisão publicação processo criação">
         <a href="/blog/quanto-tempo-demora-criar-site/">
           <figure><img src="/assets/blog-prazo-720.webp" width="720" height="405" loading="lazy" decoding="async" alt="Planejamento de etapas e prazo para desenvolvimento de um site"></figure>
-          <div class="blog-catalog-item__body"><div class="blog-card-meta-v18"><span>Processo</span><span>03 out 2026 · 5 min</span></div><h3>Quanto tempo demora para criar um site?</h3><p>O que costuma alterar o prazo de páginas simples, sites institucionais e projetos com integrações.</p><span class="blog-read-link">Ler artigo <b>↗</b></span></div>
+          <div class="blog-catalog-item__body"><div class="blog-card-meta-v18"><span>Processo de criação</span><span>03 out 2026 · 5 min</span></div><h3>Quanto tempo demora para criar um site?</h3><p>O que costuma alterar o prazo de páginas simples, sites institucionais e projetos com integrações.</p><span class="blog-read-link">Ler artigo <b>↗</b></span></div>
         </a>
       </article>
-      <article class="blog-catalog-item" data-blog-entry data-topic="google" data-search="como colocar site no google seo indexação search console sitemap pesquisa orgânica">
+      <article class="blog-catalog-item" data-blog-entry data-topic="seo" data-search="como colocar site no google seo indexação search console sitemap pesquisa orgânica busca">
         <a href="/blog/como-colocar-site-no-google/">
           <figure><img src="/assets/blog-google-720.webp" width="720" height="405" loading="lazy" decoding="async" alt="Profissional analisando dados de busca, indexação e desempenho no Google"></figure>
-          <div class="blog-catalog-item__body"><div class="blog-card-meta-v18"><span>Google e SEO</span><span>03 out 2026 · 7 min</span></div><h3>Como colocar um site no Google?</h3><p>Publicação, indexação, Search Console e o início da disputa por pesquisas relevantes.</p><span class="blog-read-link">Ler artigo <b>↗</b></span></div>
+          <div class="blog-catalog-item__body"><div class="blog-card-meta-v18"><span>SEO &amp; Google</span><span>03 out 2026 · 7 min</span></div><h3>Como colocar um site no Google?</h3><p>Publicação, indexação, Search Console e o início da disputa por pesquisas relevantes.</p><span class="blog-read-link">Ler artigo <b>↗</b></span></div>
         </a>
       </article>
     </div>
-    <p class="blog-empty" id="blogEmpty" hidden>Nenhum artigo encontrado para esse filtro.</p>
+    <p class="blog-empty" id="blogEmpty" hidden>Nenhum conteúdo encontrado. Tente outro termo ou selecione “Todos”.</p>
   </div>
 </section>
 
-<section class="blog-topics-v18 section-dark" aria-labelledby="assuntos-blog">
+<section class="blog-topics-v18 blog-topics-v19 section-dark" aria-labelledby="assuntos-blog">
   <div class="shell">
-    <div class="blog-section-head-v18 blog-section-head-v18--dark">
-      <div><p class="eyebrow">NAVEGUE POR ASSUNTO</p><h2 id="assuntos-blog">Conteúdos e páginas relacionadas</h2></div>
-      <p>Os grupos abaixo conectam artigos e páginas de serviço que tratam do mesmo contexto.</p>
+    <div class="blog-section-head-v19 blog-section-head-v19--dark">
+      <div><p class="eyebrow">NAVEGUE POR ASSUNTO</p><h2 id="assuntos-blog">Continue pelo tema que faz sentido</h2></div>
+      <p>Os grupos abaixo conectam artigos que tratam da mesma decisão e páginas comerciais relacionadas ao assunto.</p>
     </div>
-    <div class="blog-topic-grid-v18">
-      <section><span>01</span><h3>Preço e contratação</h3><a href="/quanto-custa-criar-um-site/">Quanto custa criar um site profissional?</a><a href="/blog/site-precisa-pagar-mensalidade/">Site precisa pagar mensalidade?</a><a href="/blog/quanto-tempo-demora-criar-site/">Quanto tempo demora para criar um site?</a></section>
-      <section><span>02</span><h3>Google e SEO</h3><a href="/blog/como-colocar-site-no-google/">Como colocar um site no Google?</a><a href="/criacao-de-sites/">Criação de sites profissionais</a><a href="/rio-grande-do-sul/">Criação de sites no Rio Grande do Sul</a></section>
-      <section><span>03</span><h3>Presença digital</h3><a href="/blog/instagram-substitui-site/">Instagram substitui um site?</a><a href="/sites-institucionais/">Sites institucionais</a><a href="/landing-pages/">Landing pages</a></section>
-      <section><span>04</span><h3>Sites por segmento</h3><a href="/site-para-advogados/">Sites para advogados</a><a href="/site-para-dentistas/">Sites para dentistas</a><a href="/santa-catarina/">Criação de sites em Santa Catarina</a></section>
+    <div class="blog-topic-grid-v18 blog-topic-grid-v19">
+      <section><span>01</span><h3>SEO &amp; Google</h3><a href="/blog/como-colocar-site-no-google/">Como colocar um site no Google?</a><a href="/criacao-de-sites/">Criação de sites profissionais</a><a href="/rio-grande-do-sul/">Criação de sites no Rio Grande do Sul</a></section>
+      <section><span>02</span><h3>Processo de criação</h3><a href="/blog/quanto-tempo-demora-criar-site/">Quanto tempo demora para criar um site?</a><a href="/sites-institucionais/">Sites institucionais</a><a href="/landing-pages/">Landing pages</a></section>
+      <section><span>03</span><h3>Preço &amp; contratação</h3><a href="/quanto-custa-criar-um-site/">Quanto custa criar um site profissional?</a><a href="/blog/site-precisa-pagar-mensalidade/">Site precisa pagar mensalidade?</a></section>
+      <section><span>04</span><h3>Posicionamento digital</h3><a href="/blog/instagram-substitui-site/">Instagram substitui um site?</a><a href="/site-para-advogados/">Sites para advogados</a><a href="/site-para-dentistas/">Sites para dentistas</a></section>
+    </div>
+    <div class="blog-service-links-v19" aria-label="Páginas relacionadas">
+      <span>Páginas relacionadas</span><a href="/criacao-de-sites/">Criação de sites</a><a href="/landing-pages/">Landing pages</a><a href="/sites-institucionais/">Sites institucionais</a><a href="/rio-grande-do-sul/">Rio Grande do Sul</a><a href="/santa-catarina/">Santa Catarina</a>
     </div>
   </div>
 </section>
