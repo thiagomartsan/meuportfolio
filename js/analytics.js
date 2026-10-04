@@ -6,6 +6,12 @@
   const cleanText = (value = '') => value.replace(/\s+/g, ' ').trim().slice(0, 100);
 
   const getLocationLabel = (element) => {
+    if (element.closest('.article-inline-cta')) return 'article_inline';
+    if (element.closest('.article-sidecards__card--dark')) return 'article_sidebar';
+    if (element.closest('.article-contact')) return 'article_final';
+    if (element.closest('.whatsapp-float')) return 'floating_whatsapp';
+    if (element.closest('.header-cta')) return 'header';
+
     const section = element.closest('section[id], header, footer, .mobile-menu, .project');
     if (!section) return 'page';
     if (section.id) return section.id;
@@ -14,6 +20,31 @@
     if (section.matches('.mobile-menu')) return 'mobile_menu';
     if (section.matches('.project')) return 'portfolio';
     return 'page';
+  };
+
+  const getDestinationType = (href = '') => {
+    if (/wa\.me\//i.test(href) || /api\.whatsapp\.com/i.test(href)) return 'whatsapp';
+    if (href.startsWith('mailto:')) return 'email';
+    if (href.startsWith('tel:')) return 'phone';
+    try {
+      const url = new URL(href, window.location.href);
+      return url.origin === window.location.origin ? 'internal' : 'external';
+    } catch (error) {
+      return 'other';
+    }
+  };
+
+  const isCommercialCta = (element) => Boolean(element.closest(
+    '.header-cta, .mobile-menu .button, .article-inline-cta .button, .article-sidecards__card--dark .button, .article-contact__intro .text-link, .whatsapp-float'
+  ));
+
+  const getShareNetwork = (link) => {
+    const href = link.href || '';
+    if (/wa\.me\//i.test(href)) return 'whatsapp';
+    if (/facebook\.com/i.test(href)) return 'facebook';
+    if (/linkedin\.com/i.test(href)) return 'linkedin';
+    if (/twitter\.com|x\.com/i.test(href)) return 'x';
+    return 'other';
   };
 
   const getProjectName = (element) => {
@@ -43,6 +74,21 @@
     const href = link.href || '';
     const linkText = cleanText(link.textContent || link.getAttribute('aria-label') || '');
     const ctaLocation = getLocationLabel(link);
+
+    if (link.closest('.article-share')) {
+      track('share_article', {
+        network: getShareNetwork(link)
+      });
+      return;
+    }
+
+    if (isCommercialCta(link)) {
+      track('cta_click', {
+        link_text: linkText,
+        cta_location: ctaLocation,
+        destination_type: getDestinationType(href)
+      });
+    }
 
     if (/wa\.me\//i.test(href) || /api\.whatsapp\.com/i.test(href)) {
       track('click_whatsapp', {
@@ -75,6 +121,18 @@
         link_text: linkText
       });
     }
+  });
+
+  const contactForm = document.querySelector('#contactForm');
+  let contactFormStarted = false;
+
+  contactForm?.addEventListener('focusin', () => {
+    if (contactFormStarted || typeof window.gtag !== 'function') return;
+    contactFormStarted = true;
+    track('contact_form_start', {
+      form_id: contactForm.id || 'contactForm',
+      form_location: getLocationLabel(contactForm)
+    });
   });
 
   window.addEventListener('tm21:form_success', (event) => {
