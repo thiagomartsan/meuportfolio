@@ -25,3 +25,10 @@ node --check js/main.js
 node --check js/analytics.js
 node --check js/consent.js
 ```
+
+
+## V18 — Blog Content Hub
+- Reestrutura a home do blog com destaque editorial, busca local, filtros por assunto, grade de artigos e hub de links internos.
+- Ajusta metadata e JSON-LD da CollectionPage.
+- Mantém categorias como filtros, sem criar páginas finas de categoria enquanto o volume de artigos ainda é pequeno.
+- Acrescenta autoria e contexto editorial, além de alt text descritivo nas capas.
