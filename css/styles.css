@@ -5544,3 +5544,51 @@ html[data-preloader="seen"] .preloader,
   .blog-feature-slide-v19.is-active { animation:none; }
   .blog-feature-slide-v19__media img { transition:none; }
 }
+
+/* =========================
+   V20 — Blog taxonomy + progressive catalog
+   ========================= */
+.blog-hero-v20__inner {
+  max-width: 1240px;
+  padding-top: 6px;
+  padding-bottom: 8px;
+}
+.blog-hero-v18 .blog-hero-v20__inner h1 {
+  margin: 22px 0 14px;
+  max-width: none;
+  font-size: clamp(4rem, 8vw, 8.4rem);
+  line-height: .88;
+  letter-spacing: -.065em;
+  font-weight: 500;
+}
+.blog-hero-v18 .blog-hero-v20__inner .blog-hero-v18__lead {
+  max-width: 760px;
+  margin: 0;
+  color: rgba(255,255,255,.64);
+  font-size: clamp(1.02rem, 1.45vw, 1.22rem);
+  line-height: 1.55;
+}
+.blog-load-more {
+  display: flex;
+  justify-content: center;
+  padding-top: 34px;
+}
+.blog-load-more[hidden] { display:none; }
+.button--outline-dark {
+  appearance: none;
+  min-width: 190px;
+  border: 1px solid rgba(17,22,28,.28);
+  background: transparent;
+  color: var(--text-dark);
+  cursor: pointer;
+}
+.button--outline-dark:hover {
+  background: var(--text-dark);
+  border-color: var(--text-dark);
+  color: #fff;
+}
+@media (max-width:720px) {
+  .blog-hero-v18 .blog-hero-v20__inner h1 { font-size: clamp(3.7rem, 22vw, 6.5rem); }
+  .blog-hero-v18 .blog-hero-v20__inner .blog-hero-v18__lead { max-width: 34rem; }
+  .blog-load-more .button { width:100%; }
+}
