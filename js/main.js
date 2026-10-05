@@ -8,25 +8,6 @@
   const qs = (selector, context = document) => context.querySelector(selector);
   const qsa = (selector, context = document) => [...context.querySelectorAll(selector)];
 
-  // Preloader, shown only once per session.
-  const preloader = qs('#preloader');
-  const preloaderSeen = root.dataset.preloader === 'seen';
-
-  if (preloader) {
-    if (reduceMotion || preloaderSeen) {
-      preloader.classList.add('is-hidden');
-      root.dataset.preloader = 'seen';
-    } else {
-      window.setTimeout(() => {
-        preloader.classList.add('is-hidden');
-        root.dataset.preloader = 'seen';
-        try {
-          sessionStorage.setItem('tm21-preloader-seen', '1');
-        } catch (error) {}
-      }, window.innerWidth <= 720 ? 220 : 460);
-    }
-  }
-
   // Header state.
   const header = qs('#siteHeader');
   const syncHeader = () => {

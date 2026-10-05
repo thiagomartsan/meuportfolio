@@ -102,72 +102,6 @@ a {
   transform: translateY(0);
 }
 
-/* Preloader */
-.preloader {
-  position: fixed;
-  inset: 0;
-  z-index: 3000;
-  display: grid;
-  place-items: center;
-  background: #05080c;
-  opacity: 1;
-  visibility: visible;
-  transition: opacity .45s var(--ease), visibility .45s var(--ease);
-}
-
-html[data-preloader="seen"] .preloader,
-.preloader.is-hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.preloader__mark {
-  display: grid;
-  justify-items: center;
-  gap: 14px;
-}
-
-.preloader__dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--blue);
-  box-shadow: 0 0 24px rgba(54,125,249,.8);
-  animation: loader-dot .7s var(--ease) both;
-}
-
-.preloader__word {
-  color: var(--cream);
-  font-family: "Instrument Serif", Georgia, serif;
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  letter-spacing: -.03em;
-  line-height: 1;
-  clip-path: inset(100% 0 0 0);
-  animation: loader-word .65s .1s var(--ease) forwards;
-}
-
-.preloader__line {
-  width: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--blue), transparent);
-  animation: loader-line .7s .25s var(--ease) forwards;
-}
-
-@keyframes loader-dot {
-  from { opacity: 0; transform: scale(.2); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-@keyframes loader-word {
-  to { clip-path: inset(0 0 0 0); }
-}
-
-@keyframes loader-line {
-  to { width: 92px; }
-}
-
-
 .offer-ticker {
   position: fixed;
   left: 0;
@@ -2531,12 +2465,7 @@ html[data-preloader="seen"] .preloader,
     transition-duration: .01ms !important;
     scroll-behavior: auto !important;
   }
-
-  .preloader {
-    display: none !important;
-  }
-
-  .reveal-item,
+.reveal-item,
   .reveal-title {
     opacity: 1;
     transform: none;
@@ -5603,4 +5532,25 @@ html[data-preloader="seen"] .preloader,
   .blog-hero-v18 .blog-hero-v20__inner h1 { font-size: clamp(3.7rem, 22vw, 6.5rem); }
   .blog-hero-v18 .blog-hero-v20__inner .blog-hero-v18__lead { max-width: 34rem; }
   .blog-load-more .button { width:100%; }
+}
+
+/* V26 performance: above-the-fold content paints immediately.
+   Reveal motion remains for sections that enter later in the scroll. */
+.hero .reveal-item,
+.hero .reveal-title,
+.seo-hero .reveal-item,
+.seo-hero .reveal-title,
+.blog-hero .reveal-item,
+.blog-hero .reveal-title,
+.article-hero .reveal-item,
+.article-hero .reveal-title {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+/* Defer rendering work for long SEO/service pages until sections approach the viewport. */
+.seo-page main > section:not(:first-child) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 760px;
 }

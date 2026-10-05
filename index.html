@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 
-<html data-preloader="pending" lang="pt-BR">
+<html lang="pt-BR">
 <head>
-<script src="/js/consent.js"></script>
-
+<script defer="" src="/js/consent.js"></script>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="index,follow,max-image-preview:large" name="robots"/>
@@ -22,26 +21,12 @@
 <link href="favicon.svg" rel="icon" type="image/svg+xml"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Inter+Tight:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Inter+Tight:wght@400;500;600;700&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/><noscript><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Inter+Tight:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/></noscript>
 <link href="css/styles.css" rel="stylesheet"/>
-<script>
-    try {
-      if (sessionStorage.getItem('tm21-preloader-seen') === '1') {
-        document.documentElement.dataset.preloader = 'seen';
-      }
-    } catch (error) {}
-  </script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://tm21.com.br/#website","url":"https://tm21.com.br/","name":"TM21","alternateName":"Thiago Martins","inLanguage":"pt-BR"},{"@type":"Person","@id":"https://tm21.com.br/#thiago-martins","name":"Thiago Martins","alternateName":"TM21","url":"https://tm21.com.br/","sameAs":["https://www.linkedin.com/in/thiagomartsan/"],"email":"mailto:thiagomartsan@gmail.com","telephone":"+5551997890145","jobTitle":"Engenheiro de Produção | Negócios, Produto e Tecnologia Aplicada"}]}</script>
 </head>
 <body id="top">
 <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
-<div aria-hidden="true" class="preloader" id="preloader">
-<div class="preloader__mark">
-<span class="preloader__dot"></span>
-<span class="preloader__word">TM21</span>
-<span class="preloader__line"></span>
-</div>
-</div>
 <header class="site-header" id="siteHeader">
 <div class="shell site-header__inner">
 <a aria-label="TM21, voltar ao início" class="brand" href="#inicio">TM21</a>
@@ -112,7 +97,7 @@
 <p class="hero__micro reveal-item">Rio Grande do Sul <span>·</span> Santa Catarina <span>·</span> Projetos remotos no Brasil</p>
 </div>
 <div aria-label="Recortes de projetos TM21" class="hero-mosaic" id="heroMosaic">
-<div class="hero-mosaic__grid" aria-hidden="true"></div>
+<div aria-hidden="true" class="hero-mosaic__grid"></div>
 <a class="hero-mosaic__card hero-mosaic__card--penafiel" href="https://sitepenafielmagalhaes.vercel.app/" rel="noopener noreferrer" target="_blank">
 <img alt="Projeto conceitual Penafiel &amp; Magalhães" decoding="async" height="876" loading="eager" src="assets/penafiel-hero-768.webp" width="768"/>
 <span>Penafiel &amp; Magalhães</span>
@@ -158,7 +143,7 @@
 <span class="portfolio-gate__count">04</span>
 </button>
 </div>
-<div class="portfolio-carousel" id="portfolioCarousel" aria-label="Prévia dos projetos selecionados">
+<div aria-label="Prévia dos projetos selecionados" class="portfolio-carousel" id="portfolioCarousel">
 <div class="portfolio-carousel__set is-active" data-portfolio-carousel-set="pages">
 <div class="portfolio-carousel__track">
 <a class="portfolio-carousel__slide" href="https://sitepenafielmagalhaes.vercel.app/" rel="noopener noreferrer" target="_blank"><img alt="Projeto Penafiel &amp; Magalhães" height="876" loading="lazy" src="assets/penafiel-hero-768.webp" width="768"/><span><b>Penafiel &amp; Magalhães</b><small>Projeto conceitual · Advocacia</small></span></a>
@@ -166,18 +151,18 @@
 <a class="portfolio-carousel__slide" href="https://breadvale.vercel.app/" rel="noopener noreferrer" target="_blank"><img alt="Projeto demonstrativo BreadVale" height="850" loading="lazy" src="assets/breadvale-hero-768.webp" width="768"/><span><b>BreadVale</b><small>Projeto demonstrativo · Indústria alimentícia</small></span></a>
 <a class="portfolio-carousel__slide" href="https://cuidadora-portoalegre-demo.vercel.app/" rel="noopener noreferrer" target="_blank"><img alt="Projeto demonstrativo Cuidados e Enfermagem" height="854" loading="lazy" src="assets/cuidados-hero-768.webp" width="768"/><span><b>Cuidados &amp; Enfermagem</b><small>Projeto demonstrativo · Cuidados domiciliares</small></span></a>
 </div></div>
-<div class="portfolio-carousel__set" data-portfolio-carousel-set="platforms" hidden>
+<div class="portfolio-carousel__set" data-portfolio-carousel-set="platforms" hidden="">
 <div class="portfolio-carousel__track">
 <a class="portfolio-carousel__slide" href="https://sitemoldarcalcadistasimulator.vercel.app/" rel="noopener noreferrer" target="_blank"><img alt="Simulador industrial Moldar" height="918" loading="lazy" src="assets/moldar-revisao-768.webp" width="768"/><span><b>Moldar</b><small>Projeto próprio · Simulador industrial</small></span></a>
 <div class="portfolio-carousel__slide"><img alt="Aplicação de Controladoria e BPO Financeiro" height="1100" loading="lazy" src="assets/bpo-dashboard-768.webp" width="768"/><span><b>Controladoria / BPO Financeiro</b><small>Em desenvolvimento</small></span></div>
 <a class="portfolio-carousel__slide" href="https://thglearn.com/" rel="noopener noreferrer" target="_blank"><img alt="Produto digital THG Learn" height="652" loading="lazy" src="assets/thg-learn-home.webp" width="1396"/><span><b>THG Learn</b><small>Projeto próprio · Produto digital</small></span></a>
 <a class="portfolio-carousel__slide" href="https://app.jobuptrack.com.br/" rel="noopener noreferrer" target="_blank"><img alt="Plataforma JobUp" height="673" loading="lazy" src="assets/jobup-home-768.webp" width="768"/><span><b>JobUp</b><small>Participação em produto</small></span></a>
 </div></div>
-<div class="portfolio-carousel__progress" aria-label="Progresso do carrossel">
-<button class="is-active" data-portfolio-slide-target="0" type="button" aria-label="Projeto 1"><span></span></button>
-<button data-portfolio-slide-target="1" type="button" aria-label="Projeto 2"><span></span></button>
-<button data-portfolio-slide-target="2" type="button" aria-label="Projeto 3"><span></span></button>
-<button data-portfolio-slide-target="3" type="button" aria-label="Projeto 4"><span></span></button>
+<div aria-label="Progresso do carrossel" class="portfolio-carousel__progress">
+<button aria-label="Projeto 1" class="is-active" data-portfolio-slide-target="0" type="button"><span></span></button>
+<button aria-label="Projeto 2" data-portfolio-slide-target="1" type="button"><span></span></button>
+<button aria-label="Projeto 3" data-portfolio-slide-target="2" type="button"><span></span></button>
+<button aria-label="Projeto 4" data-portfolio-slide-target="3" type="button"><span></span></button>
 </div>
 </div>
 <div class="portfolio-stage__footer"><span>Depois da prévia, a lista completa mostra contexto, classificação e links de cada projeto.</span><span aria-hidden="true">↓</span></div>
@@ -187,7 +172,7 @@
 <article class="project project--penafiel" data-project-color="#9A744B">
 <div class="shell project__layout project__layout--media-left">
 <div class="project__media showcase showcase--penafiel">
-<a class="project-live-badge" href="https://sitepenafielmagalhaes.vercel.app/" target="_blank" rel="noopener noreferrer">Abrir projeto <span aria-hidden="true">↗</span></a>
+<a class="project-live-badge" href="https://sitepenafielmagalhaes.vercel.app/" rel="noopener noreferrer" target="_blank">Abrir projeto <span aria-hidden="true">↗</span></a>
 <figure class="showcase__screen showcase__screen--desktop">
 <img alt="Página inicial do projeto Penafiel &amp; Magalhães sobre planejamento patrimonial, sucessório e societário" height="876" loading="lazy" src="assets/penafiel-hero.webp" width="1059"/>
 </figure>
@@ -220,7 +205,7 @@
 <a class="button button--dark" href="https://sitedrjairkautzmann.vercel.app/" rel="noopener noreferrer" target="_blank">Ver projeto <span>↗</span></a>
 </div>
 <div class="project__media showcase showcase--jair">
-<a class="project-live-badge" href="https://sitedrjairkautzmann.vercel.app/" target="_blank" rel="noopener noreferrer">Abrir projeto <span aria-hidden="true">↗</span></a>
+<a class="project-live-badge" href="https://sitedrjairkautzmann.vercel.app/" rel="noopener noreferrer" target="_blank">Abrir projeto <span aria-hidden="true">↗</span></a>
 <figure class="showcase__screen showcase__screen--desktop">
 <img alt="Seção de estética do projeto demonstrativo Dr. Jair Kautzmann" height="917" loading="lazy" src="assets/jair-estetica.webp" width="1421"/>
 </figure>
@@ -233,7 +218,7 @@
 <article class="project project--bread" data-project-color="#EF2D32">
 <div class="shell project__layout project__layout--media-left">
 <div class="project__media showcase showcase--bread">
-<a class="project-live-badge" href="https://breadvale.vercel.app/" target="_blank" rel="noopener noreferrer">Abrir projeto <span aria-hidden="true">↗</span></a>
+<a class="project-live-badge" href="https://breadvale.vercel.app/" rel="noopener noreferrer" target="_blank">Abrir projeto <span aria-hidden="true">↗</span></a>
 <figure class="showcase__screen showcase__screen--desktop">
 <img alt="Página inicial do projeto BreadVale com apresentação da marca e produto" height="850" loading="lazy" src="assets/breadvale-hero.webp" width="1225"/>
 </figure>
@@ -266,7 +251,7 @@
 <a class="button button--dark" href="https://cuidadora-portoalegre-demo.vercel.app/" rel="noopener noreferrer" target="_blank">Ver projeto <span>↗</span></a>
 </div>
 <div class="project__media showcase showcase--cuidados">
-<a class="project-live-badge" href="https://cuidadora-portoalegre-demo.vercel.app/" target="_blank" rel="noopener noreferrer">Abrir projeto <span aria-hidden="true">↗</span></a>
+<a class="project-live-badge" href="https://cuidadora-portoalegre-demo.vercel.app/" rel="noopener noreferrer" target="_blank">Abrir projeto <span aria-hidden="true">↗</span></a>
 <figure class="showcase__screen showcase__screen--desktop">
 <img alt="Página inicial do projeto demonstrativo Cuidados &amp; Enfermagem" height="854" loading="lazy" sizes="(max-width: 720px) 92vw, (max-width: 960px) 80vw, 54vw" src="assets/cuidados-hero.webp" srcset="assets/cuidados-hero-480.webp 480w, assets/cuidados-hero-768.webp 768w, assets/cuidados-hero.webp 1229w" width="1229"/>
 </figure>
@@ -291,7 +276,7 @@
 <a class="button button--light" href="https://sitemoldarcalcadistasimulator.vercel.app/" rel="noopener noreferrer" target="_blank">Conhecer o Moldar <span>↗</span></a>
 </div>
 <div class="project__media showcase showcase--moldar">
-<a class="project-live-badge" href="https://sitemoldarcalcadistasimulator.vercel.app/" target="_blank" rel="noopener noreferrer">Abrir projeto <span aria-hidden="true">↗</span></a>
+<a class="project-live-badge" href="https://sitemoldarcalcadistasimulator.vercel.app/" rel="noopener noreferrer" target="_blank">Abrir projeto <span aria-hidden="true">↗</span></a>
 <figure class="showcase__screen showcase__screen--desktop showcase__screen--moldar-main">
 <img alt="Moldar no passo de revisão, com etapas produtivas e mini fábrica" height="918" loading="lazy" src="assets/moldar-revisao.webp" width="1167"/>
 </figure>
@@ -304,7 +289,7 @@
 <article class="project project--thg" data-project-color="#4C75FF">
 <div class="shell project__layout project__layout--media-left">
 <div class="project__media showcase showcase--thg">
-<a class="project-live-badge" href="https://thglearn.com/" target="_blank" rel="noopener noreferrer">Abrir projeto <span aria-hidden="true">↗</span></a>
+<a class="project-live-badge" href="https://thglearn.com/" rel="noopener noreferrer" target="_blank">Abrir projeto <span aria-hidden="true">↗</span></a>
 <figure class="showcase__screen showcase__screen--desktop">
 <img alt="Tela inicial do THG Learn com seleção de idioma" height="895" loading="lazy" src="assets/thg-learn-home.webp" width="1120"/>
 </figure>
@@ -348,7 +333,7 @@
 <article class="project project--jobup" data-project-color="#7C3AED">
 <div class="shell project__layout project__layout--media-left">
 <div class="project__media showcase showcase--single showcase--jobup">
-<a class="project-live-badge" href="https://app.jobuptrack.com.br/" target="_blank" rel="noopener noreferrer">Abrir projeto <span aria-hidden="true">↗</span></a>
+<a class="project-live-badge" href="https://app.jobuptrack.com.br/" rel="noopener noreferrer" target="_blank">Abrir projeto <span aria-hidden="true">↗</span></a>
 <figure class="showcase__screen showcase__screen--desktop showcase__screen--full showcase__screen--jobup">
 <img alt="Tela inicial da JobUp voltada ao desenvolvimento profissional" height="673" loading="lazy" src="assets/jobup-home.webp" width="1418"/>
 </figure>
@@ -375,7 +360,7 @@
 <p class="eyebrow">O QUE VOCÊ RECEBE</p>
 <h2 class="section-title reveal-title" id="deliverables-title">O que entra no projeto.</h2>
 <p class="section-copy reveal-item">Uma presença digital clara, responsiva e pronta para apresentar seus serviços, facilitar o contato e começar a construir presença nas buscas.</p>
-<div class="deliverables__summary reveal-item" aria-label="Resumo do que está incluído"><span>Responsivo</span><span>WhatsApp + formulário</span><span>SEO básico</span><span>Publicação</span><span>60 dias de ajustes*</span></div>
+<div aria-label="Resumo do que está incluído" class="deliverables__summary reveal-item"><span>Responsivo</span><span>WhatsApp + formulário</span><span>SEO básico</span><span>Publicação</span><span>60 dias de ajustes*</span></div>
 </div>
 <div class="deliverable-list">
 <article class="deliverable-item reveal-item"><span>01</span><div><h3>Oferta organizada</h3><p>Serviços, diferenciais, informações importantes e chamadas para contato distribuídos de forma clara.</p></div></article>
@@ -396,14 +381,14 @@
 <p class="section-copy reveal-item">O projeto avança em etapas para organizar o conteúdo, definir a apresentação, construir a página e revisar tudo antes de colocar no ar.</p>
 </div>
 <div class="shell process-flow reveal-item" id="processFlow">
-<div class="process-flow__rail" role="tablist" aria-label="Etapas do projeto">
-<button class="process-flow__step is-active" type="button" role="tab" aria-selected="true" data-process-step="0"><span>01</span><small>Contexto</small></button>
-<button class="process-flow__step" type="button" role="tab" aria-selected="false" data-process-step="1"><span>02</span><small>Estrutura</small></button>
-<button class="process-flow__step" type="button" role="tab" aria-selected="false" data-process-step="2"><span>03</span><small>Visual</small></button>
-<button class="process-flow__step" type="button" role="tab" aria-selected="false" data-process-step="3"><span>04</span><small>Construção</small></button>
-<button class="process-flow__step" type="button" role="tab" aria-selected="false" data-process-step="4"><span>05</span><small>Revisão</small></button>
-<button class="process-flow__step" type="button" role="tab" aria-selected="false" data-process-step="5"><span>06</span><small>Publicação</small></button>
-<div class="process-flow__progress" aria-hidden="true"><span></span></div>
+<div aria-label="Etapas do projeto" class="process-flow__rail" role="tablist">
+<button aria-selected="true" class="process-flow__step is-active" data-process-step="0" role="tab" type="button"><span>01</span><small>Contexto</small></button>
+<button aria-selected="false" class="process-flow__step" data-process-step="1" role="tab" type="button"><span>02</span><small>Estrutura</small></button>
+<button aria-selected="false" class="process-flow__step" data-process-step="2" role="tab" type="button"><span>03</span><small>Visual</small></button>
+<button aria-selected="false" class="process-flow__step" data-process-step="3" role="tab" type="button"><span>04</span><small>Construção</small></button>
+<button aria-selected="false" class="process-flow__step" data-process-step="4" role="tab" type="button"><span>05</span><small>Revisão</small></button>
+<button aria-selected="false" class="process-flow__step" data-process-step="5" role="tab" type="button"><span>06</span><small>Publicação</small></button>
+<div aria-hidden="true" class="process-flow__progress"><span></span></div>
 </div>
 <div class="process-flow__panels">
 <article class="process-flow__panel is-active" data-process-panel="0"><span>01 / CONTEXTO</span><h3>Entender o negócio e o objetivo</h3><p>Serviços, público, prioridades, referências e material disponível entram no primeiro alinhamento.</p><small>Resultado desta etapa: briefing e direção do projeto.</small></article>
@@ -451,29 +436,25 @@
 </article>
 </div>
 </section>
-
 <section aria-labelledby="seo-entry-title" class="seo-entry seo-entry--network section-light" id="regioes">
 <div class="shell seo-entry__grid">
 <div class="seo-entry__intro">
 <p class="eyebrow">ATENDIMENTO</p>
 <h2 class="section-title reveal-title" id="seo-entry-title">RS e SC como base. Atendimento remoto no Brasil.</h2>
 <p class="section-copy reveal-item">A operação está no Sul, com projetos para empresas e profissionais de outras cidades e estados conduzidos online quando fizer sentido.</p>
-<div class="coverage-globe reveal-item" aria-hidden="true">
+<div aria-hidden="true" class="coverage-globe reveal-item">
 <div class="coverage-globe__orbit"><span></span><span></span><span></span></div>
-<svg viewBox="0 0 120 120" role="img"><circle cx="60" cy="60" r="42"></circle><ellipse cx="60" cy="60" rx="20" ry="42"></ellipse><ellipse cx="60" cy="60" rx="42" ry="18"></ellipse><path d="M18 60h84M60 18v84"></path></svg>
+<svg role="img" viewbox="0 0 120 120"><circle cx="60" cy="60" r="42"></circle><ellipse cx="60" cy="60" rx="20" ry="42"></ellipse><ellipse cx="60" cy="60" rx="42" ry="18"></ellipse><path d="M18 60h84M60 18v84"></path></svg>
 <span>TM21 / CONEXÃO REMOTA</span>
 </div>
 </div>
 <div class="seo-entry__cards coverage-network">
-<a class="seo-entry-card reveal-item" href="/rio-grande-do-sul/"><span class="region-flag"><img src="/assets/flag-rs.webp" alt="Bandeira do Rio Grande do Sul" width="360" height="237" loading="lazy"></span><div><small>RIO GRANDE DO SUL</small><h3>Criação de sites no RS</h3><p>Encontros sob combinação na área regional, com agenda e custos de deslocamento alinhados antes. Projetos online em todo o RS.</p></div><b>↗</b></a>
-<a class="seo-entry-card reveal-item" href="/santa-catarina/"><span class="region-flag"><img src="/assets/flag-sc.webp" alt="Bandeira de Santa Catarina" width="333" height="240" loading="lazy"></span><div><small>SANTA CATARINA</small><h3>Criação de sites em SC</h3><p>Projetos online em todo o estado. Visitas na Grande Florianópolis podem ser avaliadas com agenda e custos de viagem combinados previamente.</p></div><b>↗</b></a>
-<a class="seo-entry-card reveal-item" href="/criacao-de-sites/"><span class="region-flag"><img src="/assets/flag-br.webp" alt="Bandeira do Brasil" width="343" height="240" loading="lazy"></span><div><small>BRASIL / REMOTO</small><h3>Projetos em outras regiões</h3><p>Briefing, revisão, publicação e acompanhamento podem ser conduzidos integralmente online.</p></div><b>↗</b></a>
+<a class="seo-entry-card reveal-item" href="/rio-grande-do-sul/"><span class="region-flag"><img alt="Bandeira do Rio Grande do Sul" height="237" loading="lazy" src="/assets/flag-rs.webp" width="360"/></span><div><small>RIO GRANDE DO SUL</small><h3>Criação de sites no RS</h3><p>Encontros sob combinação na área regional, com agenda e custos de deslocamento alinhados antes. Projetos online em todo o RS.</p></div><b>↗</b></a>
+<a class="seo-entry-card reveal-item" href="/santa-catarina/"><span class="region-flag"><img alt="Bandeira de Santa Catarina" height="240" loading="lazy" src="/assets/flag-sc.webp" width="333"/></span><div><small>SANTA CATARINA</small><h3>Criação de sites em SC</h3><p>Projetos online em todo o estado. Visitas na Grande Florianópolis podem ser avaliadas com agenda e custos de viagem combinados previamente.</p></div><b>↗</b></a>
+<a class="seo-entry-card reveal-item" href="/criacao-de-sites/"><span class="region-flag"><img alt="Bandeira do Brasil" height="240" loading="lazy" src="/assets/flag-br.webp" width="343"/></span><div><small>BRASIL / REMOTO</small><h3>Projetos em outras regiões</h3><p>Briefing, revisão, publicação e acompanhamento podem ser conduzidos integralmente online.</p></div><b>↗</b></a>
 </div>
 </div>
 </section>
-
-
-
 <section aria-labelledby="experience-title" class="experience section-light" id="experiencia">
 <div class="shell section-intro section-intro--light experience__intro">
 <div>
@@ -515,7 +496,6 @@
 </article>
 </div>
 </section>
-
 <section aria-labelledby="contact-title" class="contact section-light" id="contato">
 <div class="shell contact__grid">
 <div class="contact__intro">
@@ -611,9 +591,8 @@
 <a href="/rio-grande-do-sul/">Rio Grande do Sul</a>
 <a href="/santa-catarina/">Santa Catarina</a>
 </nav>
-<div class="footer__contact"><nav class="footer__help" aria-label="Informações e ajuda"><strong>Informações e ajuda</strong><a href="/duvidas-frequentes/">Dúvidas frequentes</a><a href="/privacidade/">Política de Privacidade</a><a href="/termos-de-uso/">Termos de Uso</a><button class="cookie-settings-link" type="button" data-cookie-settings>Preferências de cookies</button></nav>
+<div class="footer__contact"><nav aria-label="Informações e ajuda" class="footer__help"><strong>Informações e ajuda</strong><a href="/duvidas-frequentes/">Dúvidas frequentes</a><a href="/privacidade/">Política de Privacidade</a><a href="/termos-de-uso/">Termos de Uso</a><button class="cookie-settings-link" data-cookie-settings="" type="button">Preferências de cookies</button></nav>
 <a href="tel:+5551997890145">+55 51 99789-0145</a>
-
 </div>
 </div>
 <div class="shell footer__bottom">
@@ -627,6 +606,6 @@
 <span>Conversar</span>
 </a>
 <script defer="" src="js/main.js"></script>
-<script defer src="/js/analytics.js"></script>
+<script defer="" src="/js/analytics.js"></script>
 </body>
 </html>

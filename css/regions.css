@@ -154,3 +154,27 @@
  .rs-page .rs-map__region { animation:none; transition:none; }
  .rs-directory__group b,.rs-faq b { transition:none; }
 }
+
+/* V26 — photographic hero backgrounds and clearer Florianópolis island detail. */
+.rs-hero { isolation:isolate; background:#080c11; }
+.rs-hero::before { content:""; position:absolute; inset:0; z-index:-3; background-size:cover; background-position:center; opacity:.28; filter:saturate(.72) contrast(1.05); }
+.rs-hero::after { content:""; position:absolute; inset:0; z-index:-2; background:linear-gradient(90deg,rgba(8,12,17,.97) 0%,rgba(8,12,17,.9) 48%,rgba(8,12,17,.58) 78%,rgba(8,12,17,.86) 100%); pointer-events:none; }
+.rs-page:not(.sc-page) .rs-hero::before { background-image:url('/assets/hero-rs.webp'); background-position:center 46%; }
+.sc-page .rs-hero::before { background-image:url('/assets/hero-sc.webp'); background-position:center 48%; opacity:.3; }
+@supports (background-image: image-set(url('/assets/hero-rs-mobile.webp') 1x)) {
+ .rs-page:not(.sc-page) .rs-hero::before { background-image:image-set(url('/assets/hero-rs-mobile.webp') 1x, url('/assets/hero-rs.webp') 2x); }
+ .sc-page .rs-hero::before { background-image:image-set(url('/assets/hero-sc-mobile.webp') 1x, url('/assets/hero-sc.webp') 2x); }
+}
+.rs-hero .seo-hero__grid { z-index:2; }
+.rs-hero .seo-hero__glow { z-index:0; }
+.rs-hero__aside { background:rgba(8,12,17,.25); backdrop-filter:blur(3px); }
+.sc-page .rs-map--detail [data-map-region="florianopolis"] { stroke:#f2efe8; stroke-width:2.4; filter:drop-shadow(0 0 2px rgba(8,12,17,.45)); }
+.sc-map-channel { fill:none; stroke:#080c11; stroke-width:2.6; stroke-linecap:round; opacity:.95; pointer-events:none; vector-effect:non-scaling-stroke; }
+.sc-map-label { fill:#f3f5f7; stroke:#080c11; stroke-width:.8px; paint-order:stroke; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:2.45px; font-weight:700; letter-spacing:.18px; pointer-events:none; }
+.sc-map-label--continent { fill:#cbd5e1; font-size:2.15px; }
+@media(max-width:760px){
+ .rs-hero::after { background:linear-gradient(180deg,rgba(8,12,17,.92) 0%,rgba(8,12,17,.8) 70%,rgba(8,12,17,.93) 100%); }
+ .rs-page:not(.sc-page) .rs-hero::before { background-image:url('/assets/hero-rs-mobile.webp'); background-position:center 45%; opacity:.23; }
+ .sc-page .rs-hero::before { background-image:url('/assets/hero-sc-mobile.webp'); background-position:center 50%; opacity:.24; }
+ .rs-hero__aside { background:transparent; backdrop-filter:none; }
+}
