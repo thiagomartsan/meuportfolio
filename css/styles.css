@@ -1857,6 +1857,13 @@ html[data-preloader="seen"] .preloader,
   color: rgba(255,255,255,.72);
 }
 
+/* V24: institutional pages have a named, readable place in every footer. */
+.footer__help { display:grid; gap:4px; margin-bottom:20px; }
+.footer__help strong { color:#f3f5f7; font-weight:500; font-size:1rem; margin-bottom:12px; }
+.footer__help a { color:#c6ced8; padding:5px 0; min-height:32px; }
+.footer__help a:hover,.footer__help a:focus-visible { color:var(--blue-light); }
+.footer__help .cookie-settings-link { color:#c6ced8; font:inherit; letter-spacing:normal; text-transform:none; justify-self:start; padding:5px 0; min-height:32px; }
+
 .footer__bottom {
   display: flex;
   justify-content: space-between;

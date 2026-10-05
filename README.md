@@ -1,6 +1,70 @@
-TM21 Portfolio V19 — Blog filters + editorial carousel
+# TM21 — V24
 
-# TM21 — V17
+Pacote completo de 05/10/2026: nova página do Rio Grande do Sul, acesso institucional mais visível no rodapé e preservação dos ajustes anteriores de privacidade, termos, dúvidas e consentimento.
+
+## O que muda nesta versão
+
+- `/rio-grande-do-sul/`: conteúdo comercial, entregáveis, busca local, regiões, municípios, perguntas frequentes e CTAs ao longo da página.
+- Mapa vetorial local com geometria simplificada do IBGE: seis áreas azuis para avaliar encontros presenciais sob combinação e demais áreas em cinza para atendimento online.
+- Animação suave com pausa, seleção de regiões por botão/teclado ou mapa e respeito à preferência de movimento reduzido.
+- Consulta local aos 497 municípios do RS, sem geolocalização do navegador e sem enviar o texto pesquisado ao Analytics.
+- Listas expansíveis dos 98 municípios da área destacada, organizadas em sete grupos com nomes familiares.
+- Metadados, canonical, dados estruturados de Service e areaServed e atualização do sitemap. Nenhuma unidade ou coordenada de escritório é inventada.
+- Bloco “Informações e ajuda” nos 18 rodapés: dúvidas frequentes, privacidade, termos e preferências de cookies.
+- Resumo do atendimento no card do RS da home e correção de uma âncora duplicada nos Termos de Uso.
+
+O conteúdo regional permanece no HTML inicial; mapa, listas e contatos ficam disponíveis sem JavaScript. Os controles adicionais aparecem quando o script está disponível. O CSS regional é carregado somente na página do RS. Santa Catarina receberá sua revisão de conteúdo em uma próxima etapa.
+
+## Substituir e publicar a V24
+
+1. Extraia `tm21-portfolio-v24.zip`.
+2. Copie o conteúdo da pasta extraída `tm21-portfolio` para dentro do repositório existente, aceitando substituir os arquivos. Preserve a pasta `.git` local; o ZIP não contém essa pasta.
+3. Abra o Git CMD e execute:
+
+```cmd
+cd /d "C:\Users\Admin\Desktop\Currículos\Thiago\Sites\Portfólio - Thiago\tm21-portfolio"
+git status
+git add .
+git commit -m "Atualiza pagina do RS e navegacao do rodape para V24"
+git push
+```
+
+Alternativamente, depois de copiar os arquivos para o repositório existente, execute `ATUALIZAR-V24.cmd` dentro dele. O arquivo usa sua própria pasta como diretório de trabalho, interrompe em erros do Git e mantém o resultado aberto. Não execute os dois métodos se o primeiro já concluiu o envio.
+
+4. Aguarde o deploy da Vercel. Confira `/rio-grande-do-sul/` e o bloco “Informações e ajuda” no rodapé. Se a aba antiga continuar mostrando a versão anterior, recarregue com `Ctrl + F5`.
+5. Teste a consulta com Taquara (presencial sob combinação + online) e Pelotas (online), a pausa do mapa e os links do rodapé.
+
+## Validação da V24
+
+Render real com Chromium e fontes do site em 320, 360, 390, 430, 768 e 1440 px; sem overflow horizontal nos controles e no conteúdo revisado. Seleção por teclado, SVG e botões, busca com e sem acentos, mensagem de município não encontrado, links de WhatsApp por contexto, listas expansíveis, versão sem JavaScript e movimento reduzido verificados.
+
+Links internos, âncoras, arquivos locais, JSON-LD, SVG e sitemap conferidos. Rodapés verificados nas 18 páginas. Consentimento antes/depois do aceite, revogação, sincronização entre abas, armazenamento bloqueado e formulário após recusa passaram novamente, com Google Analytics e envio de formulário simulados para não gerar dados reais de teste.
+
+Checagens locais disponíveis:
+
+```bash
+python scripts/validate_site.py
+node --check js/regions.js
+node --check js/main.js
+node --check js/analytics.js
+node --check js/consent.js
+```
+
+O mapa não depende de API externa em produção. Fonte e recorte: `content/rs-map-source.md`. As referências de SEO são o guia inicial do Google e suas políticas sobre conteúdo repetido por região e excesso de palavras-chave:
+
+- https://developers.google.com/search/docs/fundamentals/seo-starter-guide?hl=pt-br
+- https://developers.google.com/search/docs/essentials/spam-policies
+- https://support.google.com/business/answer/9157481?hl=pt-BR
+- https://schema.org/Service
+- https://schema.org/areaServed
+
+A base técnica e o conteúdo ajudam a tornar o serviço compreensível para visitantes e buscadores; não garantem indexação, posição ou contatos em cada município. As configurações privadas do Search Console e do Perfil da Empresa não foram alteradas por este pacote.
+
+---
+
+## Histórico anterior
+
+### TM21 — V17
 
 Versão focada em diferenciação visual da home, equilíbrio de blocos, privacidade e consentimento.
 
