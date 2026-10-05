@@ -54,7 +54,7 @@
   };
 
   const track = (eventName, params = {}) => {
-    if (typeof window.gtag !== 'function') return;
+    if (!window.tm21AnalyticsAllowed?.() || typeof window.gtag !== 'function') return;
 
     window.gtag('event', eventName, {
       page_path: window.location.pathname,
@@ -127,7 +127,7 @@
   let contactFormStarted = false;
 
   contactForm?.addEventListener('focusin', () => {
-    if (contactFormStarted || typeof window.gtag !== 'function') return;
+    if (contactFormStarted || !window.tm21AnalyticsAllowed?.() || typeof window.gtag !== 'function') return;
     contactFormStarted = true;
     track('contact_form_start', {
       form_id: contactForm.id || 'contactForm',
