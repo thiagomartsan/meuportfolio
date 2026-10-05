@@ -64,10 +64,7 @@
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
 
-    revealItems.forEach((item, index) => {
-      item.style.transitionDelay = `${Math.min((index % 4) * 55, 165)}ms`;
-      revealObserver.observe(item);
-    });
+    revealItems.forEach((item) => revealObserver.observe(item));
   }
 
   // Floating WhatsApp appears after the hero.

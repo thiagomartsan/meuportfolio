@@ -100,3 +100,11 @@ A arquitetura adotada é:
 Não criar centenas de páginas municipais quase idênticas apenas trocando cidade. Novas páginas locais só devem existir quando houver conteúdo, oferta, evidência ou contexto realmente específico para aquele local.
 
 O SEO técnico e o conteúdo aumentam a capacidade de descoberta, mas não garantem indexação imediata, posição específica, lead ou venda.
+
+
+## V28 — performance da home
+- CSS crítico da primeira dobra embutido; stylesheet completo passa a carregar sem bloquear a primeira pintura.
+- Imagens da home com srcset/sizes e variantes 320/480/768 quando aplicável.
+- Mosaico visual da hero usa lazy loading para não disputar rede com o texto principal no mobile.
+- Removidas mutações de transition-delay em massa no carregamento inicial.
+- Alterações concentradas na home; páginas comerciais mantidas.
