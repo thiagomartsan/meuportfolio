@@ -1,44 +1,46 @@
-# TM21 — V24
+# TM21 — V25
 
-Pacote completo de 05/10/2026: nova página do Rio Grande do Sul, acesso institucional mais visível no rodapé e preservação dos ajustes anteriores de privacidade, termos, dúvidas e consentimento.
+Pacote completo de 04/10/2026 (horário de Brasília): página de Santa Catarina no padrão visual e estrutural do RS, conteúdo regional próprio e alinhamento de visitas nas duas páginas. Inclui todas as alterações da V24 e os ajustes de privacidade, termos, dúvidas e consentimento anteriores.
 
 ## O que muda nesta versão
 
-- `/rio-grande-do-sul/`: conteúdo comercial, entregáveis, busca local, regiões, municípios, perguntas frequentes e CTAs ao longo da página.
-- Mapa vetorial local com geometria simplificada do IBGE: seis áreas azuis para avaliar encontros presenciais sob combinação e demais áreas em cinza para atendimento online.
-- Animação suave com pausa, seleção de regiões por botão/teclado ou mapa e respeito à preferência de movimento reduzido.
-- Consulta local aos 497 municípios do RS, sem geolocalização do navegador e sem enviar o texto pesquisado ao Analytics.
-- Listas expansíveis dos 98 municípios da área destacada, organizadas em sete grupos com nomes familiares.
-- Metadados, canonical, dados estruturados de Service e areaServed e atualização do sitemap. Nenhuma unidade ou coordenada de escritório é inventada.
-- Bloco “Informações e ajuda” nos 18 rodapés: dúvidas frequentes, privacidade, termos e preferências de cookies.
-- Resumo do atendimento no card do RS da home e correção de uma âncora duplicada nos Termos de Uso.
+- `/santa-catarina/`: hero, mapa, consulta por cidade, entregáveis, SEO local, listas regionais, dúvidas e CTAs ao longo da página.
+- Mapa municipal de SC com geometria simplificada do IBGE e ampliação da Grande Florianópolis para leitura no celular.
+- Nove municípios em azul para avaliar visitas sob combinação. Os outros 13 municípios do entorno recebidos na referência aparecem como atendimento online; o restante do estado também é online.
+- Consulta local aos 295 municípios de SC, com nomes sem acentos e reconhecimento de “Floripa”. Nenhuma localização do navegador é solicitada.
+- Conteúdo sobre Grande Florianópolis, Vale do Itajaí, Norte, Oeste, Meio-Oeste, Serra, Sul e Planalto Norte, com exemplos de serviços e cidades.
+- Visitas descritas como possibilidade a avaliar, sem inventar escritório, clientes ou histórico de atendimento presencial em SC.
+- RS, SC e Dúvidas Frequentes deixam explícito que transporte, pedágios, estacionamento e eventual hospedagem precisam ser conversados antes da confirmação. O orçamento do site não inclui automaticamente despesas de viagem; custos e responsabilidades são alinhados previamente.
+- `css/regions.css` e `js/regions.js` atendem as duas páginas com configuração local por estado. Nomes, cidades, mensagens e WhatsApp mantêm o contexto correto.
+- Metadados, canonical, Service/areaServed, links internos e sitemap de SC revisados; os cards regionais da home seguem a mesma política de visitas.
 
-O conteúdo regional permanece no HTML inicial; mapa, listas e contatos ficam disponíveis sem JavaScript. Os controles adicionais aparecem quando o script está disponível. O CSS regional é carregado somente na página do RS. Santa Catarina receberá sua revisão de conteúdo em uma próxima etapa.
+## Substituir e publicar a V25
 
-## Substituir e publicar a V24
-
-1. Extraia `tm21-portfolio-v24.zip`.
-2. Copie o conteúdo da pasta extraída `tm21-portfolio` para dentro do repositório existente, aceitando substituir os arquivos. Preserve a pasta `.git` local; o ZIP não contém essa pasta.
+1. Extraia `tm21-portfolio-v25.zip`.
+2. Copie o conteúdo da pasta extraída `tm21-portfolio` para dentro do repositório existente, aceitando substituir os arquivos. Preserve a pasta `.git` local; ela não está no ZIP.
 3. Abra o Git CMD e execute:
 
 ```cmd
 cd /d "C:\Users\Admin\Desktop\Currículos\Thiago\Sites\Portfólio - Thiago\tm21-portfolio"
 git status
 git add .
-git commit -m "Atualiza pagina do RS e navegacao do rodape para V24"
+git commit -m "Atualiza pagina de Santa Catarina e custos de visitas para V25"
 git push
 ```
 
-Alternativamente, depois de copiar os arquivos para o repositório existente, execute `ATUALIZAR-V24.cmd` dentro dele. O arquivo usa sua própria pasta como diretório de trabalho, interrompe em erros do Git e mantém o resultado aberto. Não execute os dois métodos se o primeiro já concluiu o envio.
+Alternativamente, após copiar os arquivos para o repositório, execute `ATUALIZAR-V25.cmd` dentro dele. O arquivo usa sua própria pasta como diretório de trabalho, interrompe em erros do Git e mantém o resultado aberto. Use apenas um dos métodos de envio.
 
-4. Aguarde o deploy da Vercel. Confira `/rio-grande-do-sul/` e o bloco “Informações e ajuda” no rodapé. Se a aba antiga continuar mostrando a versão anterior, recarregue com `Ctrl + F5`.
-5. Teste a consulta com Taquara (presencial sob combinação + online) e Pelotas (online), a pausa do mapa e os links do rodapé.
+4. Aguarde o deploy da Vercel. Confira `/santa-catarina/`, `/rio-grande-do-sul/` e `/duvidas-frequentes/`. Recarregue com `Ctrl + F5` se a aba mantiver uma versão anterior.
+5. Consulte “Floripa”, “São José” e “Águas Mornas” para a possibilidade de visita, e “Joinville”, “Tijucas” e “Garopaba” para online. Confira também Taquara e Pelotas no RS.
+6. Teste a pausa do mapa, a seleção das áreas, os CTAs e a regra de despesas de viagem.
 
-## Validação da V24
+## Validação da V25
 
-Render real com Chromium e fontes do site em 320, 360, 390, 430, 768 e 1440 px; sem overflow horizontal nos controles e no conteúdo revisado. Seleção por teclado, SVG e botões, busca com e sem acentos, mensagem de município não encontrado, links de WhatsApp por contexto, listas expansíveis, versão sem JavaScript e movimento reduzido verificados.
+Render real com Chromium e fontes do site em 320, 360, 390, 430, 768 e 1440 px nas duas páginas. Interações de mapa e botões, teclado, consulta por cidade com e sem acentos, apelido “Floripa”, erro de município não encontrado, reset da mensagem ao editar a consulta e WhatsApp com contexto de município/estado verificados.
 
-Links internos, âncoras, arquivos locais, JSON-LD, SVG e sitemap conferidos. Rodapés verificados nas 18 páginas. Consentimento antes/depois do aceite, revogação, sincronização entre abas, armazenamento bloqueado e formulário após recusa passaram novamente, com Google Analytics e envio de formulário simulados para não gerar dados reais de teste.
+Sem overflow horizontal nos controles e no conteúdo revisado, inclusive com todas as listas de municípios abertas. Pausa, movimento reduzido, fallback sem JavaScript, listas e menu mobile conferidos. Geometria e nomes verificados: 295 municípios de SC, nove em destaque e 22 na lista regional; os 497 municípios da consulta e os 98 da cobertura regional do RS permanecem.
+
+Links internos, âncoras, IDs, arquivos locais, JSON-LD, SVG e sitemap conferidos. Os 18 rodapés preservam “Informações e ajuda”. A consulta digitada não gera evento de Analytics. Consentimento antes/depois do aceite, revogação, sincronização entre abas, armazenamento bloqueado e formulário após recusa passaram novamente, com a tag e o envio simulados para não gerar dados reais de teste.
 
 Checagens locais disponíveis:
 
@@ -50,19 +52,24 @@ node --check js/analytics.js
 node --check js/consent.js
 ```
 
-O mapa não depende de API externa em produção. Fonte e recorte: `content/rs-map-source.md`. As referências de SEO são o guia inicial do Google e suas políticas sobre conteúdo repetido por região e excesso de palavras-chave:
+Fontes dos mapas e recortes: `content/sc-map-source.md` e `content/rs-map-source.md`. Os mapas são locais; não consultam APIs em produção. SEO básico e conteúdo útil não garantem indexação, posição ou contatos em cada município. Não foram alteradas configurações privadas do Search Console, Analytics ou Perfil da Empresa.
 
+Referências técnicas:
+
+- https://servicodados.ibge.gov.br/api/docs/malhas?versao=3
 - https://developers.google.com/search/docs/fundamentals/seo-starter-guide?hl=pt-br
 - https://developers.google.com/search/docs/essentials/spam-policies
-- https://support.google.com/business/answer/9157481?hl=pt-BR
 - https://schema.org/Service
 - https://schema.org/areaServed
-
-A base técnica e o conteúdo ajudam a tornar o serviço compreensível para visitantes e buscadores; não garantem indexação, posição ou contatos em cada município. As configurações privadas do Search Console e do Perfil da Empresa não foram alteradas por este pacote.
 
 ---
 
 ## Histórico anterior
+
+### V24
+
+Página do Rio Grande do Sul com mapa, regiões, municípios, entregáveis, SEO e CTAs; rodapés com acesso institucional mais visível. A V25 preserva essas alterações e adiciona a orientação prévia sobre custos de visita.
+
 
 ### TM21 — V17
 

@@ -1,4 +1,4 @@
-/* V24: geographic coverage and service page. Loaded only on the RS page. */
+/* V25: shared geographic coverage and service pages for RS and SC. */
 .rs-page [hidden] { display:none !important; }
 .rs-page em { font-family:"Instrument Serif",Georgia,serif; font-weight:400; }
 .rs-page .button--primary { background:#2465d7; border-color:#2465d7; }
@@ -44,6 +44,8 @@
 .rs-region-panel h3 { font-size:clamp(1.9rem,3vw,2.8rem); font-weight:500; line-height:1.1; letter-spacing:-.04em; margin:20px 0; }
 .rs-region-panel p { color:var(--text-dark-muted); margin:0 0 18px; }
 .rs-region-panel #region-examples { color:var(--text-dark); }
+.rs-visit-note { margin:12px 0 8px; padding:16px 18px; border-left:2px solid #225bbe; background:rgba(255,255,255,.5); color:#495564; font-size:.82rem; line-height:1.6; }
+.rs-visit-note strong { display:block; color:#225bbe; font-weight:500; margin-bottom:6px; }
 .rs-coverage__info > .button { margin-top:12px; }
 .rs-inline-link { display:flex; align-items:center; justify-content:space-between; gap:16px; font-size:.9rem; padding:18px 0; color:#225bbe; max-width:430px; }
 .rs-city-lookup { margin-top:44px; padding:28px 0; border-top:1px solid var(--border-light); border-bottom:1px solid var(--border-light); display:grid; grid-template-columns:1fr 1.2fr; gap:36px; align-items:start; }
@@ -95,6 +97,14 @@
 .rs-online { display:grid; grid-template-columns:1fr auto; gap:44px; align-items:center; margin-top:48px; }
 .rs-online h3 { margin:16px 0; font-size:1.8rem; font-weight:500; line-height:1.2; letter-spacing:-.03em; }
 .rs-online p { color:#626b75; margin:0; max-width:800px; }
+.rs-map-detail { border-top:1px solid var(--border-dark); padding:18px 0 12px; }
+.rs-map-detail > span { color:#c1cbd5; font-size:.62rem; letter-spacing:.06em; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; }
+.rs-map-detail .rs-map--detail { height:210px; margin:12px 0 0; }
+.sc-page .rs-map--state .rs-map__region:not(.rs-map__region--priority) { stroke-width:.45; }
+.sc-remote-regions { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:30px; margin-top:44px; padding-top:32px; border-top:1px solid var(--border-light); }
+.sc-remote-regions h3 { margin:14px 0 12px; font-size:1.3rem; font-weight:500; letter-spacing:-.025em; }
+.sc-remote-regions p { margin:0; color:#626b75; font-size:.91rem; }
+.sc-remote-regions strong { color:#39434f; font-weight:500; }
 .rs-faq-grid { display:grid; grid-template-columns:.8fr 1.2fr; gap:90px; }
 .rs-faq { border-top:1px solid var(--border-light); }
 .rs-faq:last-child { border-bottom:1px solid var(--border-light); }
@@ -113,6 +123,7 @@
  .rs-city-lookup { grid-template-columns:1fr; gap:20px; }
  .rs-online { grid-template-columns:1fr; gap:28px; }
  .rs-online > .button { justify-self:start; }
+ .sc-remote-regions { grid-template-columns:repeat(2,minmax(0,1fr)); }
 }
 @media(max-width:760px) {
  .rs-section { padding:76px 0; }
@@ -137,6 +148,7 @@
  .rs-directory__group b { grid-column:2; grid-row:1 / span 2; }
  .rs-directory__group ul { grid-template-columns:repeat(2,minmax(0,1fr)); font-size:.85rem; gap:12px; }
  .rs-page .seo-cta__grid { gap:28px; }
+ .sc-remote-regions { grid-template-columns:1fr; gap:28px; }
 }
 @media(prefers-reduced-motion:reduce) {
  .rs-page .rs-map__region { animation:none; transition:none; }

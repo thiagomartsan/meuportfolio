@@ -15,6 +15,6 @@ Consulta realizada em 05/10/2026. Malha com 35 áreas; seis destacadas, identifi
 
 Os nomes apresentados ao visitante são referências comuns para orientar o atendimento. Paranhana e Sinos, por exemplo, atravessam recortes da fonte cartográfica e por isso têm grupos próprios na lista textual. As bordas do mapa não devem ser interpretadas como limites precisos de cada um desses nomes comerciais.
 
-Azul: possibilidade de encontro presencial, sujeita a localização, agenda e deslocamento, além do atendimento online. Cinza: atendimento online. Não há declaração de escritórios ou unidades em cada cidade.
+Azul: possibilidade de encontro presencial, sujeita a localização, agenda, deslocamento e custos de viagem previamente alinhados, além do atendimento online. Cinza: atendimento online. Não há declaração de escritórios ou unidades em cada cidade.
 
 O SVG interativo está no HTML da página. `assets/rs-coverage.svg` contém a versão independente estática. A página não consulta mapas externos, não solicita GPS e não transmite a pesquisa digitada de cidade. A animação depende do JavaScript disponível, tem controle de pausa e respeita a preferência de movimento reduzido.
