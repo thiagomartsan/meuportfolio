@@ -108,3 +108,9 @@ O SEO técnico e o conteúdo aumentam a capacidade de descoberta, mas não garan
 - Mosaico visual da hero usa lazy loading para não disputar rede com o texto principal no mobile.
 - Removidas mutações de transition-delay em massa no carregamento inicial.
 - Alterações concentradas na home; páginas comerciais mantidas.
+
+## Ajuste de portfólio — v30
+- Emily Sehn e Amigo Bicho passaram a usar screenshots reais em desktop + mobile;
+- os dois projetos abrem a seleção principal lado a lado;
+- a hero do portfólio agora destaca Emily, Amigo Bicho e Penafiel;
+- demais páginas, Blog e rotas existentes foram preservadas.
