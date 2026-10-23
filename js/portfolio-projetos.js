@@ -1,1 +1,71 @@
-(()=>{'use strict';const toggle=document.querySelector('.menu-toggle'),nav=document.querySelector('#navMobile');function close(){if(!toggle||!nav)return;toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Abrir menu');nav.hidden=true;}toggle?.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')!=='true';toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'Fechar menu':'Abrir menu');nav.hidden=!open;});nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));window.addEventListener('keydown',e=>{if(e.key==='Escape')close()});const buttons=[...document.querySelectorAll('.filter')],search=document.querySelector('#projectSearch'),items=[...document.querySelectorAll('#catalogueGrid .project-card')],empty=document.querySelector('#noResults');let active='all';function filter(){const q=(search?.value||'').trim().toLocaleLowerCase('pt-BR');let count=0;for(const card of items){const valid=(active==='all'||card.dataset.type===active)&&(!q||card.dataset.search.includes(q));card.hidden=!valid;if(valid)count++}if(empty)empty.hidden=count!==0;}buttons.forEach(b=>b.addEventListener('click',()=>{active=b.dataset.filter;buttons.forEach(v=>{const yes=v===b;v.classList.toggle('is-active',yes);v.setAttribute('aria-pressed',String(yes))});filter()}));search?.addEventListener('input',filter);})();
+(() => {
+  'use strict';
+
+  const toggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('#navMobile');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function closeMenu() {
+    if (!toggle || !nav) return;
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Abrir menu');
+    nav.hidden = true;
+    document.body.style.overflow = '';
+  }
+
+  toggle?.addEventListener('click', () => {
+    if (!nav) return;
+    const isOpen = toggle.getAttribute('aria-expanded') !== 'true';
+    toggle.setAttribute('aria-expanded', String(isOpen));
+    toggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
+    nav.hidden = !isOpen;
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  nav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+  window.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeMenu(); });
+  window.addEventListener('resize', () => { if (window.innerWidth > 900) closeMenu(); });
+
+  const buttons = [...document.querySelectorAll('.filter')];
+  const search = document.querySelector('#projectSearch');
+  const cards = [...document.querySelectorAll('#catalogueGrid .project-card')];
+  const empty = document.querySelector('#noResults');
+  let active = 'all';
+
+  const updateFilter = () => {
+    const query = (search?.value || '').trim().toLocaleLowerCase('pt-BR');
+    let visible = 0;
+    cards.forEach((card) => {
+      const matches = (active === 'all' || card.dataset.type === active)
+        && (!query || (card.dataset.search || '').includes(query));
+      card.hidden = !matches;
+      if (matches) visible++;
+    });
+    if (empty) empty.hidden = visible > 0;
+  };
+  buttons.forEach((button) => button.addEventListener('click', () => {
+    active = button.dataset.filter;
+    buttons.forEach((item) => {
+      const on = item === button;
+      item.classList.toggle('is-active', on);
+      item.setAttribute('aria-pressed', String(on));
+    });
+    updateFilter();
+  }));
+  search?.addEventListener('input', updateFilter);
+
+  // Motion is progressively enhanced: without JS everything remains visible.
+  const reveals = [...document.querySelectorAll('.reveal')];
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    reveals.forEach(el => el.classList.add('is-visible'));
+  } else {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.07, rootMargin: '0px 0px -7% 0px' });
+    reveals.forEach(el => observer.observe(el));
+    document.body.classList.add('js-motion');
+  }
+})();

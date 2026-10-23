@@ -1,0 +1,42 @@
+TM21 — PORTFÓLIO DE PROJETOS · V3
+23/10/2026
+
+Esta pasta contém o SITE COMPLETO da versão V3, com as imagens incorporadas
+nos arquivos HTML e os respectivos arquivos em /assets.
+
+O QUE FOI ALTERADO
+- Restaurada a identidade anterior: marca TM21, fontes Instrument Serif e Inter Tight,
+  grafite e azul em vez da identidade azul-ciano criada na V2.
+- Home renovada com montagem visual de telas de projetos e cardápio de cases.
+- Cards maiores, transições e animação de entrada discreta (respeita redução de movimento).
+- Cases do Gestão do Personal, Controladoria, n8n e Priorização Estratégica com imagens incorporadas.
+- Imagens sensíveis foram anonimizadas ou reconstruídas para publicação.
+- Dados exemplificativos do case Controladoria não devem ser interpretados como dados reais.
+- Textos públicos mais objetivos; removidas seções meta sobre “complementar o LinkedIn”.
+- Blog preservado no diretório /blog e oculto da navegação do portfólio.
+- Preservados os nove cases, a área de sites, a página da Emily e os demais arquivos anteriores.
+
+PRINCIPAIS ARQUIVOS NOVOS
+/css/portfolio-identity-v3.css
+/assets/gestao-personal-app.webp
+/assets/controladoria-dashboard-principal.webp
+/assets/controladoria-destaques.webp
+/assets/controladoria-alertas.webp
+/assets/automacoes-n8n.webp
+/assets/priorizacao-estrategica-resumo.webp
+/assets/priorizacao-estrategica-mapa.webp
+
+PARA SUBSTITUIR A V2 LOCAL
+1. Extraia o ZIP.
+2. Copie TODOS OS ITENS DO INTERIOR desta pasta para seu diretório
+   tm21-portfolio-2, substituindo os arquivos de mesmo nome.
+3. Revise o site localmente, inclusive fotos e claims dos cases.
+4. Na pasta já conectada ao repositório do Git, use:
+   git add -A
+   git commit -m "Atualiza portfolio V3 e imagens dos projetos"
+   git push origin main
+
+ATENÇÃO
+- Fotos do autor continuam pendentes e NÃO foram inventadas.
+- Os visuais reconstruídos são ilustrativos e os números de demonstração não são resultados reais.
+- Não houve upload automático nem alteração no repositório remoto.
