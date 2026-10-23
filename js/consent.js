@@ -39,7 +39,9 @@
   const disableAnalytics = () => {
     // Stop an already loaded tag as well as the site's custom events immediately.
     window[`ga-disable-${GA_ID}`] = true;
-    const names = document.cookie.split(';').map((cookie) => cookie.trim().split('=')[0]);
+    let cookieString = '';
+    try { cookieString = document.cookie; } catch (error) { return; }
+    const names = cookieString.split(';').map((cookie) => cookie.trim().split('=')[0]);
     const domains = ['', window.location.hostname];
     const parts = window.location.hostname.split('.');
     for (let i = 0; i < parts.length - 1; i += 1) domains.push(parts.slice(i).join('.'));

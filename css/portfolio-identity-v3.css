@@ -259,3 +259,57 @@ h3{font-size:clamp(1.8rem,2.55vw,2.85rem);line-height:1.02}
 }
 /* Prevent decorative hero glow from causing sideways scroll. */
 .hero:before{inset:0 0 0 42%}
+
+
+/* v4.2 / portrait-first hero: keeps TM21 identity and project previews */
+.hero .hero-stage{isolation:isolate}
+.hero .stage-portrait{top:22px;left:16%;right:17%;height:483px;max-width:390px;margin:auto;border-radius:26px;background:#151e27;overflow:hidden;cursor:default}
+.hero .stage-portrait:hover{transform:none;box-shadow:0 30px 85px #0009}
+.hero .stage-portrait>img{width:100%;height:100%;object-fit:cover;object-position:center 21%;filter:saturate(.9) contrast(1.02)}
+.stage-portrait:after{content:'';position:absolute;inset:46% 0 0;background:linear-gradient(180deg,transparent 0%,rgba(5,9,16,.25) 48%,rgba(5,9,16,.88) 100%);pointer-events:none}
+.stage-portrait-label{position:absolute;left:28px;right:15px;bottom:27px;z-index:2;display:flex;flex-direction:column;gap:2px;text-shadow:0 2px 10px #0008}
+.stage-portrait-label span{font:400 2.05rem/1.02 var(--display);letter-spacing:-.04em;color:#fff}
+.stage-portrait-label small{font:500 .69rem/1.4 var(--body);color:#e3ebf4}
+.hero .stage-float--phone{left:0;bottom:16px;width:129px;height:258px;z-index:3;transform:rotate(-7deg)}
+.hero .stage-float--strategy{right:-2%;bottom:25px;width:254px;height:157px;z-index:3;transform:rotate(5deg)}
+.hero .stage-float--strategy img{object-fit:cover;object-position:center top}
+.hero .stage-stamp--portrait{top:5px;right:0;width:88px;height:88px;font-size:1.7rem;z-index:4}
+.about-notes{min-height:420px;border:1px solid rgba(255,255,255,.18);border-radius:23px;padding:34px 29px;background:linear-gradient(160deg,#172333,#11171f 78%);display:flex;flex-direction:column;justify-content:space-between;gap:20px}
+.about-note-kicker,.about-note-item strong{color:#8cafff;font:600 .69rem/1.3 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.1em}
+.about-note-lead{font:400 clamp(2rem,3.2vw,3.6rem)/1 var(--display);letter-spacing:-.035em;color:#f7f6f1;margin:0 auto 10px 0}
+.about-note-item{border-top:1px solid rgba(255,255,255,.19);padding-top:13px;display:flex;flex-direction:column;gap:6px}
+.about-note-item span{color:#b3bdc9;font-size:.88rem;line-height:1.5}
+/* Cookie consent surface - same functional pattern as the original site */
+.cookie-banner{position:fixed;left:50%;bottom:max(18px,env(safe-area-inset-bottom));z-index:1200;width:min(920px,calc(100vw - 32px));display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;padding:20px 22px;border:1px solid rgba(255,255,255,.2);border-radius:14px;background:rgba(9,14,20,.97);color:#f2f4f6;box-shadow:0 24px 70px #0009;backdrop-filter:blur(16px);opacity:0;transform:translate(-50%,18px);pointer-events:none;transition:opacity .25s,transform .25s}
+.cookie-banner.is-visible{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+.cookie-banner__copy strong{display:block;font-size:1rem}
+.cookie-banner__copy p{max-width:620px;margin:6px 0;color:rgba(255,255,255,.73);font-size:.87rem;line-height:1.5}
+.cookie-banner__copy a{color:#9bbdff;font-size:.82rem;text-decoration:underline;text-underline-offset:3px}
+.cookie-banner__actions{display:flex;gap:8px}
+.cookie-banner__actions button{font:inherit;cursor:pointer;min-height:42px;padding:9px 16px;border-radius:8px;border:1px solid #7b8da5;background:#1c2838;color:#fff;white-space:nowrap}
+.cookie-banner__actions button:hover{background:#2d4160}
+.cookie-banner__copy .cookie-banner__status{color:#b9c8dc;font-size:.78rem}
+.cookie-banner a:focus-visible,.cookie-banner button:focus-visible{outline:3px solid #9bbdff;outline-offset:3px}
+@media(max-width:1100px){.hero .stage-portrait{left:12%;right:15%;height:430px}.hero .stage-float--strategy{width:211px;height:135px}.hero .stage-float--phone{width:118px;height:232px}}
+@media(max-width:900px){.hero .stage-portrait{left:19%;right:16%;height:437px;max-width:355px}.hero .stage-float--strategy{right:5%;bottom:20px;width:236px;height:145px}.hero .stage-float--phone{left:6%;bottom:8px;width:116px;height:238px}}
+@media(max-width:650px){.hero .stage-portrait{top:7px;left:18%;right:17%;height:313px;max-width:246px;border-radius:20px}.hero .stage-float--phone{left:0;bottom:4px;width:91px;height:176px;border-radius:12px}.hero .stage-float--strategy{right:0;bottom:12px;width:148px;height:92px;border-radius:10px}.hero .stage-stamp--portrait{top:0;right:0;width:65px;height:65px;font-size:1.25rem}.stage-portrait-label{left:16px;right:8px;bottom:17px}.stage-portrait-label span{font-size:1.42rem}.stage-portrait-label small{font-size:.54rem}.about-notes{min-height:auto;padding:26px}.about-note-lead{font-size:2.5rem}.cookie-banner{grid-template-columns:1fr;gap:14px;padding:17px}.cookie-banner__actions{width:100%}.cookie-banner__actions button{flex:1;min-width:0;white-space:normal;font-size:.8rem}}
+@media(prefers-reduced-motion:reduce){.hero .stage-float{transition:none}}
+
+/* refinamento editorial: a foto não precisa competir com textos sobrepostos */
+.stage-portrait:after{display:none}
+.hero-intro-row{display:contents}
+.hero-avatar-mobile{display:none}
+.hero .stage-mobile-dashboard{display:none}
+@media(max-width:650px){
+ .hero-intro-row{display:grid;grid-template-columns:minmax(0,1fr) 88px;gap:12px;align-items:center;margin:0 0 13px}
+ .hero-intro-row .overline{margin:0;line-height:1.6;max-width:220px;font-size:.65rem}
+ .hero-avatar-mobile{display:block;width:88px;height:88px;object-fit:cover;object-position:center 22%;border-radius:15px;border:1px solid rgba(255,255,255,.29);box-shadow:0 12px 30px #0006}
+ .hero .hero-stage{height:232px;margin:12px auto 0}
+ .hero .stage-portrait{display:none}
+ .hero .stage-mobile-dashboard{display:block;top:2px;left:11%;right:0;height:190px;border-radius:13px}
+ .hero .stage-mobile-dashboard img{width:100%;height:calc(100% - 27px);object-fit:cover;object-position:center top}
+ .hero .stage-mobile-dashboard .stage-bar{height:27px;padding-left:10px;color:#94b5f5;font:600 .52rem/27px ui-monospace,monospace;letter-spacing:.06em}
+ .hero .stage-float--phone{width:89px;height:172px;bottom:0;left:0}
+ .hero .stage-float--strategy,.hero .stage-stamp--portrait{display:none}
+ .hero h1{margin:16px 0 20px}
+}

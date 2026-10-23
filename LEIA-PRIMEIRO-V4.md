@@ -15,3 +15,12 @@ Arquivos completos do site. Descompacte e substitua o conteúdo da pasta local a
 - Testar o domínio publicado, Analytics e Search Console no ambiente real.
 - Revisar texto e ano de cada participação; números de impacto não comprovados foram omitidos.
 - A fotografia profissional do titular permanece pendente.
+
+
+## Versão 4.2 (23/10/2026)
+
+- Foto profissional na primeira dobra, preservando as prévias de projetos.
+- Logo e cores preservados da V4.1; foto removida da área inferior para evitar duplicidade.
+- Scripts de consentimento e Analytics incluídos nas novas páginas; evento GA4 só mediante consentimento.
+- Validador de SEO do GitHub Actions executado localmente com sucesso.
+- Não publicado automaticamente no GitHub.

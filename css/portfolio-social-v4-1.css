@@ -1,0 +1,31 @@
+/* TM21 — navegação social de portfólio | V4.1 */
+.topbar .nav-actions{display:flex;align-items:center;gap:10px;margin-left:auto}
+.topbar .social-icons{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.topbar .social-icon{width:39px;height:39px;min-width:39px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid rgba(219,226,240,.23);background:rgba(255,255,255,.035);color:#d2dae4;line-height:1;transition:color .18s ease,background-color .18s ease,border-color .18s ease,transform .18s ease}
+.topbar .social-icon svg{width:19px;height:19px;display:block;fill:currentColor;flex-shrink:0}
+.topbar .social-icon:hover{background:#367af8;border-color:#367af8;color:#fff;transform:translateY(-2px)}
+.topbar .social-icon:focus-visible{outline:3px solid #8eb4ff;outline-offset:3px}
+.topbar .social-icon--whatsapp:hover{background:#176f48;border-color:#176f48}
+.topbar .social-nav{display:none!important} /* substituído pelos links com ícones */
+@media(max-width:900px){
+  .topbar .nav-actions{gap:9px;margin-left:auto}
+  .topbar .social-icons{gap:7px}
+  .topbar .social-icon{width:36px;height:36px;min-width:36px}
+  .topbar .social-icon svg{width:17px;height:17px}
+  .topbar .menu-toggle{display:block;flex-shrink:0}
+}
+@media(max-width:420px){
+  .topbar .brand-descriptor{display:none}
+  .topbar .topbar-inner{gap:9px}
+  .topbar .nav-actions{gap:7px}
+  .topbar .social-icons{gap:5px}
+  .topbar .social-icon{width:34px;height:34px;min-width:34px}
+  .topbar .social-icon svg{width:16px;height:16px}
+  .topbar .menu-toggle{width:37px;height:37px;min-width:37px}
+}
+@media(max-width:340px){
+  .topbar .social-icon{width:32px;height:32px;min-width:32px}
+  .topbar .nav-actions{gap:5px}
+  .topbar .social-icons{gap:4px}
+}
+@media(prefers-reduced-motion:reduce){.topbar .social-icon{transition:none}.topbar .social-icon:hover{transform:none}}
