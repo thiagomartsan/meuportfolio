@@ -1,0 +1,17 @@
+TM21 — PORTFÓLIO DE PROJETOS V2 (23/10/2026)
+
+Página principal: index.html
+Cases: projetos/<slug>/index.html
+Sites: sites/index.html
+Catálogo de dados editoriais: content-projects.json
+Documentação: README-PORTFOLIO-PROJETOS.md
+Guia interno de provas: GUIA-DE-EVIDENCIAS-E-POSICIONAMENTO.md
+
+O blog foi retirado da navegação do portfólio, mas as URLs/arquivos foram preservados.
+O site não foi publicado nem seu repositório alterado.
+Antes de ir para produção: foto própria, revisão das atribuições individuais, links,
+confidencialidade e QA na hospedagem real.
+
+IMPORTANTE: não alegar autoria total do código dos aplicativos nem métricas de mercado ou
+campanhas sem evidência. Testes EP-QUAL pertencem ao trabalho técnico colaborativo,
+em PR pendente na data do documento de referência.

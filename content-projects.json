@@ -1,0 +1,283 @@
+[
+  {
+    "slug": "controladoria-inteligente",
+    "name": "Controladoria Inteligente",
+    "type": "Produto digital",
+    "group": "produtos",
+    "status": "Aplicação em evolução",
+    "style": "finance",
+    "year": "2026",
+    "origin": "Projeto em colaboração",
+    "short": "Painéis financeiros e gerenciais desenhados para apoiar decisões em diferentes níveis da empresa.",
+    "role": "Análise de produto, UX, indicadores gerenciais e arquitetura da informação.",
+    "problem": "Reunir números não basta quando o usuário não consegue identificar o que pede atenção, investigar uma variação ou decidir o próximo passo.",
+    "work": [
+      "Avaliei a experiência de navegação de um sistema gerencial já em funcionamento, identificando excesso de tabelas, baixa diferenciação visual e dúvidas sobre a hierarquia de indicadores.",
+      "Propus visões separadas por perfil decisório: síntese estratégica para diretoria e aprofundamento tático para gestores.",
+      "Documentei oportunidades para dashboards personalizáveis, notificações sobre atualização de dados, central de relatórios e explicações consistentes dos indicadores.",
+      "Relacionei leitura financeira a margem, estoque, vendas, metas, mídia digital e planos de ação, distinguindo informação disponível de novas integrações a estudar."
+    ],
+    "method": [
+      "Auditoria heurística da experiência e da navegação.",
+      "Benchmark de padrões de dashboards gerenciais e exemplos empresariais.",
+      "Formulação de propostas documentadas, com foco em prioridade, contexto e clareza para o decisor."
+    ],
+    "boundary": "As propostas de UX são contribuições e recomendações documentadas; isso não significa que todas tenham sido aprovadas ou implementadas. A aplicação existente é um trabalho colaborativo e não apresento seu código ou seus indicadores como entregas exclusivamente minhas.",
+    "image": null,
+    "link": null,
+    "connection": "Relaciona a experiência anterior com preços, custos, margens e dashboards à análise de UX e interpretação gerencial de um sistema em funcionamento. O foco do case é a clareza da decisão, não apenas produzir mais relatórios."
+  },
+  {
+    "slug": "gestao-do-personal",
+    "name": "Gestão do Personal",
+    "type": "SaaS / Produto",
+    "group": "produtos",
+    "status": "PWA publicado; validação pendente",
+    "style": "fitness",
+    "year": "2026",
+    "origin": "Projeto em colaboração",
+    "short": "Estudo de mercado, discovery e evolução de um produto financeiro e operacional para personal trainers.",
+    "role": "Product discovery, inteligência competitiva, pesquisa de usuários, requisitos, priorização e qualidade de produto.",
+    "problem": "A primeira demanda veio da rotina financeira de uma profissional. O desafio foi distinguir os problemas demonstrados pela operação, necessidades observadas no setor e hipóteses de expansão antes de transformar tudo em funcionalidades.",
+    "work": [
+      "Parti de documentos existentes e decisões já aprovadas sobre alunos, planos, agenda, recebimentos, custos e separação PF/PJ; organizei as necessidades e identifiquei incertezas que ainda exigiam pesquisa.",
+      "Investiguei MFIT, Tecnofit Personal, NextPersonal e ProFit Control, comparando escopo, proposta comercial, jornada do professor e, quando disponível, experiência do aluno.",
+      "Li opiniões públicas de profissionais, alunos e gestores em lojas de aplicativos, redes e comunidades. Separei relatos individuais, padrões recorrentes e reclamações que não podiam ser generalizadas.",
+      "Cruzei achados com o Panorama Fitness Brasil 2026 e estudos de gestão. A pesquisa apontou problemas de acompanhamento financeiro, preço e crescimento, mas não comprovou disposição de pagamento pelo produto.",
+      "Modelei hipóteses de evolução: valor por hora trabalhada, margem por local, conciliação, cenários de preço, expansão e possíveis jornadas B2B2C / aluno. Separei o núcleo operacional das apostas futuras.",
+      "Elaborei um instrumento de pesquisa e testes com perfis distintos de personal, perguntas não indutivas, critérios de adoção e sinais necessários antes de priorizar funcionalidades comerciais.",
+      "Estruturei requisitos de qualidade e confiabilidade: isolamento de dados, integridade de lançamentos, testes, backups, riscos de performance, critérios de aceite e organização do backlog técnico."
+    ],
+    "method": [
+      "Discovery orientado por dores observáveis: documento inicial, pesquisa setorial, leitura de avaliações e lacunas da rotina.",
+      "Benchmark comparativo, distinguindo funcionalidades efetivas, comunicação comercial, relatos de usuários e hipóteses.",
+      "Priorização por risco e valor: operação existente antes de simuladores de expansão e funcionalidades para o aluno.",
+      "Governança de produto: backlog, critérios de aprovação, evidências do que está em produção e do que está apenas em PR."
+    ],
+    "boundary": "O aplicativo foi desenvolvido em colaboração; não atribuo a mim a autoria de todo o código. O roteiro de 20 entrevistas é um instrumento preparado, não uma amostra já entrevistada. O relatório EP-QUAL de 23/10 registrou 355 testes no PR #48 com CI verde, mas a publicação e ações sobre o banco real ainda estavam pendentes naquela data. Métricas de uso, retenção ou faturamento não foram validadas para divulgação.",
+    "image": null,
+    "link": null,
+    "evidence": [
+      "Dossiês de MFIT, Tecnofit, NextPersonal e ProFit Control: pesquisa concorrencial e leitura crítica de reviews.",
+      "Panorama Fitness Brasil 2026, estudos econômicos e consolidado de posicionamento: hipótese versus evidência.",
+      "Questionário de validação v2 e backlog: instrumento preparado para 20 entrevistas, ainda não tratado como pesquisa executada.",
+      "EP-QUAL (23/10): relatório de segurança, integridade, testes e limites da publicação, sem atribuir a execução integral dos testes."
+    ],
+    "connection": "Conecta a experiência com indicadores, produtos digitais e regras de negócio na Edenred à atuação atual em discovery, UX e planejamento de SaaS. O LinkedIn registra as competências; este case mostra o processo de investigação e priorização."
+  },
+  {
+    "slug": "moldar",
+    "name": "MOLDAR",
+    "type": "Simulador industrial",
+    "group": "simuladores",
+    "status": "Protótipo funcional; evolução em estudo",
+    "style": "industry",
+    "year": "2026",
+    "origin": "Projeto próprio",
+    "short": "Simulação de capacidade, metas e possíveis restrições no fluxo produtivo da indústria calçadista.",
+    "role": "Concepção do produto, modelagem de regras, UX, cenários e prototipação.",
+    "problem": "Mudanças em metas, jornada ou capacidade das etapas podem gerar restrições de produção difíceis de enxergar em uma análise isolada.",
+    "work": [
+      "Estruturei entradas ligadas a metas, horas disponíveis, etapas e capacidade de postos de trabalho.",
+      "Organizei a lógica de comparação entre capacidade e demanda, com leitura de possíveis gargalos e cenários alternativos.",
+      "Construí e refinei versões navegáveis para tornar conceitos de engenharia de produção testáveis em uma interface simples.",
+      "Investiguei a expansão futura para cronograma visual, carga por setor, mudanças de pedidos e replanejamento diário sem transformar o simulador em ERP."
+    ],
+    "method": [
+      "Referências de engenharia de produção, balanceamento e capacidade.",
+      "Modelagem de regras e testes com cenários demonstrativos.",
+      "Revisões sucessivas da interface e delimitação do que é diagnóstico preliminar."
+    ],
+    "boundary": "O MOLDAR não substitui cronoanálise, dados reais de chão de fábrica nem implantação industrial. As propostas de Gantt e replanejamento são evolução estudada, não funcionalidades anunciadas como entregues.",
+    "image": "moldar-resultado.webp",
+    "link": "https://sitemoldarcalcadistasimulator.vercel.app/",
+    "connection": "A experiência em engenharia de produção, roteiros produtivos, capacidade e custos ajuda a explicar as premissas do simulador. O case transforma esse conhecimento em uma ferramenta de decisão própria."
+  },
+  {
+    "slug": "automacoes-exe-business",
+    "name": "Automações e fluxos de negócio",
+    "type": "Processos / Automação",
+    "group": "automacoes",
+    "status": "Projetos de clientes · identidade preservada",
+    "style": "automation",
+    "year": "2025–2026",
+    "origin": "Projetos profissionais na Exe Business",
+    "short": "Tradução de necessidades operacionais em fluxos automatizados, integrações e requisitos técnicos.",
+    "role": "Discovery funcional, mapeamento de processos, especificação de regras, testes e implementação parcial.",
+    "problem": "Demandas como atendimento, triagem, cadastro, qualificação e acompanhamento comercial pareciam tarefas isoladas, mas dependiam de regras, exceções, dados de entrada e integração entre ferramentas.",
+    "work": [
+      "Conversei com clientes e áreas envolvidas para entender o processo como realmente funcionava, suas exceções e pontos de intervenção humana.",
+      "Traduzi linguagem operacional em regras, campos, gatilhos, condições, integrações, prioridades e critérios funcionais para a equipe técnica.",
+      "Participei do desenho de fluxos envolvendo n8n, formulários, CRM, WhatsApp, agenda e agentes de IA, conforme o escopo de cada projeto.",
+      "Trabalhei na estruturação de premissas e instruções dos agentes, incluindo limites de resposta, rotas de atendimento e transferência para humanos.",
+      "Apoiei parcialmente a montagem, ajustes e validação de automações, sem assumir a autoria técnica integral ou a responsabilidade por toda a infraestrutura.",
+      "Ajudei a explicar soluções e limitações para clientes, traduzindo decisões técnicas em impacto na operação e próximos passos viáveis."
+    ],
+    "method": [
+      "Mapeamento da situação atual e do fluxo esperado, incluindo responsáveis e exceções.",
+      "Especificação funcional: evento de entrada, condição, ação, integração, retorno esperado e falha.",
+      "Discussão de viabilidade, risco, necessidade de revisão humana e escopo mínimo.",
+      "Participação em revisões e testes funcionais com base no processo de negócio."
+    ],
+    "boundary": "Os clientes e fluxos específicos estão sob confidencialidade. Não divulgo nomes, credenciais, prints de automações reais, dados comerciais, mensagens, volumes de atendimento nem ganhos operacionais não medidos. Minha participação na implementação foi parcial e variou por projeto.",
+    "evidence": [
+      "Exemplos de lógica e fluxos demonstrativos, reconstruídos sem conexão com clientes reais.",
+      "Descrição das responsabilidades funcionais: entrada → condição → regra → ação → exceção → validação.",
+      "Documentação interna e discussões técnicas existentes, não publicadas por confidencialidade."
+    ],
+    "connection": "No LinkedIn, a Exe Business aparece como experiência de diagnóstico e integração entre negócio e tecnologia. Este case mostra a função de analista funcional e a participação prática com n8n e integrações, sem alegar desenvolvimento integral."
+  },
+  {
+    "slug": "operacoes-digitais-exe-business",
+    "name": "Operação digital e comunidades",
+    "type": "Operações / Go-to-market",
+    "group": "automacoes",
+    "status": "Experiência profissional · 2025–2026",
+    "style": "operations",
+    "year": "2025–2026",
+    "origin": "Operação interna na Exe Business",
+    "short": "Estruturação de comunidade, conteúdo, cursos e ferramentas para organizar aquisição e entrega digital.",
+    "role": "Operação de produtos digitais, estruturação de comunidade, conteúdo, CRM e apoio à aquisição.",
+    "problem": "Uma operação de consultoria e produtos digitais exige conectar distribuição, conteúdos, captura de interessados, relacionamento e entrega. Sem estrutura, as ferramentas viram ilhas.",
+    "work": [
+      "Estruturei a comunidade Exe Insights na plataforma Circle, organizando ambiente, categorias, acessos e experiência de entrada conforme a proposta da operação.",
+      "Trabalhei com organização de cursos, materiais digitais e infoprodutos, incluindo atividades em plataformas como Hotmart e ferramentas de publicação.",
+      "Contribuí para a estrutura editorial e manutenção de páginas com WordPress/Elementor, além da conexão entre conteúdo, formulários e jornadas comerciais.",
+      "Participei de frentes envolvendo campanhas e tráfego pago em Meta/Google, analisando configuração e acompanhamento operacional sem afirmar ROAS ou resultados que não foram preservados.",
+      "Ajudei a estruturar CRM, campos, estágios, acompanhamento de leads e rotinas de trabalho com ferramentas colaborativas e documentos de controle.",
+      "Atuei na articulação entre conteúdo, comunidade, atendimento e proposta comercial, identificando lacunas operacionais e alternativas simples de implementação."
+    ],
+    "method": [
+      "Organização da experiência: entrada, navegação, conteúdos, comunicação e próximos passos.",
+      "Escolha e integração operacional de plataformas segundo necessidade do produto.",
+      "Documentação de fluxos, gestão de demandas e acompanhamento de ações.",
+      "Análise crítica das ferramentas e do esforço necessário para sustentá-las."
+    ],
+    "boundary": "A comunidade e parte dos ambientes anteriores não estão mais sob meu acesso. Não apresento números de assinantes, lançamentos, campanhas, faturamento, conversão ou ROI sem arquivo-fonte recuperável. Ferramentas citadas indicam experiência operacional, não certificação oficial ou domínio técnico avançado de cada plataforma.",
+    "evidence": [
+      "Estrutura original da comunidade Circle e organização do ambiente Exe Insights, conforme histórico de trabalho.",
+      "Atividades documentadas em plataformas de conteúdo, formulários, publicação e CRM.",
+      "Planejamento e execução operacional de ações de aquisição, sem métricas públicas inventadas."
+    ],
+    "connection": "O LinkedIn resume processos, marketing operacional, CRM e ferramentas digitais na Exe Business. Aqui aparecem os ambientes, a estrutura de trabalho e as responsabilidades que deram conteúdo concreto à experiência."
+  },
+  {
+    "slug": "jobup",
+    "name": "JobUp",
+    "type": "Produto / Operações",
+    "group": "produtos",
+    "status": "Estruturação de produto e operação",
+    "style": "jobup",
+    "year": "2025–2026",
+    "origin": "Projeto colaborativo",
+    "short": "Arquitetura de competências, avaliação de habilidades e estruturação de uma plataforma de carreira.",
+    "role": "Estruturação de competências, avaliações, jornadas, MVP, conteúdo e aquisição de usuários.",
+    "problem": "Como transformar conteúdos, competências e avaliações em uma experiência coerente para profissionais e empresas, com uma hipótese de valor diferente de um mural convencional de vagas?",
+    "work": [
+      "Participei das discussões de escopo e MVP, ajudando a organizar proposta de valor, prioridades e jornadas de candidatos e empresas.",
+      "Estruturei qualificações em liderança, vendas, desenvolvimento de pessoas, rotinas administrativas, produtividade e mapeamento/documentação de processos.",
+      "Separei hard skills e soft skills e organizei relações entre qualificação, capacidade, habilidade e avaliação, evitando misturar camadas conceituais diferentes.",
+      "Trabalhei na definição de uma régua de proficiência de cinco níveis — Consciência, Aplicação básica, Autonomia, Estratégico e Referência — e na progressão de critérios observáveis.",
+      "Organizei e revisei bancos de questões, quizzes e avaliações situacionais vinculadas a habilidades e níveis de proficiência. Os registros de trabalho chegaram à ordem de centenas de questões e dezenas de quizzes, sem homologação pública desse volume.",
+      "Contribuí com trilhas, estrutura editorial de conteúdos, materiais de apresentação, comunicação e experimentos de aquisição e relacionamento com potenciais usuários e parceiros."
+    ],
+    "method": [
+      "Decomposição de conteúdos e atividades profissionais em habilidades avaliáveis.",
+      "Organização de matrizes e tabelas com proficiência, tipo de questão, gabarito, habilidade e nível.",
+      "Definição iterativa de MVP, requisitos de jornada e iniciativas de aquisição.",
+      "Articulação entre estratégia de produto, conteúdo de aprendizagem e operação."
+    ],
+    "boundary": "A ideia original da JobUp e o desenvolvimento de software foram conduzidos em outras frentes, com participação de outros profissionais. Os volumes citados são de materiais de trabalho e não demonstram avaliações concluídas por usuários, qualidade psicométrica, tração ou validação comercial. Não atribuo a mim autoria integral do produto.",
+    "image": "jobup-home.webp",
+    "link": "https://app.jobuptrack.com.br/",
+    "evidence": [
+      "Estruturas de qualificações e habilidades, com diferenciação entre hard e soft skills.",
+      "Régua de cinco níveis e tabelas de avaliação/quiz com gabarito e habilidade vinculada.",
+      "Materiais de conteúdo, escopo de MVP e organização das jornadas de uso.",
+      "Planejamento e ações de comunicação, prospecção e aquisição, sem divulgar indicadores não verificados."
+    ],
+    "connection": "Complementa a experiência da Exe Business registrada no LinkedIn. Enquanto o histórico profissional resume análise de negócios e operação, o case mostra a construção da lógica de um produto educacional e de avaliação de competências."
+  },
+  {
+    "slug": "strategic-flexibility-model",
+    "name": "Strategic Flexibility Model",
+    "type": "Modelo de decisão",
+    "group": "simuladores",
+    "status": "Protótipo analítico em evolução",
+    "style": "investment",
+    "year": "2026",
+    "origin": "Projeto próprio",
+    "short": "Modelo em Python para comparar investimentos incluindo flexibilidade, espera e riscos de execução.",
+    "role": "Modelagem econômico-financeira, regras de comparação, análise de cenários e documentação.",
+    "problem": "Duas alternativas com VPL semelhante podem ter consequências diferentes quando se considera a possibilidade de expandir, abandonar, aprender antes de investir ou esperar.",
+    "work": [
+      "Construí um protótipo em Python com arquivos CSV, resultados tabulados, gráficos e documentação no GitHub.",
+      "Estruturei componentes de análise que partem do VPL-base e incorporam expansão, abandono, aprendizado, penalidade de execução e custo da espera.",
+      "Comparei alternativas de forma relativa para discutir prioridades e consequências estratégicas.",
+      "Revisei limites conceituais do modelo para evitar vender o índice como uma precificação formal de opções reais."
+    ],
+    "method": [
+      "Modelagem financeira aplicada e cenários com dados demonstrativos.",
+      "Prototipação iterativa e revisão crítica dos pesos e componentes do índice.",
+      "Explicação executiva das decisões, restrições e hipóteses."
+    ],
+    "boundary": "É um protótipo exploratório inspirado em opções reais, não uma precificação formal nem recomendação financeira. Resultados demonstrativos não são retornos de investimento reais. Evoluções metodológicas permanecem em análise.",
+    "image": null,
+    "link": null,
+    "connection": "Está ligado à formação em Engenharia Econômica e às análises de investimentos já presentes no perfil. O portfólio mostra como as hipóteses são modeladas e quais limites matemáticos foram preservados."
+  },
+  {
+    "slug": "catevia",
+    "name": "Catevia",
+    "type": "Conceito de produto",
+    "group": "produtos",
+    "status": "PRD e planejamento; não lançado",
+    "style": "catevia",
+    "year": "2026",
+    "origin": "Projeto próprio em construção",
+    "short": "Proposta de plataforma mobile-first para aprendizagem e formação católica em sessões curtas.",
+    "role": "Concepção, discovery, definição de jornada e requisitos de produto.",
+    "problem": "Transformar conteúdo de formação em uma experiência digital com progressão compreensível, revisões e uso viável em sessões breves.",
+    "work": [
+      "Organizei a proposta de valor e a separação entre camada de conteúdo/apresentação e o produto digital.",
+      "Estruturei requisitos iniciais para descoberta de conteúdo, acompanhamento, revisão e continuidade do aprendizado.",
+      "Documentei fluxos e limites do produto em um PRD preliminar orientado à futura construção."
+    ],
+    "method": [
+      "Definição de público, objetivos de aprendizagem e jornada.",
+      "Organização de requisitos funcionais e etapas futuras.",
+      "Priorização de escopo para evitar tratar um conceito como produto pronto."
+    ],
+    "boundary": "O Catevia está em fase de definição. PRD e arquitetura proposta não significam aplicação lançada, usuários ativos ou resultados medidos.",
+    "image": null,
+    "link": null,
+    "connection": "Aplica o repertório de requisitos, estruturação de jornadas e priorização a uma ideia própria, ainda sem validação de mercado ou produto publicado."
+  },
+  {
+    "slug": "emily-sehn",
+    "name": "Emily Sehn · Psicologia",
+    "type": "Site para cliente",
+    "group": "sites",
+    "status": "Projeto real e publicado",
+    "style": "emily",
+    "year": "2026",
+    "origin": "Cliente real",
+    "short": "Site institucional de psicologia com linguagem, navegação e comunicação orientadas à confiança e ao contato.",
+    "role": "Estrutura editorial, direção do site, implementação e publicação.",
+    "problem": "Apresentar o atendimento psicológico com linguagem clara, identidade compatível com a profissional e acesso simples aos canais de contato.",
+    "work": [
+      "Estruturei a apresentação dos serviços, o posicionamento da profissional e a jornada de informações até o contato.",
+      "Trabalhei adaptação responsiva, hierarquia visual, seções essenciais e direcionamento para atendimento.",
+      "Preparei e publiquei a versão navegável, mantendo o conteúdo institucional como prioridade."
+    ],
+    "method": [
+      "Organização de informações do negócio e arquitetura de conteúdo.",
+      "Criação de interface e ajustes para leitura em celular e computador.",
+      "Publicação e revisão de links e navegação."
+    ],
+    "boundary": "Este é o projeto de cliente real destacado no portfólio. Não anuncio crescimento de consultas, conversões ou resultados de SEO sem medições fornecidas.",
+    "image": "emily-portfolio-desktop.webp",
+    "link": "https://emilysehn.vercel.app/",
+    "connection": "A execução web mostra capacidade de transformar briefing, arquitetura de informação, conteúdo e revisão técnica em uma entrega real a cliente. É distinta dos projetos demonstrativos na área de sites."
+  }
+]
