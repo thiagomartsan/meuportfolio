@@ -24,3 +24,11 @@ Arquivos completos do site. Descompacte e substitua o conteúdo da pasta local a
 - Scripts de consentimento e Analytics incluídos nas novas páginas; evento GA4 só mediante consentimento.
 - Validador de SEO do GitHub Actions executado localmente com sucesso.
 - Não publicado automaticamente no GitHub.
+
+
+## Ajustes V4.3 (23/10/2026)
+
+- Removida imagem incorreta da JobUp no case Catevia; segunda imagem da galeria agora é uma captura real do Catevia.
+- Gestão do Personal: inclusão do instrumento de discovery e uso de Google Forms/Google Apps Script, sem afirmar que houve entrevistas executadas.
+- JobUp: pesquisa de mercado digital, publicidade, comunicação e prospecção de influenciadores e microinfluenciadores, sem apresentar iniciativas não concluídas como resultado comercial.
+- Áreas de atuação na home atualizadas.
